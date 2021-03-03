@@ -15,6 +15,10 @@ The members of this team are below.
 
 Karen is a Ph.D. student in Psychology.
 
+## Ngan Tran
+
+Ngan is an undergraduate student in Psychology.
+
 ## Dan Sussman
 
 Dan is a professor in the Math/Stat department and is the instructor for the course.
