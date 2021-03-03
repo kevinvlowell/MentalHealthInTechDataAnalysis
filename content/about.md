@@ -19,6 +19,10 @@ Karen is a Ph.D. student in Psychology.
 
 Ngan is an undergraduate student in Psychology.
 
+## Nanna Katrin Hannesdottir
+Nanna is a graduate student in Computer Engineering.\
+Github page: [**github.com/nannkat**](https://github.com/nannkat)
+
 ## Dan Sussman
 
 Dan is a professor in the Math/Stat department and is the instructor for the course.
