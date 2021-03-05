@@ -13,12 +13,12 @@ The members of this team are below.
 
 ## Karen Tian
 
-Karen is a Ph.D. student in Psychology.
+Karen is a Ph.D. student in Psychology.\
 Github page: [**github.com/karentian**](https://github.com/karentian)
 
 ## Ngan Tran
 
-Ngan is an undergraduate student in Psychology.
+Ngan is an undergraduate student in Psychology.\
 Github page: [**github.com/ngantran17**](https://github.com/ngantran17)
 
 ## Nanna Katrin Hannesdottir
@@ -26,7 +26,7 @@ Nanna is a graduate student in Computer Engineering.\
 Github page: [**github.com/nannkat**](https://github.com/nannkat)
 
 ## Kevin Vogt-Lowell
-Kevin is a LEAP graduate student in the Computer Engineering program. He is specializing in Artificial Intelligence and has a Bachelor's Degree in Biological Sciences.
+Kevin is a LEAP graduate student in the Computer Engineering program. He is specializing in Artificial Intelligence and has a Bachelor's Degree in Biological Sciences.\
 Github page:
 [**github.com/kevinvlowell**](https://github.com/kevinvlowell)
 
