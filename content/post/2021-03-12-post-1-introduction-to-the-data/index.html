@@ -1,0 +1,27 @@
+---
+title: Our Data, The OSMI Mental Health in Tech Survey
+author: Nanna
+date: '2021-03-12'
+slug: []
+categories: []
+tags: []
+description: A brief introduction to the data we will be working with
+toc: yes
+authors: []
+series: []
+lastmod: '2021-03-12T23:37:23-05:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+
+</div>
+
+<p>The OSMI Mental Health in Tech Survey of 2016 data set provides an overview of mental health awareness within the tech company working environment. The survey includes questions on mental stability of the workers, resources availability, and attitudes towards mental health issues. There are currently over 1400 responses from all different work environments, from organization of 5 members to more than 1000 workers in a big corporation.</p>
+<p>The non-profit corporation Open Sourcing Mental Illness, or OSMI, has been conducting annual surveys on mental health since 2014, with the goal of raising awareness and educating others about mental wellness in tech communities. By combining this collected data with the expertise and efforts of those dedicated to mental health work, OSMI aims to positively change the experiences of those with mental health disorders in the workplace. To collect the data set being analyzed, OSMI hosted online research survey that asked participants a range of questions regarding attitudes towards mental health and the prevalence of mental health disorders. Participation in the survey was promoted throughout the year via outreach at conferences, companies, and relevant communities, resulting in 1400 responses in 2016.</p>
+<p>Upon testing, we found the data was easily loaded/cleaned. A .csv file of the data was available for download on the OSMI website, as well as on Kaggle. We were able to save and read in the data using read_csv() without any errors or problems, and no import cleaning was needed (problems(data) returned 0).</p>
+<p>In conducting our analysis of this data set, we hope to gain a better picture of mental health in the tech workspace, and thereby target possible productive plans of action, by answering several high-level questions. Primarily, what is the prevalence of poor mental health in the employee population? Do individuals find reports of poor mental health pervasive? In addition, does stigma appear to be playing a role in employees’ willingness to self-report their own issues? Would they be more likely to report issues if their identity were protected? Finally, in addition to other critical questions, we would like to be able to explore the trends over time related to these questions with the help of other data sets.</p>
+<p>One challenge we might face with this dataset is how many variables it has. It has 63 variables and, while it also a great advantage to have a large selection of variables to work with, we have to be careful to choose the variables that would best answer the questions we want to ask. Furthermore, the data seems to have some amount of missing values, so we must see if those have a damaging effect on the accuracy of our statistics. Lastly, we need to think about how and whether to use those variables of the datasets that are in the form of open ended questions. Some valuable information might be hidden in freely written responses, but they will definitely be hard to summarize.</p>
