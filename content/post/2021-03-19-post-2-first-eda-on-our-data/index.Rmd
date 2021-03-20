@@ -1,0 +1,21 @@
+---
+title: First analysis on our data
+author: Ngan Tran
+date: '2021-03-19'
+slug: []
+categories: []
+tags: []
+description: An overview of demographics for the data. 
+toc: yes
+authors: []
+series: []
+lastmod: '2021-03-19T22:39:14-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+Our first analysis reveals *1433* participants, with the mean age of *34.29* from *53* countries all over the world. The majority works in a tech company or an organization (*79.9%*).  
+We also take a look at mental health diagnosis for the participants. *46.8%* have a family with history of mental disorder, *49.9%* were diagnosed by a professional, and *40.1%* currently suffering with a mental health problem. It is surprising to see such large population with mental health diagnosis, but this will help on our analysis of mental health within the tech company.  
+
+Only *37.1%* of the company have mental health benefits in their healthcare coverage, and only *21.4%* aware of the options available. 
+*29.0%* not willing to discuss mental health with previous employers, *32.3%* feels like mental health is not treat as a physical health issues, and *31.0%* seen some of their co-workers experiencing negative consequences for their health problems. Overall, there is still limited resources and strong available for mental health problem and strong stigma within the tech company. 
