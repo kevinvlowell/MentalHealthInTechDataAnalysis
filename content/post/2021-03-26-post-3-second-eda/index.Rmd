@@ -1,0 +1,37 @@
+---
+title: 2021-03-26-post-3-second-eda
+author: Karen Tian
+date: '2021-03-23'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2021-03-23T11:38:38-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+# Test text
+
+```{r, message=FALSE}
+library(tidyverse)
+msleep %>%
+  group_by(vore) %>%
+  summarize(`average body weight` = mean(bodywt))
+```
+
+```{r, echo=FALSE}
+msleep %>%
+  group_by(vore) %>%
+  summarize(`average body weight` = mean(bodywt)) %>%
+  knitr::kable()
+```
+
+Test plot. 
+```{r, fig.cap = "Wow captions too!"}
+ggplot(msleep, aes(x = sleep_total, y = bodywt)) +
+  geom_point() + scale_x_log10() + scale_y_log10()
+```
