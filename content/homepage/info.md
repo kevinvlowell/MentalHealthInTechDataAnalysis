@@ -2,7 +2,7 @@
 title: MA 415 Final Project
 draft: false
 role: Team Brains
-bio: This is my data science project. Check out the links at the top. You can update this in `content/homepage/info.md`. You can change the image above by changing `content/homepage/feature_image.md`.
+bio: Mental health in tech
 organization:
   name: Boston University
   url: https://www.bu.edu/
@@ -13,7 +13,7 @@ widget:
   handler: about
 
   # Options: sm, md, lg and xl. Default is md.
-  width:
+  width: sm
 
   sidebar:
     # Options: left and right. Leave blank to hide.

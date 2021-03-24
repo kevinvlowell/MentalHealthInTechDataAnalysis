@@ -3,7 +3,8 @@ title: Data
 description:
 toc: true
 featuredVideo:
-featuredImage: images/data-import-cheatsheet-thumbs.png
+featuredImage: images/Charlotte-Edey-phones.jpg
+# images/data-import-cheatsheet-thumbs.png
 draft: false
 ---
 
@@ -45,6 +46,7 @@ You will
 
 * Describe where/how to find data.
   * You must include a link to the original data source(s). 
+  * Our data comes from the [OSMI Mental Health in Tech Survey](https://osmihelp.org/research). Open Sourcing Mental Illness (OSMI) is a "non-profit dedicated to raising awareness, educating, and providing resources to support wellness in the tech and open source communities." We focus on the 2016 survey, as this as the most responses, but also compare to the survey responses from 2014-2021. 
   * Why was the data collected/curated? Who put it together? (This is important, if you don't know why it was collected then that might not be a good dataset to look at.}
 * Describe the different data files used and what each variable means. 
   * If you have many variables then only describe the most relevant ones and summarize the rest.
