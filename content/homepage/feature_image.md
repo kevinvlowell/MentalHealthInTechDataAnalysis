@@ -16,9 +16,9 @@ widget:
   background:
     # Options: primary, secondary, tertiary or any valid color value. Default is primary.
     color: secondary
-    image: images/data-science.png
+    image: images/Charlotte-Edey-stairs.jpg
     # Options: auto, cover and contain. Default is auto.
-    size: contain
+    size: cover
     # Options: center, top, right, bottom, left.
     position: left
     # Options: fixed, local, scroll.

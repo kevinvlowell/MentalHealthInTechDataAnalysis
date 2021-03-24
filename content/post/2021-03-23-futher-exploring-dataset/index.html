@@ -1,0 +1,73 @@
+---
+title: Futher exploring dataset
+author: Karen Tian
+date: '2021-03-23'
+slug: []
+categories: []
+tags: []
+description: ~
+toc: yes
+authors: []
+series: []
+lastmod: '2021-03-23T14:03:32-04:00'
+featuredVideo: ~
+featuredImage: ~
+---
+
+
+<div id="TOC">
+
+</div>
+
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 4.0.2</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 4.0.2</code></pre>
+<pre class="r"><code>msleep %&gt;%
+  group_by(vore) %&gt;%
+  summarize(`average body weight` = mean(bodywt))</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   vore    `average body weight`
+## * &lt;chr&gt;                   &lt;dbl&gt;
+## 1 carni                  90.8  
+## 2 herbi                 367.   
+## 3 insecti                12.9  
+## 4 omni                   12.7  
+## 5 &lt;NA&gt;                    0.858</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">vore</th>
+<th align="right">average body weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">carni</td>
+<td align="right">90.75111</td>
+</tr>
+<tr class="even">
+<td align="left">herbi</td>
+<td align="right">366.87725</td>
+</tr>
+<tr class="odd">
+<td align="left">insecti</td>
+<td align="right">12.92160</td>
+</tr>
+<tr class="even">
+<td align="left">omni</td>
+<td align="right">12.71800</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="right">0.85800</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>ggplot(msleep, aes(x = sleep_total, y = bodywt)) +
+  geom_point() + scale_x_log10() + scale_y_log10()</code></pre>
+<div class="figure"><span id="fig:unnamed-chunk-3"></span>
+<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" alt="Wow captions too!" width="672" />
+<p class="caption">
+Figure 1: Wow captions too!
+</p>
+</div>
