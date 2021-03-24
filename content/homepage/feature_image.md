@@ -5,7 +5,7 @@ widget:
   handler: about
 
   # Options: sm, md, lg and xl. Default is md.
-  width:
+  width: 
 
   sidebar:
     # Options: left and right. Leave blank to hide.
@@ -16,7 +16,7 @@ widget:
   background:
     # Options: primary, secondary, tertiary or any valid color value. Default is primary.
     color: secondary
-    image: images/Charlotte-Edey-stairs.jpg
+    image: images/Charlotte-Edey-text.jpg
     # Options: auto, cover and contain. Default is auto.
     size: contain
     # Options: center, top, right, bottom, left.
