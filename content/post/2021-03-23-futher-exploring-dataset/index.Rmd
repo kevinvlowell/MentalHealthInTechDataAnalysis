@@ -5,7 +5,7 @@ date: '2021-03-26'
 slug: []
 categories: []
 tags: []
-description: add description here
+description: attitudes towards mental health and demographics continued 
 toc: yes
 authors: []
 series: []
@@ -14,21 +14,15 @@ featuredVideo: ~
 featuredImage: /images/Charlotte-Ager-mentalhealthoffice.jpg
 ---
 
-```{r, message=FALSE}
-library(tidyverse)
-msleep %>%
-  group_by(vore) %>%
-  summarize(`average body weight` = mean(bodywt))
-```
+We continue exploring our dataset, to get a better grasp of demographics and attitudes towards mental health. 
 
-```{r, echo=FALSE}
-msleep %>%
-  group_by(vore) %>%
-  summarize(`average body weight` = mean(bodywt)) %>%
-  knitr::kable()
-```
+### Do employers provide mental health healthcare? 
+![](/images/Fig_MHbenefits.png)
 
-```{r, fig.cap = "Wow captions too!"}
-ggplot(msleep, aes(x = sleep_total, y = bodywt)) +
-  geom_point() + scale_x_log10() + scale_y_log10()
-```
+More employees report mental health benefits are provided `37%` as opposed to not provided `15%`; however, many employees are uncertain if mental health benefits are covered as part of healthcare coverage. 
+
+### What proportion of respondents are self-employed? 
+![](/images/Fig_selfEmployed.png)
+
+Most (`80%`) of the survey respondents are not self employed. 
+
