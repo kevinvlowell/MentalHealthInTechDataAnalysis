@@ -7,11 +7,11 @@ categories: []
 tags: []
 description: ~
 toc: yes
-authors: []
+authors: Karen Tian
 series: []
 lastmod: '2021-03-23T14:03:32-04:00'
 featuredVideo: ~
-featuredImage: ~
+featuredImage: /images/Charlotte-Ager-mentalhealthoffice.jpg
 ---
 
 ```{r, message=FALSE}
