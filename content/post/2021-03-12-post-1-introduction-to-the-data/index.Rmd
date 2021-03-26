@@ -11,7 +11,7 @@ authors: []
 series: []
 lastmod: '2021-03-12T23:37:23-05:00'
 featuredVideo: ~
-featuredImage: ~
+featuredImage: /images/Charlotte-Ager-OSMI.jpg
 ---
 
 The OSMI Mental Health in Tech Survey of 2016 data set provides an overview of mental health awareness within the tech company working environment. The survey includes questions on mental stability of the workers, resources availability, and attitudes towards mental health issues. There are currently over 1400 responses from all different work environments, from organization of 5 members to more than 1000 workers in a big corporation.
