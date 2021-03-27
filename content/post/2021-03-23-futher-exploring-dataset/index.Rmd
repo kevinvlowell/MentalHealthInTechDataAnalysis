@@ -5,7 +5,7 @@ date: '2021-03-26'
 slug: []
 categories: []
 tags: []
-description: attitudes towards mental health and demographics continued 
+description: Assessing attitudes towards mental health and demographics continued 
 toc: yes
 authors: []
 series: []
@@ -14,15 +14,28 @@ featuredVideo: ~
 featuredImage: /images/Charlotte-Ager-mentalhealthoffice.jpg
 ---
 
-We continue exploring our dataset, to get a better grasp of demographics and attitudes towards mental health. 
+We continue exploring our dataset, to get a better grasp of demographics and attitudes towards mental and phsyical health. Later, it will be interesting to compare attitudes towards mental and physical by demographics and employment type. 
+
+### What are the sample age demographics? 
+![](/images/Fig_age.png)
+
+The respondents are relatively young, with a mean around 30 years of age.
+
+### What proportion of respondents are self-employed? 
+![](/images/Fig_selfEmployed.png)
+
+Most (`80%`) of the survey respondents are not self employed. 
 
 ### Do employers provide mental health healthcare? 
 ![](/images/Fig_MHbenefits.png)
 
 More employees report mental health benefits are provided `37%` as opposed to not provided `15%`; however, many employees are uncertain if mental health benefits are covered as part of healthcare coverage. 
 
-### What proportion of respondents are self-employed? 
-![](/images/Fig_selfEmployed.png)
+### What are employee perceptions of employer attitudes towards physical health? 
+![](/images/Fig_physical.png)
 
-Most (`80%`) of the survey respondents are not self employed. 
+### What are employee perceptions of employer attitudes towards mental health? 
+![](/images/Fig_mental.png) 
+
+It seems interesting that more employees think discussing mental health issues with their employer would have negative consequences than discussing physical health issues, which suggests there may be workplace stigma in discussing mental health. As this OSMI Mental Health in Tech survey has been conducted annally from 2014 to present, we will later be able to compare these attitudes across years. 
 
