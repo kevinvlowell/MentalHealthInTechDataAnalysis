@@ -1,0 +1,120 @@
+---
+title: "Initial Checks"
+author: "Nanna Katrin"
+date: "18/03/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+
+```
+
+## Selecting relevant columns
+Select relevant columns that shed light on demographics of the people in the dataset  
+
+```{r divide}
+dat <- read_csv("/Users/Nanna/Desktop/MA415/Project/final-project-brains/dataset/mental-heath-in-tech-2016_20161114.csv", col_types = cols())
+dat_demographics <- dat %>% select(1:3,17,46:53, 56:63)
+names(dat_demographics)
+
+```
+
+## Sex
+
+```{r sex}
+#what sexes are in there
+dat_demographics %>% group_by(`What is your gender?`) %>% summarise(count = n()) %>% arrange(desc(count)) %>% ungroup()
+```
+
+Looks like there are **67** different categorisations of sex in the dataset, a lot of work ahead......Looks like more men than women/other
+
+
+## Age
+
+```{r age}
+
+dat_demographics %>% group_by(`What is your age?`) %>% summarise(count = n()) %>% arrange(desc(count)) %>% ungroup()
+
+
+
+#range
+range(dat_demographics$`What is your age?`)
+
+#some less than 18
+sum(dat_demographics$`What is your age?`< 18)
+dat_demographics %>% filter(`What is your age?`<18) %>% select(`What is your age?`)
+
+#histogram without outliers:
+dat_demographics %>% filter(`What is your age?`>=18 & `What is your age?`< 100) %>% ggplot()+geom_histogram(aes(x = `What is your age?`))
+
+#mean age excluding outliers:
+dat_demographics %>% filter(`What is your age?`>=18 & `What is your age?`< 100) %>% pull(`What is your age?`) %>% mean(na.rm = TRUE)
+```
+
+Some very strange values in age extreme outliers to remove, otherwise a relatively young sample- mean around 30 years
+
+
+
+## Geography
+
+```{r geo}
+
+#country
+table(dat_demographics$`What country do you live in?`)
+
+#country live vs work:
+dat_demographics %>%  group_by(`What country do you live in?`, `What country do you work in?`) %>% summarise(count = n()) %>% ungroup()
+
+#state if US
+table(dat_demographics$`What US state or territory do you live in?`)
+
+#remote workers?
+count(dat_demographics,`Do you work remotely?`) %>% mutate(prop = n/sum(n))
+```
+
+
+A lot of different countries = **COOL**, most from US/UK: around 70%. Some people not working and living in the same country. Many states. Very spread out in terms of remote work.
+
+
+
+## Work conditions
+
+```{r workCond}
+
+##self employed ratio
+dat_demographics %>% group_by(`Are you self-employed?`) %>% summarise(count = n()) %>% mutate( prop = count/sum(count)) %>%  ungroup()
+
+##company size
+dat_demographics %>% group_by(`How many employees does your company or organization have?`) %>% summarise(count = n()) %>% ungroup()
+
+```
+
+## Mental health problems
+
+```{r mentalh}
+library(stringr)
+
+#Different levels of mental health probs:
+ dat_demographics %>% group_by(`Have you been diagnosed with a mental health condition by a medical professional?`) %>% summarise(count = n()) %>% mutate(prop = count/sum(count)) %>% ungroup()
+
+dat_demographics %>% group_by(`Do you have a family history of mental illness?`) %>% summarise(count = n()) %>% mutate(prop = count/sum(count)) %>% ungroup()
+
+dat_demographics %>% group_by(`Have you had a mental health disorder in the past?`) %>% summarise(count = n()) %>% mutate(prop = count/sum(count)) %>% ungroup()
+
+dat_demographics %>% group_by(`Do you currently have a mental health disorder?`) %>% summarise(count = n()) %>% mutate(prop = count/sum(count)) %>% ungroup()
+
+#just a quick overview of different conditions
+#table(dat_demographics$`If yes, what condition(s) have you been diagnosed with?`)
+
+
+
+
+
+
+```
+
+

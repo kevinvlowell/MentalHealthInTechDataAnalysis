@@ -2,11 +2,9 @@
 title: About
 lastmod: 2021-02-12T09:20:50-05:00
 featuredVideo:
-featuredImage:
+featuredImage: /images/Islands-of-memory-Vladimir-Kush.jpg
 draft: false
 ---
-
-This comes from the file `content/about.md`.
 
 This is a website for the final project for MA[46]15 Data Science with R by Team Brains.
 The members of this team are below.
