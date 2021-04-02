@@ -1,0 +1,70 @@
+---
+title: Beginning the search for patterns
+author: Nanna Hannesdottir
+date: '2021-04-02'
+slug: []
+categories: []
+tags: []
+description: A first look at the relationship between variables
+toc:
+authors: 
+series: []
+lastmod: '2021-04-02T14:00:51-04:00'
+featuredVideo: ~
+featuredImage: /images/crowd_charlotte_edey.jpg
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>In previous weeks we looked at the distributions of various individual variables within our data, now we move on to explore how some of them relate to each other. Analyzing the marginal distributions revealed a possible workplace stigma around discussing mental health in the workplace, this week we explore some possible contributors.</p>
+<div id="does-stigma-increase-or-decrease-with-company-size" class="section level2">
+<h2>Does stigma increase or decrease with company size?</h2>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Using the question “Do you think that discussing a mental health disorder with your employer would have negative consequences?” as a possible stigma indicator reveals some interesting patterns in relation to company size. Though “yes” is the least common answer to this question for all company sizes, employees in larger companies (100+ employees) tend to answer with “maybe” rather than “no” more often, indicating that employees in smaller companies might be more comfortable with trusting superiors with mental health issues.</p>
+</div>
+<div id="what-changes-if-mental-health-has-been-discussed-formally-in-the-workplace" class="section level2">
+<h2>What changes if mental health has been discussed formally in the workplace?</h2>
+<p>One intuition is that if the employer discusses mental health, employees might be more comfortable discussing it.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Has your employer ever formally discussed mental health?</th>
+<th align="right">n</th>
+<th align="right">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">I don’t know</td>
+<td align="right">103</td>
+<td align="right">0.07</td>
+</tr>
+<tr class="even">
+<td align="left">No</td>
+<td align="right">813</td>
+<td align="right">0.57</td>
+</tr>
+<tr class="odd">
+<td align="left">Yes</td>
+<td align="right">230</td>
+<td align="right">0.16</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="right">287</td>
+<td align="right">0.20</td>
+</tr>
+</tbody>
+</table>
+<p>A majority, 57%, of employers in our dataset has not discussed mental health formally with employees.</p>
+<p>Now, setting this in relation to employees attitudes</p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>It is notable that by far the highest percentage of employee’s confidence in discussing mental health problems at work is in the scenarios where the employer has discussed mental health openly. Nearly 60% of employees where this is the case would not expect negative consequences of opennes about mental health. As contrast, only around 30% of employees with no discussion would have that same confidence.</p>
+</div>
+<div id="is-there-a-relationship-between-age-and-attitude-to-mental-health" class="section level2">
+<h2>Is there a relationship between age and attitude to mental health?</h2>
+<p>Perhaps age plays a role in mental health stigma. To explore this, we try fitting a logistic regression model of age predicting our stigma variable. (*Note, for the sake of simplicity, answers of “maybe” are counted as “yes” for the time being)</p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>From this, there seems to be a slight increase in bias with higher age. Though that certainly lives up to the prejudices we millenials have against our parents/grandparents views, we should be careful to judge by this one graph and also note that the higher age groups are outliers. (The mean age being around 30 years).</p>
+</div>

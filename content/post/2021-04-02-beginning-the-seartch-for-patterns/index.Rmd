@@ -1,0 +1,89 @@
+---
+title: Beginning the search for patterns
+author: Nanna Hannesdottir
+date: '2021-04-02'
+slug: []
+categories: []
+tags: []
+description: A first look at the relationship between variables
+toc:
+authors: 
+series: []
+lastmod: '2021-04-02T14:00:51-04:00'
+featuredVideo: ~
+featuredImage: /images/crowd_charlotte_edey.jpg
+---
+In previous weeks we looked at the distributions of various individual variables within our data, now we move on to explore how some of them relate to each other. Analyzing the marginal distributions revealed a possible workplace stigma around discussing mental health in the workplace, this week we explore some possible contributors.
+
+## Does stigma increase or decrease with company size?
+
+```{r, echo=FALSE}
+
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(ggplot2))
+
+suppressWarnings(dat <- read_csv("/Users/Nanna/Desktop/MA415/Project/final-project-brains/dataset/mental-heath-in-tech-2016_20161114.csv", col_types = cols()))
+
+dat_test <- dat %>% mutate("How many employees does your company or organization have?" = factor(`How many employees does your company or organization have?`, levels = c("1-5",  "6-25", "26-100", "100-500", "500-1000", "More than 1000")))
+
+levels(dat_test$`How many employees does your company or organization have?`) <- c("1-5 employees",  "6-25 employees", "26-100 employees", "100-500 employees", "500-1000 employees", "More than 1000 employees")
+
+dat_test %>% group_by(`How many employees does your company or organization have?`) %>% filter(!(is.na(`How many employees does your company or organization have?`)| is.na(`Do you think that discussing a mental health disorder with your employer would have negative consequences?`))) %>% ggplot(aes(x = `Do you think that discussing a mental health disorder with your employer would have negative consequences?`)) + geom_bar() +
+facet_wrap(~ `How many employees does your company or organization have?`) +
+labs(x = "Would discussing a mental health disorder with your employer have negative consequences?")
+
+```
+
+Using the question "Do you think that discussing a mental health disorder with your employer would have negative consequences?" as a possible stigma indicator reveals some interesting patterns in relation to company size. Though "yes" is the least common answer to this question for all company sizes, employees in larger companies (100+ employees) tend to answer with "maybe" rather than "no" more often, indicating that employees in smaller companies might be more comfortable with trusting superiors with mental health issues.
+
+
+## What changes if mental health has been discussed formally in the workplace?
+
+One intuition is that if the employer discusses mental health, employees might be more comfortable discussing it. 
+
+```{r, echo=FALSE}
+
+dat %>% mutate( "Has your employer ever formally discussed mental health?" = `Has your employer ever formally discussed mental health (for example, as part of a wellness campaign or other official communication)?`) %>% group_by(`Has your employer ever formally discussed mental health?`) %>% summarise(n = n()) %>% mutate(p = round(n/sum(n), 2)) %>% knitr::kable()
+
+
+```
+
+A majority, 57%, of employers in our dataset has not discussed mental health formally with employees.
+
+Now, setting this in relation to employees attitudes 
+
+```{r, echo=FALSE, message = FALSE}
+
+dat %>% mutate( "Has your employer ever formally discussed mental health?" = `Has your employer ever formally discussed mental health (for example, as part of a wellness campaign or other official communication)?`) %>% filter(!(is.na(`Has your employer ever formally discussed mental health?`)| is.na(`Do you think that discussing a mental health disorder with your employer would have negative consequences?`))) %>% group_by(`Has your employer ever formally discussed mental health?`,`Do you think that discussing a mental health disorder with your employer would have negative consequences?`) %>%  summarise(n = n()) %>% group_by(`Has your employer ever formally discussed mental health?`) %>%  mutate( p = round(n/sum(n),2))%>%ggplot(aes(x = `Has your employer ever formally discussed mental health?`, y = p, fill = `Do you think that discussing a mental health disorder with your employer would have negative consequences?`))+ geom_bar(position = "dodge", stat = "identity") + labs(x = "Has your employer\never formally discussed mental health?", y = "Percentage", fill = "Would discussing a mental health disorder\nwith your employer have negative consequences?")
+
+```
+  
+It is notable that by far the highest percentage of employee's confidence in discussing mental health problems at work is in the scenarios where the employer has discussed mental health openly. Nearly 60% of employees where this is the case would not expect negative consequences of opennes about mental health. As contrast, only around 30% of employees with no discussion would have that same confidence.
+
+## Is there a relationship between age and attitude to mental health?
+
+Perhaps age plays a role in mental health stigma. To explore this, we try fitting a logistic regression model of age predicting our stigma variable. (*Note, for the sake of simplicity, answers of "maybe" are counted as "yes" for the time being)
+
+```{r echo = FALSE}
+suppressPackageStartupMessages(library(modelr))
+
+dat_agelm <- dat %>% filter(`What is your age?`>=18 & `What is your age?`< 80, !(is.na(`What is your age?`)| is.na(`Do you think that discussing a mental health disorder with your employer would have negative consequences?`)))
+
+dat_agelm$bad_conseq <- ifelse(dat_agelm$`Do you think that discussing a mental health disorder with your employer would have negative consequences?` == "Yes" | dat_agelm$`Do you think that discussing a mental health disorder with your employer would have negative consequences?` == "Maybe", 1, 0)
+
+dat_agelm <- dat_agelm %>% select(`What is your age?`, `Do you think that discussing a mental health disorder with your employer would have negative consequences?`, bad_conseq)
+
+
+age_model <- glm(bad_conseq ~ `What is your age?`, data = dat_agelm, family = binomial)
+
+
+grid <- dat_agelm %>% data_grid(`What is your age?`) %>% add_predictions(age_model, type = "response")
+
+dat_agelm %>%  ggplot(aes(x = `What is your age?`)) + geom_point(aes(y = bad_conseq)) + geom_line(aes(y=pred), data = grid, color = "red", size = 1) +
+  labs(y = "Bad consequences of discussing mental health? (1/0)")
+```
+
+
+From this, there seems to be a slight increase in bias with higher age. Though that certainly lives up to the prejudices we millenials have against our parents/grandparents views, we should be careful to judge by this one graph and also note that the higher age groups are outliers. (The mean age being around 30 years).
+
+
