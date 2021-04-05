@@ -1,0 +1,198 @@
+---
+title: "2018_Data_Recode"
+author: "Kevin Vogt-Lowell"
+date: "4/9/2021"
+output: html_document
+---
+
+## Rename 2018 variables to match those in 2016
+
+```{r ch1}
+suppressPackageStartupMessages(library(tidyverse))
+
+suppressWarnings(data2018 <- read_csv("2018_mh_data_original.csv"))
+
+data2018_joinrecode <- data2018 %>% rename(c(
+"self_employed" = "<strong>Are you self-employed?</strong>",
+
+"company_size"	= "How many employees does your company or organization have?",
+
+"tech_company"	= "Is your employer primarily a tech company/organization?",
+
+"has_tech_role_in_company"	= "Is your primary role within your company related to tech/IT?",
+
+"employer_provides_mh_coverage"	="Does your employer provide mental health benefits as part of healthcare coverage?",
+
+"knows_employer_mh_coverage_options" = "Do you know the options for mental health care available under your employer-provided health coverage?",
+
+"employer_has_discussed_mh_formally"="Has your employer ever formally discussed mental health (for example, as part of a wellness campaign or other official communication)?",
+
+"employer_has_mh_resources_and_options" = "Does your employer offer resources to learn more about mental health disorders and options for seeking help?",
+
+"anonymity_guaranteed" = "Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources provided by your employer?",
+
+"difficulty_asking_for_mh_related_medical_leave" = "If a mental health issue prompted you to request a medical leave from work, how easy or difficult would it be to ask for that leave?",
+
+"comfortable_discussing_mh_with_coworkers"="Would you feel comfortable discussing a mental health issue with your coworkers?",
+
+"comfortable_discussing_mh_with_supervisors" =  "Would you feel comfortable discussing a mental health issue with your direct supervisor(s)?",
+
+"has_medical_coverage_mhd_included" = "Do you have medical coverage (private insurance or state-provided) that includes treatment of mental health disorders?",
+
+"knows_local_or_online_mhd_resources"="Do you know local or online resources to seek help for a mental health issue?",
+
+"revealed_mhd_to_clients_or_business_contacts"="<strong>If you have been diagnosed or treated for a mental health disorder, do you ever reveal this to clients or business contacts?</strong>",
+
+"negative_impact_of_revealing_mhd_to_clients_contacts"= "If you have revealed a mental health disorder to a client or business contact, how has this affected you or the relationship?",
+
+"productivity_affected_by_mh"	= "Do you believe your productivity is ever affected by a mental health issue?",
+
+"percentage_of_work_time_affected_by_mh" = "If yes, what percentage of your work time (time performing primary or secondary job functions) is affected by a mental health issue?",
+
+"previous_employers"="<strong>Do you have previous employers?</strong>",
+
+"prev_employer_provided_mh_coverage"="<strong>Have your previous employers provided mental health benefits?</strong>",
+
+"knew_prev_employer_mh_coverage_options" ="<strong>Were you aware of the options for mental health care provided by your previous employers?</strong>",
+
+"prev_employer_discussed_mh_formally"	= "Did your previous employers ever formally discuss mental health (as part of a wellness campaign or other official communication)?",
+
+"prev_employer_had_mh_resources_and_options"	= "Did your previous employers provide resources to learn more about mental health disorders and how to seek help?",
+
+"prev_employer_anonymity_guaranteed" = "Was your anonymity protected if you chose to take advantage of mental health or substance abuse treatment resources with previous employers?",
+
+"comfortable_discussing_mh_with_prev_coworkers"	= "<strong>Would you have been willing to discuss your mental health with your coworkers at previous employers?</strong>",
+
+"comfortable_discussing_mh_with_prev_supervisors"	= "Would you have been willing to discuss your mental health with your direct supervisor(s)?",
+
+"willing_to_bring_up_ph_in_interview_y_n"	= "Would you be willing to bring up a physical health issue with a potential employer in an interview?",
+
+"willing_to_bring_up_ph_in_interview_y_n_reason"	= "Why or why not?",
+
+"willing_to_bring_up_mh_in_interview_y_n"= "Would you bring up your mental health with a potential employer in an interview?",
+
+"willing_to_bring_up_mh_in_interview_y_n_reason" = "Why or why not?_1",
+
+"observed_or_experienced_unsupportiveness_or_bad_response"	= "<strong>Have you observed or experienced an unsupportive or badly handled response to a mental health issue in your current or previous workplace?</strong>",
+
+"observations_of_response_to_mhd_of_others_made_less_likely_to_reveal"= "Have your observations of how another individual who discussed a mental health issue made you less likely to reveal a mental health issue yourself in your current workplace?",
+
+"family_history_of_mhd"	= "Do you have a family history of mental illness?",
+
+"had_mhd_past"	= "Have you had a mental health disorder in the past?",
+
+"has_mhd_now"	= "Do you currently have a mental health disorder?",
+
+"had_mhd_diagnosed_by_professional"	= "Have you ever been diagnosed with a mental health disorder?",
+
+"has_sought_treatment_from_professional"	= "Have you ever sought treatment for a mental health disorder from a mental health professional?",
+
+"mhd_interferes_with_work_when_effectively_treated"	= "If you have a mental health disorder, how often do you feel that it interferes with your work <strong>when being treated effectively?</strong>",
+
+"mhd_interferes_with_work_when_not_effectively_treated"	= "If you have a mental health disorder, how often do you feel that it interferes with your work <strong>when</strong> <em><strong>NOT</strong></em><strong> being treated effectively (i.e., when you are experiencing symptoms)?</strong>",
+
+"age"	= "What is your age?",
+
+"gender"	= "What is your gender?",
+
+"country_of_residence" = "What country do you <strong>live</strong> in?",
+
+"state_of_residence"	= "What US state or territory do you <strong>live</strong> in?",
+
+"country_of_work"	= "What country do you <strong>work</strong> in?",
+
+"state_of_work"	= "What US state or territory do you <strong>work</strong> in?")
+)
+
+#change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
+data2018_joinrecode$negative_impact_of_revealing_mhd_to_clients_contacts <- recode(data2018_joinrecode$negative_impact_of_revealing_mhd_to_clients_contacts,
+                                                                                   "Negatively" = "Yes", 
+                                                                                   "Positively" = "No", 
+                                                                                   "No change" = "No")
+  
+```
+
+
+## Remove 2018 variables not included in 2016 survey, and rearrange variables to match 2016 demographic/survey split
+
+```{r ch2}
+
+data2018_joinrecode <- data2018_joinrecode %>% transmute(
+self_employed,
+company_size,
+tech_company,
+has_tech_role_in_company,
+employer_provides_mh_coverage,
+knows_employer_mh_coverage_options,
+previous_employers,
+age,
+gender,
+country_of_residence,
+state_of_residence,
+country_of_work,
+state_of_work,
+family_history_of_mhd,
+had_mhd_past,
+has_mhd_now,
+had_mhd_diagnosed_by_professional,
+has_sought_treatment_from_professional,
+mhd_interferes_with_work_when_effectively_treated,
+mhd_interferes_with_work_when_not_effectively_treated,
+employer_has_discussed_mh_formally,
+employer_has_mh_resources_and_options,
+anonymity_guaranteed,
+difficulty_asking_for_mh_related_medical_leave,
+comfortable_discussing_mh_with_coworkers,
+comfortable_discussing_mh_with_supervisors,
+has_medical_coverage_mhd_included,
+knows_local_or_online_mhd_resources,
+revealed_mhd_to_clients_or_business_contacts,
+negative_impact_of_revealing_mhd_to_clients_contacts,
+productivity_affected_by_mh,
+percentage_of_work_time_affected_by_mh,
+prev_employer_provided_mh_coverage,
+knew_prev_employer_mh_coverage_options,
+prev_employer_discussed_mh_formally,
+prev_employer_had_mh_resources_and_options,
+prev_employer_anonymity_guaranteed,
+comfortable_discussing_mh_with_prev_coworkers,
+comfortable_discussing_mh_with_prev_supervisors,
+willing_to_bring_up_ph_in_interview_y_n,
+willing_to_bring_up_ph_in_interview_y_n_reason,
+willing_to_bring_up_mh_in_interview_y_n,
+willing_to_bring_up_mh_in_interview_y_n_reason,
+observed_or_experienced_unsupportiveness_or_bad_response,
+observations_of_response_to_mhd_of_others_made_less_likely_to_reveal)
+```
+
+## Split into demographic and survey groups
+
+```{r ch3}
+
+data2018_demographics <- data2018_joinrecode %>% select(1:20)
+
+data2018_survey <- data2018_joinrecode %>% select(21:45)
+
+```
+
+
+## Add year variable to 2016 and 2018 data, and then join demographic and survey data based on shared variables
+
+```{r ch4}
+
+#add year variable to 2016 demographic and survey datasets
+data2016_survey <- data2016_survey %>% mutate("year" = "2016") %>% select(year, everything())
+data2016_demographics <- data2016_demographics %>% mutate("year" = "2016") %>% select(year, everything())
+
+#add year variable to 2018 demographic and survery datasets
+data2018_survey <- data2018_survey %>% mutate("year" = "2018") %>% select(year, everything())
+data2018_demographics <- data2018_demographics %>% mutate("year" = "2018") %>% select(year, everything())
+
+#join the demographic and survey datasets separately
+common_demographic_variables <- intersect(colnames(data2016_demographics), colnames(data2018_demographics))
+combined_demographic_data <- rbind(data2016_demographics[, common_demographic_variables], data2018_demographics[, common_demographic_variables])
+
+common_survey_variables <- intersect(colnames(data2016_survey), colnames(data2018_survey))
+combined_survey_data <- rbind(data2016_survey[, common_survey_variables], data2018_survey[, common_survey_variables])
+
+```
