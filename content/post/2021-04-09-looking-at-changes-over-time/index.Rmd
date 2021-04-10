@@ -1,0 +1,23 @@
+---
+title: Looking at changes over time
+author: Kevin Vogt-Lowell
+date: '2021-04-09'
+slug: []
+categories: []
+tags: []
+description: Beginnnig our analysis of changes in survey responses between 2016 and 2018
+toc: yes
+authors: []
+series: []
+lastmod: '2021-04-09T18:59:30-04:00'
+featuredVideo: ~
+featuredImage: /images/seasons_charlotte_edey.png
+---
+
+After developing a more in-depth understanding of the mental health data collected in OSMI's 2016 survey, we grew more and more curious about how the demographic and survey responses may have evolved over time. To initiate this investigative step, we obtained the results from OSMI's 2018 Mental Health in Tech survey and prioritized tidying the data in preparation to merge the two datasets and ultimately begin chronological data analysis.
+
+Compared to the 2016 survey data, the format of the 2018 survey was largely very similar, which made prepping the new data for a merge a bit more straight-forward. However, the data sets did have some notable differences worth mentioning, one of the most significant being the difference in the number of survey participants. In 2016, 1,433 participants completed the survey, whereas only 417 participants completed the survey in 2018. In addition, some new questions were added to the 2018 survey that hadn't been included in the 2016 survey, and a few questions from the 2016 survey were removed. In total, the 2016 survey of 63 questions and the 2018 survey featured a whopping 122 questions; in 2018, we labeled 21 of the questions as demographic and 26 of the questions as survey questions. Lastly, some minor yet interesting changes to the vocabulary were changed for a few questions that remained from the 2016 survey. For example, the phrase "mental issue" was frequently replaced by "mental disorder" in 2018. Yet overall, both data sets remained focused on monitoring the pulse of mental health in tech. In order to reliably track changes in results over time between the two surveys, only the questions that were shared by both data sets were kept for combined analysis.
+
+To combine the sets, we started by matching the questions that appeared in both surveys and labeled the matching questions using the same recoded variable names. Questions that appeared in only one of the two surveys were discarded. Once the relevant set of variables for merging had been determined, the answer formats, response value types, and user-presented options for each question had to be evaluated in order to ensure consistency and the capacity of the responses to be compared. Of the questions that appeared in both surveys, only two had changes to the answer formats: we were able to recode the 2018 answers of one question to match the 2016 answer format, but the other question had to be discarded, as the character responses from 2016 had been replaced with a 1-10 scale that was difficult to adequately recode. Finally, we added a "year" variable to each data set, and split each year's total data into subsets containing either only the demographic questions or only the survey questions. Using rbind(), we joined the demographic and survey data sets for each year based on shared variables.
+
+With our data grooming and merging having just been completed, we are excited to begin an in-depth dive into the patterns that may appear over time, and how the relationships between different variables may change.
