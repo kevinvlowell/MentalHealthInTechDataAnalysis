@@ -28,7 +28,7 @@ More people report have having a mental health disorder in the past, than having
 
 ### Comparing past and present mental health 
 ![](/images/Fig-heatmap.png)
-When we compare self-reported prevalence of mental health problems, then and now, we see that the most popular combination of responses (`n=583`, in red) is reporting "yes" to having had a past mental health disorder and "no" to having a current mental health disorder, followed by the orange cell (`n=583`), reporting "no" to having neither a past nor present mental health disorder. 
+When we compare self-reported prevalence of mental health problems, then and now, we see that the most popular combination of responses (`n=583`, in red) is reporting "yes" to having had a past mental health disorder and "no" to having a current mental health disorder, followed by the orange cell (`n=414`), reporting "no" to having neither a past nor present mental health disorder. 
 
 ### 2016 v 2018 
 ![](/images/Fig-scatter-years.png)
