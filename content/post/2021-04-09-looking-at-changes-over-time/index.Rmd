@@ -5,7 +5,7 @@ date: '2021-04-09'
 slug: []
 categories: []
 tags: []
-description: Beginnnig our analysis of changes in survey responses between 2016 and 2018
+description: Beginning our analysis of changes in survey responses between 2016 and 2018
 toc: yes
 authors: []
 series: []
