@@ -36,8 +36,11 @@ non_binary_list <- c("AFAB","Agender","Androgynous", "Bigender", "Demiguy", "Enb
 
 ```{r gr2}
 
+##use the combined dem data created by Kevins script
+
 combined_demographic_data <- combined_demographic_data %>% mutate(gender_recode = ifelse(
   gender %in% female_list, "f", ifelse(gender %in% male_list, "m", "gq"))) %>% select(1:10, gender_recode, everything())
+
 
 ```
 
