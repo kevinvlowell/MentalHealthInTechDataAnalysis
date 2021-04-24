@@ -26,8 +26,8 @@ Above is a summary of the self-reported prevalence of mental health problems. Th
 
 What is important to notice here is the changes among the diagnosis. Since we spend around 1/3 of our time at work, this changes can be attribute partially to the environment in workplace. 
 
-# Important :
-Among the survey questions, we select a few constructive towards a better working environments. The list of selected questions for this analysis will be provide below. Then we perform an Chi square test of independence among these categorical data. 
+# Working environment :
+Among the survey questions, we select a few constructive ideas on how to improve working environments. The list of selected questions for this analysis will be provide below. Then we perform an Chi square test of independence among these categorical data. 
 
 The results show that workplaces where employers provide mental health as part of healthcare coverage is associated with a change in mental health diagnosis (p=*0.041*). A formal discussion on mental health at workplace also related to these changes (p=*.050*). It's important to look at what is effective in improving working environment to further assist their workers. 
 
