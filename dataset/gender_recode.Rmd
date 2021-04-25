@@ -53,5 +53,15 @@ combined_demographic_data <- combined_demographic_data %>% mutate(gender_recode 
 ```
 
 
+## Write Out 
+
+```{r gr4}
+
+
+write.csv(combined_demographic_data, "demographics_combined_gender_recode.csv", row.names = FALSE)
+
+```
+
+
 
 
