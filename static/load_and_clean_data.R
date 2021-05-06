@@ -6,8 +6,8 @@ source(
 suppressPackageStartupMessages(library(tidyverse))
 
 ## Load in the datasets
-data2016_original <- read_csv(here::here("dataset", "2016_mh_data_original.csv"))
-data2018_original <- read_csv(here::here("dataset", "2018_mh_data_original.csv"))
+data2016_original <- suppressWarnings(read_csv(here::here("dataset", "2016_mh_data_original.csv")))
+data2018_original <- suppressWarnings(read_csv(here::here("dataset", "2018_mh_data_original.csv")))
 
 
 ## Rename 2016 variables
@@ -318,30 +318,45 @@ data2018_recode <- data2018_recode %>% transmute(
 
 #change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
 
-data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts <- recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
+data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts <- 
+  recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
                                                                                "Negatively" = "Yes", 
                                                                                "Positively" = "No", 
                                                                                "No change" = "No")
 #gender recode
 
-male_list <- c("Cis male" = "M", "cis male" = "M", "Cis Male" = "M", "cis man" = "M","Cis-male" = "M", "cisdude" = "M", "Cisgender male" = "M", "Dude" = "M",
-               "I'm a man why didn't you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?" = "M", "m" = "M", "M" = "M", "M|" = "M", "mail" = "M", "male" = "M", "Male" = "M", "MALE" = "M",
-               "Male (cis)" = "M", "male, born with xy chromosoms" = "M", "Male." = "M", "Malel" = "M", "Malr" = "M", "man" = "M", "Man" = "M",  "mtf" = "M", 
-               "Sex is male" = "M"
-)
-female_list <- c("*shrug emoji* (F)" = "F", "Cis female" = "F", "Cis woman" = "F", "Cis-Female" = "F", "Cis-woman" = "F", "cisgender female" = "F",
-                 "Cisgender Female" = "F", "Cisgendered woman" = "F", "f" = "F", "F" = "F", "fem" = "F", "female" = "F", "Female" = "F", "Female (cisgender)" = "F",
-                 "Female (props for making this a freeform field, though)" = "F", "Female assigned at birth" = "F", 
-                 "Female or Multi-Gender Femme" = "F", "female-bodied; no feelings about gender" = "F", "female/woman" = "F", "fm" = "F",
-                 "I identify as female" = "F", "I identify as female." = "F", "woman" = "F", "Woman" = "F"
-)
-non_binary_list <- c("AFAB" = "GQ","Agender" = "GQ","Androgynous" = "GQ", "Bigender" = "GQ", "Demiguy" = "GQ", "Enby" = "GQ", "Female/gender non-binary." = "GQ",
-                     "Fluid" = "GQ", "genderfluid" = "GQ", "gender non-conforming woman" = "GQ", "Genderfluid" = "GQ", "Genderfluid (born female)" = "GQ",
-                     "Genderflux demi-girl" = "GQ", "genderqueer" = "GQ", "Genderqueer" = "GQ", "genderqueer woman" = "GQ", "human" = "GQ",
-                     "Human" = "GQ", "Male (or female, or both)" = "GQ", "Male (trans, FtM)" = "GQ", "male 9:1 female, roughly" = "GQ", 
-                     "Male/genderqueer" = "GQ", "N/A" = "GQ", "NB" = "GQ", "nb masculine" = "GQ", "non binary" = "GQ", "non-binary" = "GQ", "Nonbinary" = "GQ",
-                     "Nonbinary/femme" = "GQ", "none" = "GQ", "none of your business" = "GQ", "Ostensibly Male" = "GQ", "Other" = "GQ", "Other/Transfeminine" = "GQ",
-                     "Queer" = "GQ", "She/her/they/them" = "GQ", "SWM" = "GQ", "Trans female" = "GQ", "Trans man" = "GQ", "Trans woman" = "GQ", "transgender" = "GQ",
+male_list <- c("Cis male" = "M", "cis male" = "M", "Cis Male" = "M", "cis man" = "M",
+               "Cis-male" = "M", "cisdude" = "M", "Cisgender male" = "M", "Dude" = "M",
+               "I'm a man why didn't you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?" = "M",
+               "m" = "M", "M" = "M", "M|" = "M", "mail" = "M", "male" = "M", "Male" = "M",
+               "MALE" = "M", "Male (cis)" = "M", "male, born with xy chromosoms" = "M", 
+               "Male." = "M", "Malel" = "M", "Malr" = "M", "man" = "M", "Man" = "M",  
+               "mtf" = "M", "Sex is male" = "M")
+
+female_list <- c("*shrug emoji* (F)" = "F", "Cis female" = "F", "Cis woman" = "F", 
+                 "Cis-Female" = "F", "Cis-woman" = "F", "cisgender female" = "F",
+                 "Cisgender Female" = "F", "Cisgendered woman" = "F", "f" = "F", "F" = "F",
+                 "fem" = "F", "female" = "F", "Female" = "F", "Female (cisgender)" = "F",
+                 "Female (props for making this a freeform field, though)" = "F", 
+                 "Female assigned at birth" = "F", "Female or Multi-Gender Femme" = "F", 
+                 "female-bodied; no feelings about gender" = "F", "female/woman" = "F", 
+                 "fm" = "F", "I identify as female" = "F", "I identify as female." = "F", 
+                 "woman" = "F", "Woman" = "F")
+
+non_binary_list <- c("AFAB" = "GQ","Agender" = "GQ","Androgynous" = "GQ", "Bigender" = "GQ",
+                     "Demiguy" = "GQ", "Enby" = "GQ", "Female/gender non-binary." = "GQ",
+                     "Fluid" = "GQ", "genderfluid" = "GQ", "gender non-conforming woman" = "GQ",
+                     "Genderfluid" = "GQ", "Genderfluid (born female)" = "GQ",
+                     "Genderflux demi-girl" = "GQ", "genderqueer" = "GQ", "Genderqueer" = "GQ",
+                     "genderqueer woman" = "GQ", "human" = "GQ", "Human" = "GQ", 
+                     "Male (or female, or both)" = "GQ", "Male (trans, FtM)" = "GQ", 
+                     "male 9:1 female, roughly" = "GQ", "Male/genderqueer" = "GQ", 
+                     "N/A" = "GQ", "NB" = "GQ", "nb masculine" = "GQ", "non binary" = "GQ",
+                     "non-binary" = "GQ", "Nonbinary" = "GQ", "Nonbinary/femme" = "GQ", 
+                     "none" = "GQ", "none of your business" = "GQ", "Ostensibly Male" = "GQ", 
+                     "Other" = "GQ", "Other/Transfeminine" = "GQ", "Queer" = "GQ", 
+                     "She/her/they/them" = "GQ", "SWM" = "GQ", "Trans female" = "GQ", 
+                     "Trans man" = "GQ", "Trans woman" = "GQ", "transgender" = "GQ",
                      "Transgender woman" = "GQ", "Transitioned, M2F" = "GQ", "Unicorn" = "GQ")
 
 data2016_recode$gender <- recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
