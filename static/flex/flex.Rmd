@@ -1,50 +1,37 @@
 ---
-title: "Brain Flex"
+title: "Interactive Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
+    vertical_layout: scroll
 ---
 
 ```{r setup, include=FALSE}
+
 library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(viridis)
 library(crosstalk)
-library(quantmod)
+library(DT)
 
-d <- quantmod::getSymbols("AAPL")
-df <- data.frame(Date=index(AAPL),coredata(AAPL))
+combined_all <- read_csv("all_combined_dataset.csv", col_types = cols())
+(problems(combined_all))
 
-combined_demographic_data_gender_recode <- read_csv("demographics_combined_gender_recode.csv", col_types = cols())
-(problems(combined_demographic_data_gender_recode))
-
-combined_all <- cbind(combined_demographic_data_gender_recode, select(combined_survey_data, -year))
 
 ```
 
 
-```{r testing}
+```{r testing, include=FALSE}
 
 lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
 
-#combined_all %>% select(age, comfortable_discussing_mh_with_supervisors, company_size) %>%
-  #na.omit() %>% filter(age >= 18, age <= 50) %>% ggplot(aes(x = comfortable_discussing_mh_with_supervisors , y = age, color = factor(company_size, levels = lels) )) +   geom_point(alpha = 0.6, position = "jitter")
+combined_all %>% select(age, comfortable_discussing_mh_with_supervisors, company_size) %>%
+  na.omit() %>% filter(age >= 18, age <= 50) %>% ggplot(aes(x = comfortable_discussing_mh_with_supervisors , y = age, color = factor(company_size, levels = lels) )) +   geom_point(alpha = 0.6, position = "jitter")
 
-(combined_all %>% count(year, has_mhd_now, had_mhd_past) %>% na.omit() %>% filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know")) %>% group_by(has_mhd_now, had_mhd_past) %>% mutate(n2 = sum(n))
+combined_all %>% count(year, has_mhd_now, had_mhd_past) %>% na.omit() %>% filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>% group_by(has_mhd_now, had_mhd_past) %>% mutate(n2 = sum(n))
 
-
-```
-
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart A
-
-```{r}
-
-plot <- combined_demographic_data %>% filter(age >= 10, age <= 70, !is.na(had_mhd_past)) %>% ggplot( aes(x = had_mhd_past , y = age, color = gender_recode,
+plot <- combined_all %>% filter(age >= 10, age <= 70, !is.na(had_mhd_past)) %>% ggplot( aes(x = had_mhd_past , y = age, color = gender,
   text = paste("Country: ", country_of_residence))) +
   geom_point(position = "jitter", alpha = 0.5) +
   scale_fill_viridis()+ 
@@ -53,87 +40,118 @@ ggplotly(plot, tooltip = "text")
 
 ```
 
-Column {data-width=350}
+Row 
 -----------------------------------------------------------------------
 
-### Chart B
+### Comfort level in discussing mental health with supervisors vs. Age, colored by Company Size
 
 ```{r}
+suppressPackageStartupMessages(library(d3scatter))
 
-for_heat <- combined_all %>% count(year,has_mhd_now, had_mhd_past) %>% na.omit() %>% filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>% arrange(desc(has_mhd_now), desc(had_mhd_past)) %>% group_by(has_mhd_now, had_mhd_past) %>% mutate(n_all = sum(n)) %>% ungroup()
-
-has_mhd_now <- c("Possibly", "Maybe")
-had_mhd_past <- c("Maybe", "Possibly")
-n <- c(0,0)
-n_all <- c(0,0)
-year <- c(2016, 2016)
-add <- data.frame(year, has_mhd_now, had_mhd_past, n, n_all)
-(for_heat <- rbind(for_heat, add))
-
-(for_heat16 <- for_heat %>% select(-n_all) %>%  filter(year == 2016))
-(for_heat18 <- for_heat %>% select(-n_all) %>% filter(year == 2018))
+lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
+low <- c("1-5", "6-25" ,"26-100")
+high <- c("100-500" ,"500-1000","More than 1000")
 
 
-updatemenus <- list(
-  list(
-    active = 0,
-    type= 'buttons',
-    buttons = list(
-      list(
-        list(
-        label = "Both",
-        method = "update",
-        args = list(list(visible = c(TRUE, TRUE, TRUE))
-                 )),
-       list(
-        label = "2016",
-        method = "update",
-        args = list(list(visible = c(FALSE,TRUE, FALSE))
-                    )),
-      list(
-        label = "2018",
-        method = "update",
-        args = list(list(visible = c(FALSE, FALSE, TRUE))
-                    )))
-    )
-  )
+to_display <- combined_all %>% 
+  select(country_of_work,self_employed,had_mhd_past, family_history_of_mhd, employer_has_discussed_mh_formally, 
+         age, comfortable_discussing_mh_with_supervisors, company_size) %>%
+  mutate(comfort_numeric = ifelse(comfortable_discussing_mh_with_supervisors == "No", 0,
+                                  ifelse(comfortable_discussing_mh_with_supervisors == "Maybe", 0.5, 1)))%>%
+  filter(age >= 18, age <= 50, !is.na(comfortable_discussing_mh_with_supervisors), !is.na(company_size)) 
+
+shared_dat <- SharedData$new(to_display)
+
+bscols(
+  d3scatter(shared_dat, ~jitter(comfort_numeric), ~jitter(age), ~ factor(company_size, levels = lels),  
+          width = "100%",
+          x_label = "Comfortable discussing mental health with subervisors?", 
+          y_label = "Age", x_lim = c(-0.2, 1.3)),
+  
+  shared_dat %>% 
+    datatable(options = list(pageLength = 10) )
+  
 )
 
 
 
-fig <- plot_ly(for_heat, x = for_heat$had_mhd_past, y = for_heat$has_mhd_now,
-                type = "heatmap", colors = colorRamp(c("yellow", "red")))
-
-fig <- fig %>% add_heatmap(data = for_heat,
-                           z = for_heat$n_all,
-                           name = "Both")
-
-fig <- fig %>% add_heatmap(data=for_heat16,
-                           z = for_heat16$n,
-                           name = "2016")
-
-fig <- fig %>%  add_heatmap(data = for_heat18,
-                            z = for_heat18$n,
-                            name="2018")
-
-fig <- fig %>% layout(title = "Past vs Present Mental Health", 
-            xaxis=list(title="Have you had a mental health disorder in the past?"),
-            yaxis=list(title="Do you currently have a mental health disorder?"),
-            updatemenus = updatemenus)
-
-fig 
-
-
-#fig <- plot_ly(,
-    #x = for_heat$had_mhd_past , y = for_heat$has_mhd_now,
-    #z = for_heat$n2 , type = "heatmap",
-    #colors = colorRamp(c("yellow", "red")))
+#leaflet(shared_quakes, width = "100%", height = 300) %>%
+    #addTiles() %>%
+    #addMarkers(),
 
 ```
 
-### Chart C
+
+Row{.tabset .tabset-fade}
+-----------------------------------------------------------------------
+### Combined 2016 and 2018 dataset
+
+```{r}
+for_heat <- combined_all %>% 
+  mutate(has_mhd_now = ifelse(has_mhd_now == "Possibly", "Maybe", has_mhd_now),
+                                    had_mhd_past = ifelse(had_mhd_past == "Possibly", "Maybe", had_mhd_past)) %>% 
+  count(year,has_mhd_now, had_mhd_past) %>% 
+  na.omit() %>% 
+  filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>%
+  arrange(desc(has_mhd_now), desc(had_mhd_past)) %>%
+  group_by(has_mhd_now, had_mhd_past) %>% 
+  mutate(n_all = sum(n)) %>% ungroup()
+
+fig <- plot_ly(
+    x = for_heat$had_mhd_past , y = for_heat$has_mhd_now,
+    z = for_heat$n_all , type = "heatmap",
+    colors = colorRamp(c("yellow", "red"))) %>% 
+   layout( title = "Reports of past vs. Present mental health",
+        xaxis = list(title ="Have you had a mental health disorder in the past?"),
+         yaxis = list( title = "Do you currently have a mental health disorder?"),
+         zaxis = list(title = "Count"))
+
+fig
+
+```
+
+### 2016
 
 ```{r}
 
+for_heat16 <- for_heat %>% select(-n_all) %>%  filter(year == 2016)
+
+
+fig <- plot_ly(
+    x = for_heat16$had_mhd_past , 
+    y = for_heat16$has_mhd_now,
+    z = for_heat16$n , type = "heatmap",
+    colors = colorRamp(c("yellow", "red"))) %>% 
+  layout(
+      xaxis = list(title ="Have you had a mental health disorder in the past?"),
+         yaxis = list( title = "Do you currently have a mental health disorder?"),
+         zaxis = list(title = "Count"))
+
+fig
+
+
+
+
+
 ```
 
+### 2018
+
+```{r}
+
+for_heat18 <- for_heat %>% select(-n_all) %>% filter(year == 2018)
+
+
+fig <- plot_ly(
+    x = for_heat18$had_mhd_past , 
+    y = for_heat18$has_mhd_now,
+    z = for_heat18$n , type = "heatmap",
+    colors = colorRamp(c("yellow", "red"))) %>% 
+   layout(
+     xaxis = list(title ="Have you had a mental health disorder in the past?"),
+         yaxis = list( title = "Do you currently have a mental health disorder?"),
+         zaxis = list(title = "Count"))
+
+fig
+
+```
