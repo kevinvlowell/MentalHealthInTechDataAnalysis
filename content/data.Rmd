@@ -32,7 +32,11 @@ draft: false
 
   Below is a list of a few of the variables from both the demographic and survey question splits, in order to show how the variable names directly matched/relayed their meanings in the original data files.
 
-  Example Demographic Variable Names:
+  <p>&nbsp;</p>
+
+Example Demographic Variable Names:
+
+  <p>&nbsp;</p>
 
 * What is your age?
 * What is your gender?
@@ -40,7 +44,11 @@ draft: false
 * Do you have a family history of mental illness?
 * Do you currently have a mental health disorder?
 
-  Example Mental Health Survey Variables:
+<p>&nbsp;</p>
+
+Example Mental Health Survey Variables:
+  
+  <p>&nbsp;</p>
 
 * Would you have been willing to discuss a mental health issue with your previous co-workers?
 * Did you feel that your previous employers took mental health as seriously as physical health?
