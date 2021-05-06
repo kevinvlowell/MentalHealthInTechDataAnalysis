@@ -40,20 +40,51 @@ Note how I use the `here::here` function to avoid path problems.
 
 ----
 
-## On this page
-
-You will
-
+### Introduction: Who, What, Where, When, and Why?
 * Describe where/how to find data.
-  * You must include a link to the original data source(s). 
-  * Our data comes from the [OSMI Mental Health in Tech Survey](https://osmihelp.org/research). Open Sourcing Mental Illness (OSMI) is a "non-profit dedicated to raising awareness, educating, and providing resources to support wellness in the tech and open source communities." We focus on the 2016 survey, as this as the most responses, but also compare to the survey responses from 2014-2021. 
-  * Why was the data collected/curated? Who put it together? (This is important, if you don't know why it was collected then that might not be a good dataset to look at.}
+  * You must include a link to the original data source(s).
+  
+Our data comes from [OSMI's Mental Health in Tech Survey](https://osmihelp.org/research). To access the 2016 and 2018 datasets that were used in our analyses, scroll down the linked page and click "Get raw data" for each year.
+
+Open Sourcing Mental Illness (OSMI) is a "non-profit dedicated to raising awareness, educating, and providing resources to support wellness in the tech and open source communities." The non-profit has been conducting annual surveys on mental health in tech since 2014, with the goal of raising awareness and educating others about mental wellness in tech communities. Comprised of volunteers and mental health experts passionate about mental well-being, OSMI strives to positively change the experiences of those with mental health disorders in the workplace, especially through leveraging the power of continuous data collection. To collect the data sets being analyzed, OSMI hosts annual online research surveys that ask participants a range of questions regarding attitudes towards mental health, the prevalence of mental health disorders, workplace encounters related to mental health, and much more. Participation in the survey is promoted throughout the year via outreach at conferences, companies, and relevant communities.
+
+To learn more about their mission and inspiring initiatives, visit https://osmihelp.org/about.
+  
+### Our Data Files
+
 * Describe the different data files used and what each variable means. 
   * If you have many variables then only describe the most relevant ones and summarize the rest.
+  
+For our analyses, we used the data files from OSMI's 2016 and 2018 Mental Health in Tech surveys. The 2016 data set served as our primary set for analysis, and the 2018 dataset was subsequently loaded and groomed to allow the set to be appropriately joined with the 2016 data in order to facilitate chronological comparisons. In total, the original 2016 data file consisted of 63 questions and 1433 survey responses, and the original 2018 data file consisted of 123 questions and 417 survey responses.
+
+To summarize, each of the variables within each data set represented one of the questions asked in OSMI's surveys, with each year's survey containing some new additions, deletions, and edits to the question bank. With each row representing an individual survey submission, the values under each of the column variables represent the survey participant's response to the corresponding question. In addition, one of the more important aspects of the variables was that the questions roughly fell into one of two categories: demographic questions or mental health survey questions. During the recode, data subsets representing each of these two categories would be created in order to allow independent investigation within each realm.
+
+Below is a list of a few of the variables from both the demographic and survey question splits, in order to show how the variable names directly matched/relayed their meanings in the original data files:
+
+Example Demographic Variable Names:
+* What is your age?
+* What is your gender?
+* What country do you live in?
+* Do you have a family history of mental illness?
+* Do you currently have a mental health disorder?
+
+Example Mental Health Survey Variables:
+* Would you have been willing to discuss a mental health issue with your previous co-workers?
+* Did you feel that your previous employers took mental health as seriously as physical health?
+* Was your anonymity protected if you chose to take advantage of mental health or substance abuse treatment resources with previous employers?
+
+### Cleaning the Data
+  
 * Describe any cleaning you had to do for your data.
-  * You *must* include a link to your `load_and_clean_data.R` file.
+  
+All of the code required to load and clean our data can be found in our [load_and_clean_data.R](/load_and_clean_data.R) file. Relevant sections of the code have been parsed below to accompany relevant discussions.
+
+DATA CLEANING DISCUSSION, WITH CODE CHUNKS FROM LOAD AND CLEAN
+  
   * Also, describe any additional R packages you used outside of those covered in class.
   * Describe and show code for how you combined multiple data files and any cleaning that was necessary for that.
   * Some repetition of what you do in your `load_and_clean_data.R` file is fine and encouraged if it helps explain what you did.
+  
+  
 * Organization, clarity, cleanliness of the page
   * Make sure to remove excessive warnings, use clean easy-to-read code (without side scrolling), organize with sections, use bullets and other organization tools, etc.
