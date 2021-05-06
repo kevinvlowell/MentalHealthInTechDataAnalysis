@@ -37,17 +37,31 @@ draft: false
  
 </p>
 <p>Below is a list of a few of the variables from both the demographic and survey question splits, in order to show how the variable names directly matched/relayed their meanings in the original data files.</p>
+<p>
+ 
+</p>
 <p>Example Demographic Variable Names:</p>
+<p>
+ 
+</p>
 <ul>
-<li><p>What is your age?</p></li>
-<li><p>What is your gender?</p></li>
-<li><p>What country do you live in?</p></li>
-<li><p>Do you have a family history of mental illness?</p></li>
-<li><p>Do you currently have a mental health disorder?</p>
-<p>Example Mental Health Survey Variables:</p></li>
-<li><p>Would you have been willing to discuss a mental health issue with your previous co-workers?</p></li>
-<li><p>Did you feel that your previous employers took mental health as seriously as physical health?</p></li>
-<li><p>Was your anonymity protected if you chose to take advantage of mental health or substance abuse treatment resources with previous employers?</p></li>
+<li>What is your age?</li>
+<li>What is your gender?</li>
+<li>What country do you live in?</li>
+<li>Do you have a family history of mental illness?</li>
+<li>Do you currently have a mental health disorder?</li>
+</ul>
+<p>
+ 
+</p>
+<p>Example Mental Health Survey Variables:</p>
+<p>
+ 
+</p>
+<ul>
+<li>Would you have been willing to discuss a mental health issue with your previous co-workers?</li>
+<li>Did you feel that your previous employers took mental health as seriously as physical health?</li>
+<li>Was your anonymity protected if you chose to take advantage of mental health or substance abuse treatment resources with previous employers?</li>
 </ul>
 </div>
 <div id="cleaning-the-data" class="section level3">
@@ -168,9 +182,11 @@ draft: false
 #                      &quot;Trans man&quot; = &quot;GQ&quot;, &quot;Trans woman&quot; = &quot;GQ&quot;, &quot;transgender&quot; = &quot;GQ&quot;,
 #                      &quot;Transgender woman&quot; = &quot;GQ&quot;, &quot;Transitioned, M2F&quot; = &quot;GQ&quot;, &quot;Unicorn&quot; = &quot;GQ&quot;)
 # 
-# data2016_recode$gender &lt;- recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+#  data2016_recode$gender &lt;- 
+#   recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
 # 
-# data2018_recode$gender &lt;- recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)</code></pre>
+# data2018_recode$gender &lt;- 
+#   recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)</code></pre>
 <p>
  
 </p>
