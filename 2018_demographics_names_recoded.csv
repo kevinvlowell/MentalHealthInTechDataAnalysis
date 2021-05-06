@@ -1,0 +1,418 @@
+year,self_employed,company_size,tech_company,has_tech_role_in_company,employer_provides_mh_coverage,knows_employer_mh_coverage_options,previous_employers,age,gender,country_of_residence,state_of_residence,country_of_work,state_of_work,family_history_of_mhd,had_mhd_past,has_mhd_now,had_mhd_diagnosed_by_professional,has_sought_treatment_from_professional,mhd_interferes_with_work_when_effectively_treated,mhd_interferes_with_work_when_not_effectively_treated
+2018,0,More than 1000,1,0,Yes,Yes,1,57,F,Canada,NA,Canada,NA,Yes,Yes,Possibly,NA,1,Rarely,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,0,29,M,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,0,1,Yes,Yes,1,46,M,United States of America,Florida,United States of America,Florida,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,No,No,1,34,M,Norway,NA,Norway,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,Yes,1,29,GQ,United States of America,Tennessee,United States of America,Tennessee,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,55,M,United States of America,South Carolina,United States of America,South Carolina,No,Don't Know,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,29,GQ,Finland,NA,Finland,NA,No,Don't Know,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Not eligible for coverage / NA,N/A,1,35,M,Poland,NA,Poland,NA,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,I don't know,No,1,33,M,Russia,NA,Russia,NA,Yes,Yes,Possibly,NA,0,Not applicable to me,Often
+2018,0,More than 1000,0,1,Yes,No,1,37,M,United States of America,Iowa,United States of America,Iowa,No,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,45,M,United States of America,Washington,United States of America,Washington,Yes,Possibly,Yes,Yes,1,Rarely,Sometimes
+2018,0,500-1000,0,1,No,No,1,31,M,Germany,NA,Germany,NA,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,38,F,Canada,NA,Canada,NA,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,I don't know,No,0,26,M,Germany,NA,Germany,NA,Yes,Possibly,Possibly,NA,0,Rarely,Sometimes
+2018,0,100-500,1,1,No,No,0,27,F,Serbia,NA,Serbia,NA,No,Yes,Possibly,NA,1,Sometimes,Sometimes
+2018,0,6-25,0,1,Yes,No,1,35,M,Canada,NA,Canada,NA,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,0,1,Yes,No,1,47,M,United States of America,Florida,United States of America,Florida,Yes,Yes,Yes,Yes,0,Rarely,Rarely
+2018,0,More than 1000,1,1,Yes,Yes,1,37,M,United States of America,Florida,United States of America,Florida,I don't know,Yes,Yes,Yes,1,Never,Often
+2018,0,500-1000,0,1,No,No,1,32,M,Colombia,NA,Colombia,NA,Yes,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,46,M,United Kingdom,NA,United Kingdom,NA,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,No,1,37,M,United States of America,Tennessee,United States of America,Tennessee,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,36,M,United States of America,New Hampshire,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,29,M,Poland,NA,Poland,NA,Yes,Yes,No,NA,1,Rarely,Often
+2018,0,100-500,1,1,Yes,No,1,45,M,United States of America,Wisconsin,United States of America,Wisconsin,I don't know,Don't Know,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,6-25,0,1,I don't know,No,1,30,M,United States of America,Massachusetts,United States of America,Massachusetts,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,No,No,0,46,M,Germany,NA,Germany,NA,I don't know,Yes,No,NA,1,Rarely,Often
+2018,0,26-100,1,1,No,N/A,1,29,M,India,NA,India,NA,No,No,No,NA,0,Often,Often
+2018,0,More than 1000,1,1,I don't know,N/A,1,26,M,Ukraine,NA,Ukraine,NA,I don't know,Possibly,Possibly,NA,0,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,26,M,United States of America,Connecticut,United States of America,Connecticut,Yes,Yes,Yes,Yes,1,Sometimes,Rarely
+2018,0,6-25,1,1,I don't know,No,1,44,M,Canada,NA,Canada,NA,Yes,Possibly,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Yes,No,1,32,M,United States of America,Rhode Island,United States of America,Rhode Island,I don't know,Possibly,Possibly,NA,0,Not applicable to me,Sometimes
+2018,0,100-500,1,1,I don't know,No,1,34,M,Poland,NA,Poland,NA,No,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,500-1000,1,1,Yes,N/A,1,19,M,Australia,NA,Australia,NA,I don't know,Don't Know,Possibly,NA,0,Not applicable to me,Often
+2018,0,More than 1000,0,1,I don't know,No,1,38,M,United Kingdom,NA,United Kingdom,NA,Yes,Yes,Yes,Yes,1,Not applicable to me,Often
+2018,0,6-25,1,1,Not eligible for coverage / NA,N/A,1,61,M,United States of America,Minnesota,United States of America,Minnesota,No,Yes,Yes,Yes,1,Often,Often
+2018,0,6-25,1,1,Yes,Yes,1,44,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,32,F,United States of America,Oregon,United States of America,Oregon,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,0,1,Yes,No,1,31,M,Ireland,NA,Ireland,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,0,Yes,No,1,30,F,United States of America,Rhode Island,United States of America,Rhode Island,No,Yes,Possibly,NA,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,0,52,M,Italy,NA,Italy,NA,No,Possibly,Possibly,NA,0,Sometimes,Sometimes
+2018,0,26-100,1,1,I don't know,No,1,44,M,United States of America,Washington,United States of America,Washington,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,0,1,I don't know,Yes,0,39,M,United States of America,Washington,United States of America,California,Yes,Yes,Yes,Yes,1,Never,Often
+2018,1,NA,NA,NA,NA,NA,1,36,M,Spain,NA,Spain,NA,Yes,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,30,NA,Netherlands,NA,Netherlands,NA,I don't know,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,0,1,I don't know,No,1,39,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Don't Know,Don't Know,NA,0,Not applicable to me,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,1,33,M,United States of America,Georgia,United States of America,Georgia,Yes,Possibly,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,37,M,United States of America,NA,United States of America,Colorado,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,0,1,No,No,1,34,M,Estonia,NA,Estonia,NA,No,No,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,No,No,1,28,M,India,NA,India,NA,No,Yes,Possibly,NA,0,Rarely,Sometimes
+2018,0,26-100,1,1,No,N/A,1,43,F,Italy,NA,Italy,NA,No,Yes,Yes,Yes,1,Never,Sometimes
+2018,0,More than 1000,1,1,I don't know,No,1,42,M,United States of America,Texas,United States of America,Texas,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,35,M,United States of America,New York,United States of America,New Jersey,Yes,No,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,28,F,United States of America,New York,United States of America,New York,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,0,37,M,United States of America,Georgia,United States of America,Georgia,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,500-1000,1,1,I don't know,Yes,1,35,F,United States of America,Florida,United States of America,Florida,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,I don't know,No,1,31,M,United States of America,New York,United States of America,New York,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,0,24,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Don't Know,Don't Know,NA,1,Not applicable to me,Not applicable to me
+2018,0,500-1000,1,1,Yes,No,0,27,F,United States of America,Texas,United States of America,Texas,No,No,No,NA,0,Rarely,Never
+2018,0,More than 1000,1,1,Yes,No,1,36,M,United States of America,New York,United States of America,New York,Yes,Possibly,No,NA,1,Rarely,Sometimes
+2018,0,6-25,1,1,I don't know,No,1,33,M,United States of America,California,United States of America,California,No,Yes,No,NA,1,Rarely,Rarely
+2018,1,NA,NA,NA,NA,NA,1,26,M,United States of America,New York,United States of America,New York,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,More than 1000,0,1,Yes,Yes,0,26,M,United States of America,New York,United States of America,New York,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,I don't know,N/A,0,24,M,United States of America,New York,United States of America,New Jersey,No,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,34,M,United States of America,Washington,United States of America,Washington,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Yes,Yes,0,25,M,United States of America,New York,United States of America,New York,I don't know,Possibly,Possibly,NA,0,Not applicable to me,Rarely
+2018,0,6-25,1,1,I don't know,No,0,19,F,United States of America,New York,United States of America,New York,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,No,1,28,M,United States of America,Massachusetts,United States of America,Massachusetts,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,26,M,United States of America,Washington,United States of America,Washington,Yes,Possibly,Yes,Yes,1,Sometimes,Often
+2018,0,1-5,1,1,No,N/A,1,32,M,South Africa,NA,South Africa,NA,Yes,No,Yes,Yes,1,Often,Often
+2018,0,500-1000,0,1,I don't know,No,0,23,M,United States of America,New Hampshire,United States of America,New Hampshire,I don't know,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,0,1,Yes,Yes,1,46,M,United States of America,Alabama,United States of America,Alabama,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,I don't know,No,0,28,M,United States of America,Missouri,United States of America,Missouri,No,No,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,38,M,Norway,NA,Norway,NA,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,I don't know,No,1,30,F,United States of America,Indiana,United States of America,Indiana,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,I don't know,No,1,26,M,Brazil,NA,Brazil,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Yes,Yes,1,37,F,Mauritius,NA,Mauritius,NA,No,No,No,NA,0,Sometimes,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,35,M,United States of America,Ohio,United States of America,Ohio,I don't know,Yes,Yes,Yes,1,Rarely,Often
+2018,0,100-500,0,1,Yes,Yes,1,26,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Never,Often
+2018,0,26-100,1,1,Yes,Yes,1,29,F,United Kingdom,NA,United Kingdom,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,57,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,0,1,Yes,Yes,1,38,M,United States of America,North Carolina,United States of America,North Carolina,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,No,1,20,F,United Kingdom,NA,United Kingdom,NA,No,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,6-25,1,1,I don't know,No,1,41,M,United States of America,Florida,United States of America,Florida,Yes,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,0,1,Yes,No,1,43,M,United States of America,Florida,United States of America,Florida,Yes,Possibly,Possibly,NA,0,Not applicable to me,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,35,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,I don't know,No,1,40,F,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Possibly,NA,1,Rarely,Sometimes
+2018,0,26-100,0,0,I don't know,N/A,0,28,M,Brazil,NA,Brazil,NA,No,Possibly,Don't Know,NA,0,Sometimes,Sometimes
+2018,0,More than 1000,0,1,Yes,Yes,1,42,M,United States of America,Michigan,United States of America,Michigan,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,0,1,Yes,No,0,39,M,United States of America,Kansas,United States of America,Kansas,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,Yes,1,28,M,United States of America,Iowa,United States of America,Iowa,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,No,No,0,22,M,India,NA,India,NA,No,No,No,NA,0,Sometimes,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,29,F,United States of America,California,United States of America,California,Yes,No,No,NA,1,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,45,M,United States of America,Illinois,United States of America,Illinois,No,No,Yes,Yes,0,Rarely,Often
+2018,0,More than 1000,1,1,No,No,0,27,F,Saudi Arabia,NA,Saudi Arabia,NA,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,0,1,I don't know,No,1,32,F,Germany,NA,Germany,NA,No,Possibly,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,500-1000,0,1,Yes,Yes,1,28,M,United States of America,Oregon,United States of America,Oregon,I don't know,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,100-500,1,1,Yes,No,1,31,M,United States of America,Oregon,United States of America,California,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,28,M,Poland,NA,United States of America,New York,No,Possibly,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,0,1,No,No,1,24,F,Nigeria,NA,Nigeria,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,Yes,1,27,F,United States of America,Texas,United States of America,Texas,Yes,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,36,F,Ireland,NA,Ireland,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,No,Yes,1,37,M,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,0,27,F,Kenya,NA,Kenya,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,53,F,United States of America,Oregon,United States of America,Oregon,Yes,Possibly,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Not eligible for coverage / NA,N/A,1,32,M,France,NA,France,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,1-5,1,1,I don't know,No,1,25,F,United States of America,New York,United States of America,New York,Yes,Possibly,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,Not eligible for coverage / NA,N/A,1,29,F,United States of America,Wisconsin,United States of America,Wisconsin,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,No,0,47,M,United States of America,Tennessee,United States of America,Tennessee,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,36,M,United States of America,Tennessee,United States of America,Tennessee,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,No,1,61,M,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Possibly,Don't Know,NA,1,Rarely,Often
+2018,0,6-25,1,1,Yes,No,1,28,M,United States of America,Kentucky,United States of America,Kentucky,No,Yes,Possibly,NA,0,Sometimes,Often
+2018,0,500-1000,0,1,Yes,Yes,1,31,M,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,No,N/A,1,35,M,Uruguay,NA,Uruguay,NA,I don't know,No,No,NA,1,Often,Rarely
+2018,0,26-100,1,1,I don't know,No,1,40,M,United States of America,Georgia,United States of America,Georgia,Yes,Don't Know,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,32,M,United States of America,Colorado,United States of America,Colorado,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,No,1,41,M,United States of America,Texas,United States of America,Texas,No,Yes,No,NA,0,Sometimes,Rarely
+2018,0,6-25,1,1,Yes,Yes,1,34,M,United States of America,Minnesota,United States of America,Minnesota,No,Yes,Yes,Yes,1,Rarely,Rarely
+2018,0,6-25,1,1,I don't know,No,1,31,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,0,1,Yes,Yes,1,35,F,United States of America,Maryland,United States of America,Maryland,I don't know,No,Yes,Yes,1,Often,Often
+2018,0,500-1000,1,1,Yes,Yes,1,27,F,United States of America,California,United States of America,California,Yes,Possibly,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,No,1,42,F,United States of America,Texas,United States of America,Texas,Yes,Yes,No,NA,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,67,F,United States of America,Tennessee,United States of America,Tennessee,No,Yes,No,NA,1,Rarely,Not applicable to me
+2018,0,More than 1000,0,1,Yes,Yes,1,56,M,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,Yes,No,1,27,F,United States of America,Indiana,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,1,1,Yes,No,1,37,F,United Kingdom,NA,United Kingdom,NA,Yes,Yes,Don't Know,NA,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,40,M,Serbia,NA,Serbia,NA,I don't know,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,Yes,1,30,F,United Kingdom,NA,United Kingdom,NA,I don't know,Possibly,Yes,Yes,0,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,No,1,39,M,United States of America,Nebraska,United States of America,Nebraska,Yes,No,Possibly,NA,0,Rarely,Often
+2018,0,6-25,1,1,Not eligible for coverage / NA,N/A,1,30,F,United States of America,Ohio,United States of America,Ohio,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,I don't know,No,1,31,M,Netherlands,NA,Netherlands,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,0,36,M,Italy,NA,Italy,NA,Yes,No,Yes,Yes,1,Sometimes,Sometimes
+2018,0,6-25,1,1,Yes,Yes,1,46,M,United Kingdom,NA,United Kingdom,NA,Yes,Yes,No,NA,1,Sometimes,Often
+2018,0,500-1000,1,1,Yes,Yes,1,45,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,0,25,M,Bangladesh,NA,Bangladesh,NA,I don't know,No,Possibly,NA,0,Rarely,Rarely
+2018,0,More than 1000,0,1,Not eligible for coverage / NA,N/A,1,38,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,Yes,1,41,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,37,M,United States of America,New Jersey,United States of America,New Jersey,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,26-100,1,1,I don't know,No,1,33,F,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,Yes,1,28,GQ,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,34,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,0,Yes,Yes,1,29,F,Canada,NA,Canada,NA,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,500-1000,0,1,Yes,Yes,1,28,F,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Never,Often
+2018,1,NA,NA,NA,NA,NA,1,41,M,Australia,NA,Australia,NA,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,No,1,38,M,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Yes,Yes,1,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,37,GQ,Netherlands,NA,Netherlands,NA,Yes,Possibly,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,Yes,0,42,M,United States of America,California,United States of America,California,No,Possibly,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,100-500,1,0,Yes,No,1,28,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,0,Never,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,30,M,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,Yes,Yes,1,25,F,United Kingdom,NA,United Kingdom,NA,No,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,54,M,United Kingdom,NA,United Kingdom,NA,I don't know,Yes,Possibly,NA,0,Sometimes,Rarely
+2018,1,NA,NA,NA,NA,NA,1,24,M,United Kingdom,NA,United Kingdom,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,32,M,United Kingdom,NA,United Kingdom,NA,I don't know,Yes,Don't Know,NA,1,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,44,M,United States of America,California,United States of America,California,Yes,Yes,Possibly,NA,1,Rarely,Often
+2018,0,500-1000,0,1,Yes,No,1,28,GQ,United States of America,Ohio,United States of America,Ohio,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,No,1,41,F,United States of America,Oregon,United States of America,Oregon,Yes,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,26-100,0,1,Yes,No,1,38,M,United States of America,Missouri,United States of America,Missouri,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,37,M,United States of America,Texas,United States of America,Texas,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,0,1,I don't know,N/A,0,36,M,Japan,NA,Japan,NA,Yes,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,I don't know,No,0,33,M,United States of America,Tennessee,United States of America,Tennessee,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,Yes,1,35,F,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,31,M,Colombia,NA,Colombia,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,43,M,United States of America,Iowa,United States of America,Iowa,No,Possibly,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,Not eligible for coverage / NA,N/A,0,34,M,United States of America,Idaho,United States of America,Idaho,Yes,Yes,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,1-5,1,1,No,N/A,1,44,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,500-1000,1,1,Yes,Yes,1,38,M,United States of America,Washington,United States of America,Washington,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,1-5,1,1,No,N/A,1,55,M,United States of America,Tennessee,United States of America,Tennessee,No,No,No,NA,0,Sometimes,Not applicable to me
+2018,0,100-500,1,1,Not eligible for coverage / NA,No,1,25,M,India,NA,India,NA,I don't know,Don't Know,Possibly,NA,0,Not applicable to me,Often
+2018,0,100-500,0,1,Yes,Yes,1,37,M,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,No,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,1,Yes,No,1,39,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,23,M,United States of America,Massachusetts,United States of America,Massachusetts,I don't know,Yes,Possibly,NA,0,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,34,F,United States of America,Washington,United States of America,Washington,I don't know,Don't Know,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,No,1,43,M,United States of America,Texas,United States of America,Texas,I don't know,Yes,Yes,Yes,1,Sometimes,Sometimes
+2018,0,6-25,0,1,I don't know,No,1,29,M,United States of America,Tennessee,United States of America,Tennessee,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,6-25,1,1,No,N/A,1,25,M,United States of America,Nebraska,United States of America,Nebraska,Yes,Possibly,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Yes,Yes,1,36,M,United States of America,Ohio,United States of America,Ohio,I don't know,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,33,M,United States of America,Washington,United States of America,Washington,No,Possibly,Don't Know,NA,1,Rarely,Often
+2018,0,100-500,1,1,Yes,No,1,34,M,United States of America,Tennessee,United States of America,Tennessee,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,28,M,United States of America,California,United States of America,California,No,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,54,GQ,United States of America,Washington,United States of America,Washington,Yes,Possibly,No,NA,1,Rarely,Sometimes
+2018,0,26-100,0,1,I don't know,No,1,39,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,37,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,I don't know,No,1,29,M,United States of America,California,United States of America,California,Yes,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,I don't know,No,1,31,M,United States of America,Connecticut,United States of America,Connecticut,Yes,Possibly,Possibly,NA,0,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,49,M,United States of America,Nevada,United States of America,Nevada,No,Yes,Yes,Yes,1,Never,Sometimes
+2018,0,100-500,1,1,Yes,No,1,43,M,United States of America,Washington,United States of America,Washington,Yes,No,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,500-1000,0,1,Yes,Yes,1,38,GQ,United States of America,New Hampshire,United States of America,New Hampshire,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,1,1,Yes,Yes,1,35,F,United States of America,Oregon,United States of America,Oregon,Yes,Yes,No,NA,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,0,23,M,United States of America,South Carolina,United States of America,South Carolina,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,I don't know,No,1,42,M,United Kingdom,NA,United Kingdom,NA,Yes,Yes,No,NA,1,Rarely,Rarely
+2018,0,More than 1000,0,1,Yes,Yes,0,36,M,United States of America,Indiana,United States of America,Indiana,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,No,1,38,M,United States of America,Nebraska,United States of America,Nebraska,No,NA,Yes,No,1,Sometimes,Often
+2018,0,More than 1000,1,1,I don't know,No,1,41,M,United Kingdom,NA,United Kingdom,NA,No,Don't Know,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,37,F,United States of America,Indiana,United States of America,Indiana,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,I don't know,No,1,25,M,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Not applicable to me,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,33,M,United States of America,Illinois,United States of America,Illinois,Yes,Don't Know,No,NA,0,Rarely,Often
+2018,0,100-500,1,1,I don't know,No,1,35,GQ,United States of America,New Mexico,United States of America,California,Yes,Possibly,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,32,F,United States of America,Oregon,United States of America,Oregon,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,45,GQ,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Possibly,Possibly,NA,0,Not applicable to me,Sometimes
+2018,0,100-500,1,1,No,No,0,25,F,Poland,NA,Poland,NA,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,40,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,1,Yes,Yes,1,34,M,United States of America,California,United States of America,California,No,Yes,No,NA,1,Rarely,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,28,M,United States of America,Missouri,United States of America,Missouri,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,49,M,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,100-500,1,1,Yes,Yes,1,33,F,United States of America,Michigan,United States of America,Michigan,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,41,M,United States of America,California,United States of America,California,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,Yes,1,36,M,United States of America,Florida,United States of America,Florida,Yes,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,More than 1000,1,1,No,N/A,1,37,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,I don't know,No,1,39,M,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,100-500,1,1,I don't know,No,1,49,F,United States of America,Virginia,United States of America,Virginia,Yes,Possibly,Possibly,NA,1,Sometimes,Often
+2018,0,100-500,1,1,I don't know,No,0,33,M,United States of America,Michigan,United States of America,Michigan,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Not eligible for coverage / NA,N/A,1,29,NA,United Kingdom,NA,United Kingdom,NA,Yes,Yes,Possibly,NA,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,34,M,United States of America,Illinois,United States of America,Illinois,No,Possibly,Don't Know,NA,0,Not applicable to me,Sometimes
+2018,0,100-500,1,1,I don't know,No,1,29,M,United Kingdom,NA,United Kingdom,NA,No,Don't Know,Possibly,NA,1,Sometimes,Not applicable to me
+2018,0,26-100,1,1,Yes,No,1,25,M,United States of America,Nebraska,United States of America,Nebraska,No,Yes,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,I don't know,No,1,35,M,United States of America,Illinois,United States of America,Illinois,I don't know,Yes,Yes,Yes,1,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,32,M,United States of America,Nebraska,United States of America,Nebraska,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Yes,Yes,1,21,M,United States of America,Missouri,United States of America,Missouri,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,Yes,No,1,43,M,United States of America,Nebraska,United States of America,New York,No,No,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,31,F,United States of America,Washington,United States of America,Washington,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,I don't know,No,1,27,F,United States of America,Nebraska,United States of America,Nebraska,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,Yes,Yes,1,23,M,United States of America,Nebraska,United States of America,Nebraska,I don't know,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,0,1,Yes,Yes,1,28,M,United States of America,Nebraska,United States of America,Nebraska,Yes,No,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,Yes,1,37,F,United States of America,Nebraska,United States of America,Nebraska,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,I don't know,No,0,30,M,United States of America,Kansas,United States of America,Kansas,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Yes,Yes,1,30,M,United States of America,Nebraska,United States of America,Nebraska,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,No,1,30,F,United States of America,Washington,United States of America,California,I don't know,Yes,Yes,Yes,1,Often,Often
+2018,1,NA,NA,NA,NA,NA,1,32,F,United States of America,Missouri,United States of America,Missouri,I don't know,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,More than 1000,0,1,No,No,1,35,M,United States of America,Nebraska,United States of America,Nebraska,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,0,0,Yes,Yes,1,45,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,500-1000,1,1,No,Yes,1,31,F,Germany,NA,Germany,NA,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,0,Yes,Yes,1,34,F,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Yes,Yes,1,Sometimes,Not applicable to me
+2018,0,100-500,1,1,No,No,1,30,M,United States of America,New York,United States of America,New York,Yes,Don't Know,Possibly,NA,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,33,GQ,United States of America,California,United States of America,California,I don't know,Possibly,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,I don't know,No,1,32,M,New Zealand,NA,United States of America,Florida,Yes,Possibly,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,500-1000,0,1,I don't know,No,1,28,F,United States of America,Illinois,United States of America,Illinois,I don't know,No,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,No,Yes,1,28,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,No,NA,1,Rarely,Often
+2018,0,500-1000,1,1,Yes,Yes,1,33,M,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,1,Yes,Yes,1,28,F,United States of America,Illinois,United States of America,Illinois,I don't know,Don't Know,Possibly,NA,1,Rarely,Sometimes
+2018,0,100-500,1,1,I don't know,No,1,28,F,United States of America,California,United States of America,California,Yes,NA,Yes,No,1,Not applicable to me,Often
+2018,0,26-100,1,1,I don't know,No,1,43,M,United States of America,Minnesota,United States of America,Minnesota,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,I don't know,No,1,31,F,United States of America,California,United States of America,California,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,500-1000,0,1,Yes,No,1,40,F,United States of America,Oregon,United States of America,Oregon,No,No,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Yes,No,1,42,F,United States of America,Ohio,United States of America,Ohio,I don't know,No,Possibly,NA,1,Rarely,Rarely
+2018,0,26-100,1,1,Yes,No,1,38,M,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Possibly,NA,1,Not applicable to me,Sometimes
+2018,0,100-500,1,1,I don't know,Yes,1,39,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,0,1,Not eligible for coverage / NA,No,1,21,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,100-500,1,1,Yes,Yes,1,32,F,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Possibly,NA,1,Rarely,Sometimes
+2018,0,6-25,1,1,Not eligible for coverage / NA,Yes,1,32,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Possibly,NA,1,Never,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,40,M,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Yes,Yes,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,35,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,28,M,United States of America,Illinois,United States of America,Illinois,No,Possibly,Possibly,NA,1,Sometimes,Often
+2018,0,500-1000,1,1,Yes,Yes,0,25,F,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,37,M,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,40,GQ,United States of America,Illinois,United States of America,Illinois,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,0,I don't know,No,1,31,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,47,F,Belgium,NA,New Zealand,NA,I don't know,Possibly,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,1,1,Yes,No,1,26,GQ,United States of America,Michigan,United States of America,Michigan,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,26-100,0,1,Yes,Yes,1,27,F,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,6-25,1,1,I don't know,Yes,1,46,M,Norway,NA,Norway,NA,No,Yes,No,NA,1,Rarely,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,0,22,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,26-100,1,1,No,N/A,1,37,F,Ireland,NA,Ireland,NA,Yes,Yes,No,NA,1,Rarely,Sometimes
+2018,0,100-500,1,0,Yes,Yes,1,27,M,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,0,1,Yes,No,1,28,F,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Don't Know,Possibly,NA,0,Not applicable to me,Often
+2018,0,100-500,1,1,Yes,Yes,1,32,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,1,Yes,No,1,33,M,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,27,F,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,38,F,United States of America,North Carolina,United States of America,North Carolina,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,31,M,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,6-25,1,1,Yes,No,1,28,F,United States of America,Texas,United States of America,Texas,No,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,More than 1000,0,1,Yes,No,1,32,F,United States of America,Michigan,United States of America,Michigan,I don't know,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,0,1,No,No,1,30,F,United States of America,Minnesota,United States of America,Minnesota,No,No,Possibly,NA,0,Rarely,Sometimes
+2018,0,100-500,1,0,Yes,Yes,1,26,F,United States of America,Massachusetts,United States of America,Massachusetts,No,Yes,Yes,Yes,1,Never,Sometimes
+2018,0,More than 1000,0,1,I don't know,No,1,41,F,United States of America,Michigan,United States of America,Michigan,Yes,Possibly,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,I don't know,No,1,39,F,United States of America,Texas,United States of America,Texas,No,Don't Know,Don't Know,NA,0,Sometimes,Sometimes
+2018,0,100-500,1,1,Yes,No,1,37,GQ,United States of America,New Jersey,United States of America,New Jersey,I don't know,Don't Know,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,0,1,Not eligible for coverage / NA,N/A,1,21,F,United States of America,Texas,United States of America,Texas,I don't know,No,Possibly,NA,0,Not applicable to me,Often
+2018,1,NA,NA,NA,NA,NA,1,38,M,United States of America,Michigan,United States of America,Michigan,Yes,Possibly,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,35,F,United States of America,Washington,United States of America,Washington,I don't know,Don't Know,No,NA,0,Not applicable to me,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,33,F,Switzerland,NA,Switzerland,NA,I don't know,Yes,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Yes,No,1,38,M,Netherlands,NA,Netherlands,NA,I don't know,No,Don't Know,NA,0,Not applicable to me,Often
+2018,0,6-25,1,1,No,N/A,0,29,F,United States of America,Colorado,United States of America,Colorado,I don't know,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,500-1000,1,0,Yes,Yes,1,25,F,United States of America,Missouri,United States of America,Missouri,I don't know,No,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,1,1,I don't know,No,1,41,F,United States of America,California,United States of America,California,Yes,Don't Know,Don't Know,NA,1,Sometimes,Sometimes
+2018,0,26-100,1,1,Yes,Yes,1,37,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,I don't know,No,0,29,M,United States of America,Georgia,United States of America,Georgia,Yes,Possibly,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,1,1,Yes,No,1,45,F,United States of America,Massachusetts,United States of America,California,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,I don't know,No,1,45,GQ,Germany,NA,United Kingdom,NA,No,Don't Know,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,No,1,45,F,United States of America,California,United States of America,California,No,Possibly,Possibly,NA,1,Rarely,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,0,30,GQ,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,I don't know,No,1,27,M,United States of America,Michigan,United States of America,Michigan,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,0,1,I don't know,No,1,36,M,United States of America,New York,United States of America,New York,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,500-1000,0,0,Yes,Yes,1,44,F,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,1,35,F,United States of America,Michigan,United States of America,Michigan,I don't know,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,6-25,1,1,I don't know,No,1,42,GQ,United States of America,New Jersey,United States of America,New Jersey,Yes,Possibly,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,0,26,M,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,33,F,United States of America,California,United States of America,California,Yes,Yes,No,NA,1,Never,Rarely
+2018,0,100-500,1,1,Yes,Yes,1,25,GQ,United States of America,California,United States of America,California,Yes,Yes,Possibly,NA,1,Never,Rarely
+2018,0,More than 1000,0,1,Yes,Yes,1,36,F,United States of America,Washington,United States of America,Washington,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,500-1000,1,1,Yes,Yes,1,32,F,United States of America,Pennsylvania,United States of America,Pennsylvania,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,29,F,United States of America,Colorado,United States of America,Colorado,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,I don't know,No,1,29,F,United States of America,California,United States of America,California,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,No,1,43,M,United States of America,Michigan,United States of America,Michigan,No,Possibly,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,37,M,Portugal,NA,Portugal,NA,I don't know,Yes,Possibly,NA,1,Often,Often
+2018,0,500-1000,0,1,No,No,1,26,M,United Kingdom,NA,United Kingdom,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,Yes,1,46,M,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Often,Often
+2018,1,NA,NA,NA,NA,NA,1,35,F,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,37,M,United States of America,Indiana,United States of America,Indiana,Yes,Don't Know,Don't Know,NA,1,Not applicable to me,Not applicable to me
+2018,0,500-1000,0,1,Yes,Yes,1,30,F,United States of America,Michigan,United States of America,Michigan,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,26-100,1,1,Yes,No,1,36,M,United States of America,Michigan,United States of America,Michigan,I don't know,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,0,1,Yes,Yes,1,31,F,United States of America,Michigan,United States of America,Michigan,I don't know,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,Not eligible for coverage / NA,N/A,1,42,M,France,NA,Switzerland,NA,I don't know,No,Possibly,NA,1,Not applicable to me,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,41,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,I don't know,No,1,33,F,United States of America,California,United States of America,California,I don't know,Possibly,Possibly,NA,0,Not applicable to me,Sometimes
+2018,0,More than 1000,0,1,Yes,Yes,1,26,M,United States of America,Illinois,United States of America,Illinois,I don't know,Possibly,Possibly,NA,1,Sometimes,Often
+2018,0,100-500,1,1,No,No,1,37,M,United States of America,Georgia,United States of America,Georgia,No,Possibly,Possibly,NA,1,Sometimes,Often
+2018,0,100-500,1,1,Yes,Yes,1,36,GQ,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Not eligible for coverage / NA,N/A,1,35,M,Ethiopia,NA,Ethiopia,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,I don't know,No,1,45,M,United Kingdom,NA,United Kingdom,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,No,N/A,1,23,M,India,NA,India,NA,No,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Yes,No,1,26,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,23,M,Canada,NA,Canada,NA,No,Yes,Yes,Yes,1,Often,Not applicable to me
+2018,0,6-25,0,1,No,No,1,26,M,Mexico,NA,Mexico,NA,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,I don't know,No,1,34,M,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Possibly,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Not eligible for coverage / NA,N/A,1,22,M,Macedonia,NA,Macedonia,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,0,1,Yes,No,1,42,F,United States of America,North Dakota,United States of America,North Dakota,I don't know,Don't Know,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,500-1000,1,1,No,N/A,1,40,M,Mexico,NA,Mexico,NA,I don't know,Yes,Possibly,NA,1,Never,Sometimes
+2018,0,500-1000,0,1,I don't know,No,1,42,M,United States of America,Oregon,United States of America,Oregon,Yes,Don't Know,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,Yes,0,35,M,United States of America,Ohio,United States of America,Ohio,Yes,Yes,Possibly,NA,1,Not applicable to me,Sometimes
+2018,0,6-25,1,1,No,No,1,36,M,United States of America,Oregon,United States of America,Oregon,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,Yes,Yes,1,37,M,United States of America,Illinois,United States of America,Illinois,No,Possibly,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,31,F,United States of America,Illinois,United States of America,Illinois,Yes,Possibly,Yes,Yes,1,Sometimes,Often
+2018,0,500-1000,1,1,Yes,Yes,1,27,M,United States of America,California,United States of America,California,Yes,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,6-25,0,1,I don't know,No,1,38,M,United Kingdom,NA,United Kingdom,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,No,N/A,1,32,M,United States of America,Kentucky,United States of America,Kentucky,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,0,23,GQ,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,0,Rarely,Rarely
+2018,0,More than 1000,0,1,No,No,1,51,M,United States of America,Florida,United States of America,Florida,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,Not eligible for coverage / NA,N/A,1,26,F,Iceland,NA,Iceland,NA,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,500-1000,1,1,Not eligible for coverage / NA,No,1,19,F,United States of America,Tennessee,United States of America,Tennessee,I don't know,No,Possibly,NA,0,Not applicable to me,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,1,44,M,United States of America,New Hampshire,United States of America,Massachusetts,I don't know,Yes,Yes,Yes,0,Not applicable to me,Sometimes
+2018,0,500-1000,1,1,Yes,Yes,1,42,M,United States of America,Massachusetts,United States of America,Massachusetts,I don't know,Yes,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Yes,Yes,1,26,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Yes,Yes,Yes,1,Rarely,Often
+2018,0,500-1000,0,1,Yes,Yes,1,38,M,United States of America,Illinois,United States of America,Illinois,I don't know,Don't Know,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,Yes,0,26,F,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,40,M,Greece,NA,Greece,NA,Yes,Yes,Yes,Yes,1,Sometimes,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,32,M,United States of America,Illinois,United States of America,Illinois,I don't know,Possibly,Possibly,NA,1,Rarely,Often
+2018,0,100-500,1,1,Yes,Yes,1,39,M,United States of America,Illinois,United States of America,Illinois,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,6-25,1,1,Yes,Yes,1,44,F,United States of America,Wisconsin,United States of America,Wisconsin,Yes,Yes,Yes,Yes,1,Never,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,1,33,F,United States of America,Texas,United States of America,Texas,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,1,1,No,N/A,1,38,M,Hong Kong,NA,Hong Kong,NA,I don't know,No,Yes,Yes,1,Rarely,Rarely
+2018,0,6-25,1,1,I don't know,No,1,42,M,Australia,NA,Australia,NA,I don't know,Possibly,Yes,Yes,1,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,57,M,United States of America,Illinois,United States of America,Illinois,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,0,1,No,No,1,28,M,Germany,NA,Germany,NA,Yes,Yes,Possibly,NA,1,Often,Often
+2018,0,26-100,1,1,No,No,1,31,M,France,NA,France,NA,No,Possibly,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,1,34,M,United States of America,Ohio,United States of America,Ohio,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,I don't know,No,0,35,M,France,NA,France,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,I don't know,No,1,30,M,United States of America,Tennessee,United States of America,Tennessee,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,Yes,1,30,M,United States of America,North Dakota,United States of America,North Dakota,No,Yes,Yes,Yes,1,Rarely,Often
+2018,1,NA,NA,NA,NA,NA,1,35,M,Japan,NA,United States of America,California,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,I don't know,No,1,40,GQ,United States of America,New Jersey,United States of America,New Jersey,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,0,1,I don't know,No,1,39,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,I don't know,No,1,24,M,United States of America,Utah,United States of America,Utah,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,42,M,United States of America,Illinois,United States of America,Illinois,I don't know,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,No,0,35,M,United States of America,Ohio,United States of America,Ohio,Yes,Don't Know,Possibly,NA,1,Never,Sometimes
+2018,0,More than 1000,1,1,Yes,Yes,1,34,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Yes,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,1,I don't know,No,1,33,F,United States of America,Texas,United States of America,Texas,Yes,Possibly,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,Yes,1,37,M,United States of America,Illinois,United States of America,Illinois,No,Possibly,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,36,M,United States of America,Florida,United States of America,Florida,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,0,1,Yes,No,1,47,F,United States of America,North Carolina,United States of America,North Carolina,I don't know,Yes,Possibly,NA,1,Rarely,Often
+2018,0,26-100,1,1,I don't know,No,1,42,M,United States of America,Florida,United States of America,Florida,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,29,GQ,United States of America,Wisconsin,United States of America,Wisconsin,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,1,NA,NA,NA,NA,NA,0,38,F,Georgia,NA,Georgia,NA,No,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,0,No,No,1,30,M,Turkey,NA,Turkey,NA,I don't know,No,No,NA,0,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,30,GQ,United States of America,Wisconsin,United States of America,Wisconsin,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,6-25,1,1,No,No,1,36,M,Poland,NA,Poland,NA,Yes,Possibly,Possibly,NA,0,Often,Often
+2018,0,More than 1000,0,0,Yes,Yes,1,24,F,United States of America,Indiana,United States of America,Indiana,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,0,1,Yes,Yes,1,41,M,United States of America,Minnesota,United States of America,Minnesota,Yes,Possibly,Possibly,NA,0,Not applicable to me,Sometimes
+2018,0,100-500,1,1,Yes,Yes,1,48,F,United States of America,New York,United States of America,New York,Yes,Possibly,Yes,Yes,1,Rarely,Sometimes
+2018,0,More than 1000,0,1,Yes,Yes,1,31,M,United States of America,Wisconsin,United States of America,Wisconsin,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,100-500,1,1,Yes,Yes,1,65,M,Canada,NA,Canada,NA,Yes,Yes,Possibly,NA,1,Sometimes,Often
+2018,0,More than 1000,0,1,Not eligible for coverage / NA,N/A,1,34,GQ,United States of America,California,United States of America,California,I don't know,Possibly,Possibly,NA,1,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,I don't know,No,1,55,F,United States of America,New Hampshire,United States of America,New Hampshire,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,33,F,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,More than 1000,1,1,Yes,No,1,41,F,United States of America,Washington,United States of America,Washington,No,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,0,1,Yes,No,0,24,F,United States of America,Arizona,United States of America,Arizona,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,0,1,Not eligible for coverage / NA,N/A,1,27,F,United States of America,Michigan,United States of America,District of Columbia,Yes,No,Possibly,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,1,1,Yes,Yes,1,30,M,Canada,NA,Canada,NA,No,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,100-500,1,1,Yes,Yes,1,37,M,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,0,6-25,1,1,No,N/A,1,61,M,United States of America,Minnesota,United States of America,Minnesota,No,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,45,M,Netherlands,NA,Netherlands,NA,Yes,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,I don't know,No,1,29,M,United States of America,Massachusetts,United States of America,Massachusetts,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,100-500,1,1,Yes,Yes,1,41,M,United States of America,Washington,United States of America,Washington,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,26-100,1,1,Not eligible for coverage / NA,N/A,1,39,M,Spain,NA,Spain,NA,No,Possibly,No,NA,0,Rarely,Rarely
+2018,0,500-1000,0,1,I don't know,No,1,30,M,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,More than 1000,0,1,I don't know,No,1,46,M,Italy,NA,Italy,NA,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,I don't know,No,1,42,M,Spain,NA,Spain,NA,Yes,No,Don't Know,NA,0,Not applicable to me,Not applicable to me
+2018,0,More than 1000,1,1,Yes,Yes,1,29,F,United States of America,District of Columbia,United States of America,District of Columbia,Yes,Yes,Yes,Yes,1,Rarely,Often
+2018,0,More than 1000,1,1,Yes,Yes,1,34,F,Australia,NA,Australia,NA,Yes,Yes,Yes,Yes,1,Rarely,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,52,M,United States of America,Tennessee,Mexico,NA,I don't know,Yes,Yes,Yes,1,Often,Often
+2018,0,100-500,1,1,Yes,Yes,1,36,M,United States of America,Wisconsin,United States of America,New York,I don't know,Possibly,Possibly,NA,1,Rarely,Sometimes
+2018,0,26-100,1,1,I don't know,No,0,34,M,United Kingdom,NA,United Kingdom,NA,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,0,50,M,Austria,NA,Austria,NA,I don't know,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,1,NA,NA,NA,NA,NA,1,51,M,United States of America,California,United States of America,California,Yes,Yes,Yes,Yes,1,Not applicable to me,Often
+2018,0,26-100,1,1,Yes,Yes,1,35,M,United States of America,Minnesota,United States of America,Minnesota,No,Yes,Possibly,NA,1,Not applicable to me,Rarely
+2018,0,100-500,1,1,I don't know,Yes,1,34,M,United States of America,Kansas,United States of America,California,Yes,Yes,Yes,Yes,1,Often,Often
+2018,0,26-100,1,1,Yes,Yes,1,24,GQ,United States of America,New Jersey,United States of America,New Jersey,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,26-100,1,1,Yes,Yes,1,37,M,United States of America,Illinois,United States of America,Illinois,No,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,26-100,0,1,No,No,1,24,F,United States of America,Minnesota,United States of America,Minnesota,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,1-5,1,0,Not eligible for coverage / NA,N/A,1,46,M,United States of America,Pennsylvania,United States of America,Pennsylvania,I don't know,Yes,Possibly,NA,1,Never,Sometimes
+2018,0,More than 1000,1,1,I don't know,No,0,31,M,United States of America,Wisconsin,United States of America,Wisconsin,I don't know,Possibly,Possibly,NA,1,Sometimes,Sometimes
+2018,1,NA,NA,NA,NA,NA,1,35,M,United States of America,Texas,United States of America,Texas,I don't know,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,1,1,Yes,Yes,1,40,M,United States of America,Wisconsin,United States of America,Wisconsin,Yes,No,No,NA,0,Not applicable to me,Not applicable to me
+2018,0,6-25,1,1,Yes,No,1,28,M,United States of America,Tennessee,United States of America,Tennessee,I don't know,Yes,Yes,Yes,1,Sometimes,Sometimes
+2018,0,6-25,1,1,I don't know,No,1,28,M,United States of America,Tennessee,United States of America,Tennessee,Yes,Possibly,No,NA,1,Not applicable to me,Not applicable to me
+2018,0,100-500,0,1,Yes,Yes,1,39,M,Finland,NA,Finland,NA,Yes,Yes,Yes,Yes,1,Sometimes,Often
+2018,0,100-500,0,1,Yes,Yes,1,31,M,United States of America,New Jersey,United States of America,New Jersey,I don't know,Possibly,Yes,Yes,1,Not applicable to me,Often
+2018,0,6-25,1,1,Yes,Yes,1,27,M,United States of America,Tennessee,United States of America,Tennessee,I don't know,Possibly,Possibly,NA,0,Sometimes,Sometimes
+2018,0,More than 1000,0,1,Yes,Yes,1,35,M,United States of America,Tennessee,United States of America,Tennessee,I don't know,Yes,Yes,Yes,1,Rarely,Often
