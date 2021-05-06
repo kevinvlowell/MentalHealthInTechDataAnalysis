@@ -1,0 +1,137 @@
+---
+title: "Analysis"
+author: "karen"
+date: "4/16/2021"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+suppressPackageStartupMessages(library(tidyverse))
+
+demDat <- read_csv("/Users/kantian/Dropbox/BU/2021_Spring/MA415_DataScienceR/final-project-brains/dataset/recode/demographics_names_recoded.csv")
+
+mentalDat <- read_csv("/Users/kantian/Dropbox/BU/2021_Spring/MA415_DataScienceR/final-project-brains/dataset/recode/mental_health_in_tech_names_recoded.csv")
+
+surveyDat <- read_csv("/Users/kantian/Dropbox/BU/2021_Spring/MA415_DataScienceR/final-project-brains/dataset/recode/survey_names_recoded.csv")
+
+d_mhd <- read_csv("/Users/kantian/Dropbox/BU/2021_Spring/MA415_DataScienceR/final-project-brains/karen_scripts/mhd_now_past.csv")
+```
+
+
+```{r r1}
+# combine combined_demo and combined_survey 
+combined_data <- bind_cols(combined_demographic_data,combined_survey_data)
+```
+```{r r2}
+mhd <- combined_data %>% group_by(has_mhd_now) %>% count(had_mhd_past)
+mhd[is.na(mhd)] <- "No" # assume NA means no 
+```
+
+```{r r3}
+ggplot(mhd, aes(fill=had_mhd_past, y=n, x=has_mhd_now)) + 
+    geom_bar(position="dodge", stat="identity")
+```
+```{r r4}
+mhd <- combined_data %>% group_by(had_mhd_past) %>% count(had_mhd_diagnosed_by_professional)
+mhd[is.na(mhd)] <- "No" # assume NA means no 
+
+ggplot(mhd, aes(fill=had_mhd_diagnosed_by_professional, y=n, x=had_mhd_past)) + 
+    geom_bar(position="dodge", stat="identity")
+```
+
+```{r correlation-matrix}
+
+mhd <- combined_data %>% select(had_mhd_past,has_mhd_now)
+d <- mhd 
+
+# str_replace(mhd, "Possibly", "0.75")
+# d$had_mhd_past <- with(d, ifelse(had_mhd_past == "Yes", "1", ifelse(had_mhd_past == "No", "0",ifelse(had_mhd_past == "Maybe", "0.67"), ifelse(had_mhd_past == "Possibly", "0.33", had_mhd_past))))
+
+convert_str <- function (sub_string) {
+  if (sub_string == 'Yes')
+    {str_num <- 1}
+  else if (sub_string == 'No')
+    {str_num <- 0}
+  else if (sub_string == 'Possibly')
+    {str_num <- 0.33}
+  else if (sub_string == 'Maybe')
+    {str_num <- 0.67}
+  else
+    {str_num <- -1}
+  return(str_num)
+}
+
+d$num_had_mhd_past <- numeric()
+d$num_has_mhd_now <- numeric()
+for (i in 1:length(d$had_mhd_past)) 
+{
+  d$num_had_mhd_past[i] <- convert_str(d$had_mhd_past[i])
+  d$num_has_mhd_now[i] <- convert_str(d$has_mhd_now[i])
+}
+
+# d_melt <- melt(d,id=c("num_had_mhd_past","num_has_mhd_now"))
+d_mhd   <- d %>% group_by(num_has_mhd_now,num_had_mhd_past) %>% summarise(n = n())
+d_mhd   <- d %>% group_by(num_has_mhd_now) %>% summarise(n = n())
+d_mhd   <- d %>% group_by(num_had_mhd_past) %>% summarise(n = n())
+
+d_mhd_melt <- melt(d_mhd,id="X1")
+```
+
+```{r plotHeatmap}
+ggplot(data = d_mhd_melt, aes(x=X1, y=variable, fill=value)) + 
+  geom_tile(color = "white") +
+  theme_minimal()+  
+ scale_fill_gradient2(low = "white", high = "red", mid = "yellow", 
+   midpoint = 300, limit = c(0,600), space = "Lab", 
+   name="Count") + 
+ geom_text(aes(X1, variable, label = value), color = "black", size = 4) + coord_flip() + labs(x="Has mental health disorder now", y="Has had mental health disorder in past)") + scale_x_continuous(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes")) + scale_y_discrete(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes"))
+```
+```{r mhd-past}
+dbar <- d %>% group_by(num_had_mhd_past) %>% count()
+ggplot(data=dbar, aes(x=`num_had_mhd_past`, y=n)) +
+  geom_bar(stat="identity", fill="darkslategray4") +
+  theme_minimal() + labs(x='Have you had a mental health disorder in the past?',y='count') + scale_x_continuous(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes"), limits=c(-0.2,1.2))
+```
+
+```{r mhd-now}
+dbar <- d %>% group_by(num_has_mhd_now) %>% count()
+ggplot(data=dbar, aes(x=`num_has_mhd_now`, y=n)) +
+  geom_bar(stat="identity", fill="darkslategray4") +
+  theme_minimal() + labs(x='Do you have a mental health disorder now?',y='count') + scale_x_continuous(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes"), limits=c(-0.2,1.2))
+```
+
+```{r mhd-year}
+d <- d %>% mutate(year = combined_data$year...1)
+ggplot(d, aes(x=num_had_mhd_past, y=num_has_mhd_now, color=year)) + geom_jitter(alpha = 0.3) +
+  theme_minimal() + labs(x='Have you had a mental health disorder in the past?',y='Do you have a mental health disorder now?') + scale_x_continuous(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes"), limits=c(-0.2,1.2)) + scale_y_continuous(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes"), limits=c(-0.2,1.2))
+```
+
+```{r correlation-matrix}
+cormat <- cor(d$num_had_mhd_past,d$num_has_mhd_now)
+head(cormat)
+
+
+library(ggplot2)
+ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + 
+  geom_tile()
+
+
+# correlation ma# Melt the correlation matrix
+library(reshape2)
+melted_cormat <- melt(upper_tri, na.rm = TRUE)
+# Heatmap
+library(ggplot2)
+ggplot(data = melted_cormat, aes(Var2, Var1, fill = value))+
+ geom_tile(color = "white")+
+ scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
+   midpoint = 0, limit = c(-1,1), space = "Lab", 
+   name="Pearson\nCorrelation") +
+  theme_minimal()+ 
+ theme(axis.text.x = element_text(angle = 45, vjust = 1, 
+    size = 12, hjust = 1))+
+ coord_fixed()trix 
+
+```
