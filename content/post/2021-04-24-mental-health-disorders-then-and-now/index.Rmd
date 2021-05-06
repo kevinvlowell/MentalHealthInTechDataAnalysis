@@ -7,12 +7,15 @@ categories: []
 tags: []
 description: ~
 toc: yes
-authors: []
+authors: Ngan Tran
 series: []
 lastmod: '2021-04-24T06:55:40-04:00'
 featuredVideo: ~
-featuredImage: ~
+featuredImage: /images/Gizem-Vural.jpg
 ---
+
+Image credit: [Gizem Vural](https://www.gizemvural.net/)
+
 Today we will be looking at some possible explanations for the mental health diagnosis among the employees of tech company. What is the reason leading to the changes in the diagnosis? How is the working environment affect people mental health? How can we improve and optimize productivity in the workplace?
   
 ### Mental health diagnosis:

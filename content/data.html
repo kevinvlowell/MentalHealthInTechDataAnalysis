@@ -150,7 +150,9 @@ draft: false
 # 
 # male_list &lt;- c(&quot;Cis male&quot; = &quot;M&quot;, &quot;cis male&quot; = &quot;M&quot;, &quot;Cis Male&quot; = &quot;M&quot;, &quot;cis man&quot; = &quot;M&quot;,
 #                &quot;Cis-male&quot; = &quot;M&quot;, &quot;cisdude&quot; = &quot;M&quot;, &quot;Cisgender male&quot; = &quot;M&quot;, &quot;Dude&quot; = &quot;M&quot;,
-#                &quot;I&#39;m a man why didn&#39;t you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?&quot; = &quot;M&quot;,
+#               &quot;I&#39;m a man why didn&#39;t you make this a drop down question. You should of
+#               asked sex?  And I would of answered yes please. 
+#               Seriously how much text can this take?&quot; = &quot;M&quot;,
 #                &quot;m&quot; = &quot;M&quot;, &quot;M&quot; = &quot;M&quot;, &quot;M|&quot; = &quot;M&quot;, &quot;mail&quot; = &quot;M&quot;, &quot;male&quot; = &quot;M&quot;, &quot;Male&quot; = &quot;M&quot;,
 #                &quot;MALE&quot; = &quot;M&quot;, &quot;Male (cis)&quot; = &quot;M&quot;, &quot;male, born with xy chromosoms&quot; = &quot;M&quot;, 
 #                &quot;Male.&quot; = &quot;M&quot;, &quot;Malel&quot; = &quot;M&quot;, &quot;Malr&quot; = &quot;M&quot;, &quot;man&quot; = &quot;M&quot;, &quot;Man&quot; = &quot;M&quot;,  
@@ -166,25 +168,41 @@ draft: false
 #                  &quot;fm&quot; = &quot;F&quot;, &quot;I identify as female&quot; = &quot;F&quot;, &quot;I identify as female.&quot; = &quot;F&quot;, 
 #                  &quot;woman&quot; = &quot;F&quot;, &quot;Woman&quot; = &quot;F&quot;)
 # 
-# non_binary_list &lt;- c(&quot;AFAB&quot; = &quot;GQ&quot;,&quot;Agender&quot; = &quot;GQ&quot;,&quot;Androgynous&quot; = &quot;GQ&quot;, &quot;Bigender&quot; = &quot;GQ&quot;,
-#                      &quot;Demiguy&quot; = &quot;GQ&quot;, &quot;Enby&quot; = &quot;GQ&quot;, &quot;Female/gender non-binary.&quot; = &quot;GQ&quot;,
-#                      &quot;Fluid&quot; = &quot;GQ&quot;, &quot;genderfluid&quot; = &quot;GQ&quot;, &quot;gender non-conforming woman&quot; = &quot;GQ&quot;,
-#                      &quot;Genderfluid&quot; = &quot;GQ&quot;, &quot;Genderfluid (born female)&quot; = &quot;GQ&quot;,
-#                      &quot;Genderflux demi-girl&quot; = &quot;GQ&quot;, &quot;genderqueer&quot; = &quot;GQ&quot;, &quot;Genderqueer&quot; = &quot;GQ&quot;,
-#                      &quot;genderqueer woman&quot; = &quot;GQ&quot;, &quot;human&quot; = &quot;GQ&quot;, &quot;Human&quot; = &quot;GQ&quot;, 
-#                      &quot;Male (or female, or both)&quot; = &quot;GQ&quot;, &quot;Male (trans, FtM)&quot; = &quot;GQ&quot;, 
-#                      &quot;male 9:1 female, roughly&quot; = &quot;GQ&quot;, &quot;Male/genderqueer&quot; = &quot;GQ&quot;, 
-#                      &quot;N/A&quot; = &quot;GQ&quot;, &quot;NB&quot; = &quot;GQ&quot;, &quot;nb masculine&quot; = &quot;GQ&quot;, &quot;non binary&quot; = &quot;GQ&quot;,
-#                      &quot;non-binary&quot; = &quot;GQ&quot;, &quot;Nonbinary&quot; = &quot;GQ&quot;, &quot;Nonbinary/femme&quot; = &quot;GQ&quot;, 
-#                      &quot;none&quot; = &quot;GQ&quot;, &quot;none of your business&quot; = &quot;GQ&quot;, &quot;Ostensibly Male&quot; = &quot;GQ&quot;, 
-#                      &quot;Other&quot; = &quot;GQ&quot;, &quot;Other/Transfeminine&quot; = &quot;GQ&quot;, &quot;Queer&quot; = &quot;GQ&quot;, 
-#                      &quot;She/her/they/them&quot; = &quot;GQ&quot;, &quot;SWM&quot; = &quot;GQ&quot;, &quot;Trans female&quot; = &quot;GQ&quot;, 
-#                      &quot;Trans man&quot; = &quot;GQ&quot;, &quot;Trans woman&quot; = &quot;GQ&quot;, &quot;transgender&quot; = &quot;GQ&quot;,
-#                      &quot;Transgender woman&quot; = &quot;GQ&quot;, &quot;Transitioned, M2F&quot; = &quot;GQ&quot;, &quot;Unicorn&quot; = &quot;GQ&quot;)
+# non_binary_list &lt;- c(&quot;AFAB&quot; = &quot;GQ&quot;,&quot;Agender&quot; = &quot;GQ&quot;,
+#                      &quot;Androgynous&quot; = &quot;GQ&quot;, &quot;Bigender&quot; = &quot;GQ&quot;, 
+#                      &quot;Demiguy&quot; = &quot;GQ&quot;, &quot;Enby&quot; = &quot;GQ&quot;, 
+#                      &quot;Female/gender non-binary.&quot; = &quot;GQ&quot;, 
+#                      &quot;Fluid&quot; = &quot;GQ&quot;, &quot;genderfluid&quot; = &quot;GQ&quot;,
+#                      &quot;gender non-conforming woman&quot; = &quot;GQ&quot;,
+#                      &quot;Genderfluid&quot; = &quot;GQ&quot;, 
+#                      &quot;Genderfluid (born female)&quot; = &quot;GQ&quot;, 
+#                      &quot;Genderflux demi-girl&quot; = &quot;GQ&quot;, 
+#                      &quot;genderqueer&quot; = &quot;GQ&quot;,
+#                      &quot;Genderqueer&quot; = &quot;GQ&quot;,
+#                      &quot;genderqueer woman&quot; = &quot;GQ&quot;, 
+#                      &quot;human&quot; = &quot;GQ&quot;, &quot;Human&quot; = &quot;GQ&quot;,
+#                      &quot;Male (or female, or both)&quot; = &quot;GQ&quot;, 
+#                      &quot;Male (trans, FtM)&quot; = &quot;GQ&quot;,
+#                      &quot;male 9:1 female, roughly&quot; = &quot;GQ&quot;, 
+#                      &quot;Male/genderqueer&quot; = &quot;GQ&quot;,
+#                      &quot;N/A&quot; = &quot;GQ&quot;, &quot;NB&quot; = &quot;GQ&quot;, 
+#                      &quot;nb masculine&quot; = &quot;GQ&quot;, &quot;non binary&quot; = &quot;GQ&quot;,
+#                      &quot;non-binary&quot; = &quot;GQ&quot;, &quot;Nonbinary&quot; = &quot;GQ&quot;, 
+#                      &quot;Nonbinary/femme&quot; = &quot;GQ&quot;,
+#                      &quot;none&quot; = &quot;GQ&quot;, &quot;none of your business&quot; = &quot;GQ&quot;, 
+#                      &quot;Ostensibly Male&quot; = &quot;GQ&quot;,&quot;Other&quot; = &quot;GQ&quot;, 
+#                      &quot;Other/Transfeminine&quot; = &quot;GQ&quot;, &quot;Queer&quot; = &quot;GQ&quot;,
+#                      &quot;She/her/they/them&quot; = &quot;GQ&quot;, &quot;SWM&quot; = &quot;GQ&quot;,
+#                      &quot;Trans female&quot; = &quot;GQ&quot;, &quot;Trans man&quot; = &quot;GQ&quot;, 
+#                      &quot;Trans woman&quot; = &quot;GQ&quot;, &quot;transgender&quot; = &quot;GQ&quot;, 
+#                      &quot;Transgender woman&quot; = &quot;GQ&quot;, 
+#                      &quot;Transitioned, M2F&quot; = &quot;GQ&quot;, &quot;Unicorn&quot; = &quot;GQ&quot;)
 # 
-# data2016_recode$gender &lt;- recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+#  data2016_recode$gender &lt;- 
+#   recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
 # 
-# data2018_recode$gender &lt;- recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)</code></pre>
+# data2018_recode$gender &lt;- 
+#   recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)</code></pre>
 <p>
  
 </p>
@@ -192,14 +210,15 @@ draft: false
 <p>
  
 </p>
-<pre class="r"><code># #change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
+<pre class="r"><code># #change the response values in
+# #negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
 # 
 # data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts &lt;- 
 #   recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
-#                                                                                &quot;Negatively&quot; = &quot;Yes&quot;, 
-#                                                                                &quot;Positively&quot; = &quot;No&quot;, 
-# 
-# &quot;No change&quot; = &quot;No&quot;)</code></pre>
+#                                                                       &quot;Negatively&quot; = &quot;Yes&quot;,
+#                                                                       &quot;Positively&quot; = &quot;No&quot;,
+#  &quot;No change&quot; = &quot;No&quot;
+# )</code></pre>
 <p>
  
 </p>
@@ -226,14 +245,18 @@ draft: false
 </p>
 <pre class="r"><code># ## Combine full, recoded datasets based on shared variables
 # all_common_variables &lt;- intersect(colnames(data2016_recode), colnames(data2018_recode))
-# combined_data &lt;- rbind(data2016_recode[, all_common_variables], data2018_recode[, all_common_variables])
+# combined_data &lt;- rbind(data2016_recode[, all_common_variables],
+#                        data2018_recode[, all_common_variables])
 # 
 # ## Combine survey and demographic datasets based on shared variables
-# common_demographic_variables &lt;- intersect(colnames(data2016_demographics), colnames(data2018_demographics))
-# combined_demographic_data &lt;- rbind(data2016_demographics[, common_demographic_variables], data2018_demographics[, common_demographic_variables])
+# common_demographic_variables &lt;- intersect(colnames(data2016_demographics),
+#                                           colnames(data2018_demographics))
+# combined_demographic_data &lt;- rbind(data2016_demographics[, common_demographic_variables],
+#                                    data2018_demographics[, common_demographic_variables])
 # 
 # common_survey_variables &lt;- intersect(colnames(data2016_survey), colnames(data2018_survey))
-# combined_survey_data &lt;- rbind(data2016_survey[, common_survey_variables], data2018_survey[, common_survey_variables])</code></pre>
+# combined_survey_data &lt;- rbind(data2016_survey[, common_survey_variables], 
+#                               data2018_survey[, common_survey_variables])</code></pre>
 <p>
  
 </p>
