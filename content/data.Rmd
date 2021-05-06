@@ -9,50 +9,244 @@ draft: false
 ---
 
 ### Introduction: Who, What, Where, When, and Why?
-* Describe where/how to find data.
-  * You must include a link to the original data source(s).
   
-Our data comes from [OSMI's Mental Health in Tech Survey](https://osmihelp.org/research). To access the 2016 and 2018 datasets that were used in our analyses, scroll down the linked page and click "Get raw data" for each year.
+  Our data comes from [OSMI's Mental Health in Tech Survey](https://osmihelp.org/research). To access the 2016 and 2018 datasets that were used in our analyses, scroll down the linked page and click "Get raw data" for each year.
+  
+  <p>&nbsp;</p>
 
-Open Sourcing Mental Illness (OSMI) is a "non-profit dedicated to raising awareness, educating, and providing resources to support wellness in the tech and open source communities." The non-profit has been conducting annual surveys on mental health in tech since 2014, with the goal of raising awareness and educating others about mental wellness in tech communities. Comprised of volunteers and mental health experts passionate about mental well-being, OSMI strives to positively change the experiences of those with mental health disorders in the workplace, especially through leveraging the power of continuous data collection. To collect the data sets being analyzed, OSMI hosts annual online research surveys that ask participants a range of questions regarding attitudes towards mental health, the prevalence of mental health disorders, workplace encounters related to mental health, and much more. Participation in the survey is promoted throughout the year via outreach at conferences, companies, and relevant communities.
+  Open Sourcing Mental Illness (OSMI) is a "non-profit dedicated to raising awareness, educating, and providing resources to support wellness in the tech and open source communities." The non-profit has been conducting annual surveys on mental health in tech since 2014, with the goal of raising awareness and educating others about mental wellness in tech communities. Comprised of volunteers and mental health experts passionate about mental well-being, OSMI strives to positively change the experiences of those with mental health disorders in the workplace, especially through leveraging the power of continuous data collection. To collect the data sets being analyzed, OSMI hosts annual online research surveys that ask participants a range of questions regarding attitudes towards mental health, the prevalence of mental health disorders, workplace encounters related to mental health, and much more. Participation in the survey is promoted throughout the year via outreach at conferences, companies, and relevant communities.
 
-To learn more about their mission and inspiring initiatives, visit https://osmihelp.org/about.
+  <p>&nbsp;</p>
+
+  To learn more about their mission and inspiring initiatives, visit https://osmihelp.org/about.
   
 ### Our Data Files
-
-* Describe the different data files used and what each variable means. 
-  * If you have many variables then only describe the most relevant ones and summarize the rest.
   
-For our analyses, we used the data files from OSMI's 2016 and 2018 Mental Health in Tech surveys. The 2016 data set served as our primary set for analysis, and the 2018 dataset was subsequently loaded and groomed to allow the set to be appropriately joined with the 2016 data in order to facilitate chronological comparisons. In total, the original 2016 data file consisted of 63 questions and 1433 survey responses, and the original 2018 data file consisted of 123 questions and 417 survey responses.
+  For our analyses, we used the data files from OSMI's 2016 and 2018 Mental Health in Tech surveys. The 2016 data set served as our primary set for analysis, and the 2018 dataset was subsequently loaded and groomed to allow the set to be appropriately joined with the 2016 data in order to facilitate chronological comparisons. In total, the original 2016 data file consisted of 63 questions and 1433 survey responses, and the original 2018 data file consisted of 123 questions and 417 survey responses.
+  
+  <p>&nbsp;</p>
 
-To summarize, each of the variables within each data set represented one of the questions asked in OSMI's surveys, with each year's survey containing some new additions, deletions, and edits to the question bank. With each row representing an individual survey submission, the values under each of the column variables represent the survey participant's response to the corresponding question. In addition, one of the more important aspects of the variables was that the questions roughly fell into one of two categories: demographic questions or mental health survey questions. During the recode, data subsets representing each of these two categories would be created in order to allow independent investigation within each realm.
+  To summarize, each of the variables within each data set represented one of the questions asked in OSMI's surveys, with each year's survey containing some new additions, deletions, and edits to the question bank. With each row representing an individual survey submission, the values under each of the column variables represent the survey participant's response to the corresponding question. In addition, one of the more important aspects of the variables was that the questions roughly fell into one of two categories: demographic questions or mental health survey questions. During the recode, data subsets representing each of these two categories would be created in order to allow independent investigation within each realm.
+  
+  <p>&nbsp;</p>
 
-Below is a list of a few of the variables from both the demographic and survey question splits, in order to show how the variable names directly matched/relayed their meanings in the original data files:
+  Below is a list of a few of the variables from both the demographic and survey question splits, in order to show how the variable names directly matched/relayed their meanings in the original data files.
 
-Example Demographic Variable Names:
+  Example Demographic Variable Names:
+
 * What is your age?
 * What is your gender?
 * What country do you live in?
 * Do you have a family history of mental illness?
 * Do you currently have a mental health disorder?
 
-Example Mental Health Survey Variables:
+  Example Mental Health Survey Variables:
+
 * Would you have been willing to discuss a mental health issue with your previous co-workers?
 * Did you feel that your previous employers took mental health as seriously as physical health?
 * Was your anonymity protected if you chose to take advantage of mental health or substance abuse treatment resources with previous employers?
 
 ### Cleaning the Data
   
-* Describe any cleaning you had to do for your data.
+  All of the code required to load and clean our data can be found in our [load_and_clean_data.R](/load_and_clean_data.R) file. Relevant sections of the code have been parsed below to accompany relevant discussions.
   
-All of the code required to load and clean our data can be found in our [load_and_clean_data.R](/load_and_clean_data.R) file. Relevant sections of the code have been parsed below to accompany relevant discussions.
+  <p>&nbsp;</p>
 
-DATA CLEANING DISCUSSION, WITH CODE CHUNKS FROM LOAD AND CLEAN
+  To begin cleaning our code, we started with the 2016 dataset. As shown above, the original variable names had to be tidied in order to make dealing with them more manageable, as some of the questions were quite lengthy. A sample of the variable reassignments found in `load_and_clean_data.R` can be seen here:
   
-  * Also, describe any additional R packages you used outside of those covered in class.
-  * Describe and show code for how you combined multiple data files and any cleaning that was necessary for that.
-  * Some repetition of what you do in your `load_and_clean_data.R` file is fine and encouraged if it helps explain what you did.
+  <p>&nbsp;</p>
+
+```{r}
+# ## Rename 2016 variables
+# data2016_recode <- data2016_original %>% rename(c(
+#   "self_employed" = "Are you self-employed?",
+#   
+#   "company_size"	= "How many employees does your company or organization have?",
+#   
+#   "tech_company"	= "Is your employer primarily a tech company/organization?",
+#   
+#   "has_tech_role_in_company"	= "Is your primary role within your company related to tech/IT?",
+#   
+#   "employer_provides_mh_coverage"	="Does your employer provide mental health benefits as part of healthcare coverage?",
+#   
+#   "knows_employer_mh_coverage_options" = "Do you know the options for mental health care available under your employer-provided coverage?",
+#   
+#   "employer_has_discussed_mh_formally"="Has your employer ever formally discussed mental health (for example, as part of a wellness campaign or other official communication)?",
+#   
+#   "employer_has_mh_resources_and_options" = "Does your employer offer resources to learn more about mental health concerns and options for seeking help?",
+#   
+#   "anonymity_guaranteed" = "Is your anonymity protected if you choose to take advantage of mental health or substance abuse treatment resources provided by your employer?",
+#   
+#   "difficulty_asking_for_mh_related_medical_leave"="If a mental health issue prompted you to request a medical leave from work, asking for that leave would be:"))
+
+```
+
+  <p>&nbsp;</p>
+
+  Next, we went through all of the questions in the survey and decided if each question should be categorized as a mental health survey question or a demographic question. Once we had segregated the questions according to this split, we rearranged the variables in the 2016 dataset in order to place all of the demographic variables in the first half of the tibble and all of the other survey questions in the latter half. This organization would allow us to create subset tibbles for each category later on in the cleaning process. This organization was done using dplyr select().
   
+  <p>&nbsp;</p>
+
+```{r}
+# ## Rearrange 2016 variables, placing demographic variables first
+# data2016_recode <- data2016_recode %>%  select(
+#   self_employed,
+#   company_size,
+#   tech_company,
+#   has_tech_role_in_company,
+#   employer_provides_mh_coverage,
+#   knows_employer_mh_coverage_options,
+#   previous_employers,
+#   age,
+#   gender,
+#   country_of_residence,
+#   state_of_residence,
+#   country_of_work,
+#   state_of_work,
+#   work_position,
+#   remote_work,
+#   family_history_of_mhd,
+#   had_mhd_past,
+#   has_mhd_now,
+#   yes_had_mhd_condition_diagnosed,
+#   maybe_had_mhd_condition_diagnosed,
+#   had_mhd_diagnosed_by_professional,
+#   had_mhd_diagnosed_by_professional_condition_diagnosed,
+#   has_sought_treatment_from_professional,
+#   mhd_interferes_with_work_when_effectively_treated,
+#   mhd_interferes_with_work_when_not_effectively_treated,
+#   everything()
+# )
+```
+
+  <p>&nbsp;</p>
+
+  Similar tidying was then performed on the 2018 dataset, but the variable manipulation was more focused on the end goal of allowing the data to be merge-able with the 2016 dataset. To facilitate the merge, we first parsed through all of the questions in the 2018 dataset and found which matched those in the 2016 survey and which did not. Mismatches between the questions ranged anywhere from slight verbiage changes in otherwise unaltered questions, to complete removal of some 2016 questions and some addition of entirely new questions. Once we had identified the set of questions (with any changes accounted for) that appeared in both data sets, we recoded the variable names in the 2018 data so that the same questions had the same variable names. We then moved all of the demographic questions to the front and survey questions to the back, using transmute() this time instead of select() to remove all of the unmatched questions in 2018 from the tibble.
+
+  <p>&nbsp;</p>
+
+  With both data sets now having matching sets of variables, we had to ensure that the formats of the values (answers) per variable were of the same format and carried the same range of options, to ensure we could even chronologically compare the variables. Only two of the variables required recoding of the responses: the gender field and one of the survey questions.
+
+  <p>&nbsp;</p>
+
+  For the gender field, the response type was freeform in the surveys, meaning participants could type whatever they wanted. While this form allowed for refreshing, free expression of gender identity for each participant, it made the responses difficult to analyze for demographic purposes. So, to recode, we went through all of the answer types and binned them into three categories: male (M), female (f), and gender-queer/non-binary (GQ). Each of the bins was represented by a vector that contained each of the responses that fell into each category. Once we had these vectors established, we used dplyr's recode() function to change the response values in the tibble appropriately. Our code for this recode can be seen below:
   
-* Organization, clarity, cleanliness of the page
-  * Make sure to remove excessive warnings, use clean easy-to-read code (without side scrolling), organize with sections, use bullets and other organization tools, etc.
+  <p>&nbsp;</p>
+
+```{r}
+# #gender recode
+# 
+# male_list <- c("Cis male" = "M", "cis male" = "M", "Cis Male" = "M", "cis man" = "M",
+#                "Cis-male" = "M", "cisdude" = "M", "Cisgender male" = "M", "Dude" = "M",
+#                "I'm a man why didn't you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?" = "M",
+#                "m" = "M", "M" = "M", "M|" = "M", "mail" = "M", "male" = "M", "Male" = "M",
+#                "MALE" = "M", "Male (cis)" = "M", "male, born with xy chromosoms" = "M", 
+#                "Male." = "M", "Malel" = "M", "Malr" = "M", "man" = "M", "Man" = "M",  
+#                "mtf" = "M", "Sex is male" = "M")
+# 
+# female_list <- c("*shrug emoji* (F)" = "F", "Cis female" = "F", "Cis woman" = "F", 
+#                  "Cis-Female" = "F", "Cis-woman" = "F", "cisgender female" = "F",
+#                  "Cisgender Female" = "F", "Cisgendered woman" = "F", "f" = "F", "F" = "F",
+#                  "fem" = "F", "female" = "F", "Female" = "F", "Female (cisgender)" = "F",
+#                  "Female (props for making this a freeform field, though)" = "F", 
+#                  "Female assigned at birth" = "F", "Female or Multi-Gender Femme" = "F", 
+#                  "female-bodied; no feelings about gender" = "F", "female/woman" = "F", 
+#                  "fm" = "F", "I identify as female" = "F", "I identify as female." = "F", 
+#                  "woman" = "F", "Woman" = "F")
+# 
+# non_binary_list <- c("AFAB" = "GQ","Agender" = "GQ","Androgynous" = "GQ", "Bigender" = "GQ",
+#                      "Demiguy" = "GQ", "Enby" = "GQ", "Female/gender non-binary." = "GQ",
+#                      "Fluid" = "GQ", "genderfluid" = "GQ", "gender non-conforming woman" = "GQ",
+#                      "Genderfluid" = "GQ", "Genderfluid (born female)" = "GQ",
+#                      "Genderflux demi-girl" = "GQ", "genderqueer" = "GQ", "Genderqueer" = "GQ",
+#                      "genderqueer woman" = "GQ", "human" = "GQ", "Human" = "GQ", 
+#                      "Male (or female, or both)" = "GQ", "Male (trans, FtM)" = "GQ", 
+#                      "male 9:1 female, roughly" = "GQ", "Male/genderqueer" = "GQ", 
+#                      "N/A" = "GQ", "NB" = "GQ", "nb masculine" = "GQ", "non binary" = "GQ",
+#                      "non-binary" = "GQ", "Nonbinary" = "GQ", "Nonbinary/femme" = "GQ", 
+#                      "none" = "GQ", "none of your business" = "GQ", "Ostensibly Male" = "GQ", 
+#                      "Other" = "GQ", "Other/Transfeminine" = "GQ", "Queer" = "GQ", 
+#                      "She/her/they/them" = "GQ", "SWM" = "GQ", "Trans female" = "GQ", 
+#                      "Trans man" = "GQ", "Trans woman" = "GQ", "transgender" = "GQ",
+#                      "Transgender woman" = "GQ", "Transitioned, M2F" = "GQ", "Unicorn" = "GQ")
+# 
+# data2016_recode$gender <- recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+# 
+# data2018_recode$gender <- recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+```
+
+  <p>&nbsp;</p>
+
+  The other value recode we had to pertained to a survey question regarding if participants felt disclosure of their mental health to clients would negatively impact the relationships. In 2016, the answer responses were either "Yes" or "No", whereas in 2018 the responses were "Negatively", "Positively", or "No change" due to slight changes in the verbiage of the question. To allow for comparison across the years, the new 2018 responses were recoded to match the 2016 format: "Negatively" was equated to "Yes" for the original format, and the other two options were equated to "No". Again, this recode can be seen below.
+  
+  <p>&nbsp;</p>
+
+```{r}
+# #change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
+# 
+# data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts <- 
+#   recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
+#                                                                                "Negatively" = "Yes", 
+#                                                                                "Positively" = "No", 
+# 
+# "No change" = "No")
+```
+
+  <p>&nbsp;</p>
+
+  The data sets were now both ready to be combined, with matching variables and value formats. The final step was to add a variable to each data set to represent the year, so that the combined data set had time information. This was facilitated with simple use of the mutate function.
+  
+  <p>&nbsp;</p>
+
+  Our remaining task now was to create the three different datasets we wanted to analyze: a combined dataset of demographic variables, a combined dataset of survey variables, and a combined dataset with all variables. To split each dataset into demographic and survey subsets prior to merging, we simply used the select() function on each dataset to parse out the first half of the variables (demographics) into one tibble and the second half (survey) into another tibble.
+  
+  <p>&nbsp;</p>
+
+```{r}
+# ## Split datasets into demographic and survey sets
+# data2016_demographics <- data2016_recode %>% select(1:26)
+# data2016_survey <- data2016_recode %>% select(1, 27:64)
+# 
+# data2018_demographics <- data2018_recode %>% select(1:21)
+# data2018_survey <- data2018_recode %>% select(1, 22:46)
+```
+
+  <p>&nbsp;</p>
+
+  To combine the datasets, we pulled a list of the variables shared between the datasets in order to combine the sets based on these shared variables using rbind(), which takes vectors in order to determine how to match columns or rows between datasets. To get the shared variables from all relevant datasets, we pulled the column names from each dataset using colnames() and then used the intersect() function two return a vector of the matching variables between the sets. We could then pass this vector of matching variables to rbind(), along with the relevant data to facilitate the combine.
+  
+  <p>&nbsp;</p>
+
+```{r}
+# ## Combine full, recoded datasets based on shared variables
+# all_common_variables <- intersect(colnames(data2016_recode), colnames(data2018_recode))
+# combined_data <- rbind(data2016_recode[, all_common_variables], data2018_recode[, all_common_variables])
+# 
+# ## Combine survey and demographic datasets based on shared variables
+# common_demographic_variables <- intersect(colnames(data2016_demographics), colnames(data2018_demographics))
+# combined_demographic_data <- rbind(data2016_demographics[, common_demographic_variables], data2018_demographics[, common_demographic_variables])
+# 
+# common_survey_variables <- intersect(colnames(data2016_survey), colnames(data2018_survey))
+# combined_survey_data <- rbind(data2016_survey[, common_survey_variables], data2018_survey[, common_survey_variables])
+```
+
+  <p>&nbsp;</p>
+  
+  With the combination of data sets now complete, we wrote each to a .csv file to have backups of each.
+  
+  <p>&nbsp;</p>
+
+```{r}
+# ## Write finished data to .csv files
+# write_csv(data2016_recode, "2016_mental_health_in_tech_names_recoded.csv")
+# 
+# write_csv(data2016_demographics, "2016_demographics_names_recoded.csv")
+# 
+# write_csv(data2016_survey, "2016_survey_names_recoded.csv")
+# 
+# write_csv(data2018_recode, "2018_mental_health_in_tech_names_recoded.csv")
+# 
+# write_csv(data2018_demographics, "2018_demographics_names_recoded.csv")
+# 
+# write_csv(data2018_survey, "2018_survey_names_recoded.csv")
+```
