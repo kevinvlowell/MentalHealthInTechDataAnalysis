@@ -8,10 +8,26 @@ featuredVideo:
 draft: false
 ---
 
-This comes from the file `content/big_picture.Rmd`.
+Image credit: [Charlotte Edey](https://www.charlotteedey.com/)
+
+# Who's working in tech?
+
+According to the [U.S. Bureau of Labor Statistics](https://www.cyberstates.org/), there are an estimated 12.4 million workers in information technology in the U.S. The industry is lucrative, and expanding. Technology companies account for 10% of the nation's economy. The output of tech companies has greatly changed the ways in which we communicate, create, share, and play, in ways particularly palpable and beneficial during the covid-19 pandemic, which has digitized our once phsyical school, work, and social lives. 
+
+<p>&nbsp;</p>
+![](/images/spot1.png){width=100px}
+<p>&nbsp;</p>
+
+But who's actually working in tech? Is it really a man's world, and a young person's world? What is landscape of mental and physical health in tech workers? We look into some of these answers, using data collected in the 2016 and 2018 [Open Sourcing Mental Illness Mental Health in Tech Surveys](https://osmihelp.org/research). 
+
+<p>&nbsp;</p>
+![](/images/spot2.png){width=100px}
+<p>&nbsp;</p>
+
+## The landscape of mental and physical health in tech workers
+
 
 Think of this page as your 538/Upshot style article. This means that you should try to tell a story through the data and your analysis. Read articles from those sites and similar sites to get a feeling for what they are like. Importantly, these should be geared towards the general public. You shouldn't assume the reader understands how to interpret a linear regression. Focus on interpretation and visualizations.
-
 
 This page should have no code visible, i.e. use echo=FALSE.
 
@@ -40,7 +56,6 @@ Is it clear what can be explored using your interactive components?
 Does it enhance and reinforce your conlusions from the Big Picture?
 Plotly with default hover text does not count.
 
-
 ## Video Recording
 
 Make a video recording (probably using Zoom) demonstrating your interactive components.
@@ -49,14 +64,11 @@ This video should be no longer than 4 minutes.
 Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
 This can be presented by any subset of the team members.
 
-
 ## Rest of the Site
 
 Finally, here are important things to keep in mind for the rest of the site. 
 
 The main title of your page is informative.
-Each post has an author/description/informative title.
-All lab required posts are present.
-Each page (including the home page) has a nice featured image associated with it.
-Your about page is up to date and clean.
 You have removed the generic posts from the initial site template.
+
+![](/images/woman-working.png)

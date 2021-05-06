@@ -7,10 +7,11 @@ featuredImage: images/Charlotte-Edey-stairs.jpg
 draft: false
 ---
 
+Image credit: [Charlotte Edey](https://www.charlotteedey.com/)
+
 This comes from the file `content/analysis.Rmd`.
 
 We describe here our detailed data analysis.
-
 
 -------
 
