@@ -418,6 +418,7 @@ write_csv(combined_demographic_data, "dataset/demographic_combined_dataset.csv")
 write_csv(combined_survey_data, "dataset/survey_combined_dataset.csv")
 
 write_csv(data2016_recode, "dataset/2016_mental_health_in_tech_names_recoded.csv")
+write_csv(data2016_recode, "static/flex/2016_mental_health_in_tech_names_recoded.csv")
 
 write_csv(data2016_demographics, "dataset/2016_demographics_names_recoded.csv")
 

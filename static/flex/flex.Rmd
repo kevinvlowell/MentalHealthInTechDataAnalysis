@@ -3,7 +3,7 @@ title: "Interactive Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
-    vertical_layout: scroll
+    vertical_layout: fill
 ---
 
 ```{r setup, include=FALSE}
@@ -16,80 +16,69 @@ library(crosstalk)
 library(DT)
 
 combined_all <- read_csv("all_combined_dataset.csv", col_types = cols())
+dat2016 <- read_csv("2016_mental_health_in_tech_names_recoded.csv", col_types = cols())
+
 (problems(combined_all))
-
-
-```
-
-
-```{r testing, include=FALSE}
-
-lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
-
-combined_all %>% select(age, comfortable_discussing_mh_with_supervisors, company_size) %>%
-  na.omit() %>% filter(age >= 18, age <= 50) %>% ggplot(aes(x = comfortable_discussing_mh_with_supervisors , y = age, color = factor(company_size, levels = lels) )) +   geom_point(alpha = 0.6, position = "jitter")
-
-combined_all %>% count(year, has_mhd_now, had_mhd_past) %>% na.omit() %>% filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>% group_by(has_mhd_now, had_mhd_past) %>% mutate(n2 = sum(n))
-
-plot <- combined_all %>% filter(age >= 10, age <= 70, !is.na(had_mhd_past)) %>% ggplot( aes(x = had_mhd_past , y = age, color = gender,
-  text = paste("Country: ", country_of_residence))) +
-  geom_point(position = "jitter", alpha = 0.5) +
-  scale_fill_viridis()+ 
-  labs(color= "gender", x = "Have you had a mental health disorder in the past?")
-ggplotly(plot, tooltip = "text")
+(problems(dat2016))
 
 ```
 
-Row 
+Page 1
+==================================================
+
+Row {data-width = "70%"}
 -----------------------------------------------------------------------
 
-### Comfort level in discussing mental health with supervisors vs. Age, colored by Company Size
+### Bias in discussing mental health (graph 1) or physical health (graph 2) by Age, colored by Company Size
 
 ```{r}
 suppressPackageStartupMessages(library(d3scatter))
 
 lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
-low <- c("1-5", "6-25" ,"26-100")
-high <- c("100-500" ,"500-1000","More than 1000")
 
-
-to_display <- combined_all %>% 
-  select(country_of_work,self_employed,had_mhd_past, family_history_of_mhd, employer_has_discussed_mh_formally, 
-         age, comfortable_discussing_mh_with_supervisors, company_size) %>%
-  mutate(comfort_numeric = ifelse(comfortable_discussing_mh_with_supervisors == "No", 0,
-                                  ifelse(comfortable_discussing_mh_with_supervisors == "Maybe", 0.5, 1)))%>%
-  filter(age >= 18, age <= 50, !is.na(comfortable_discussing_mh_with_supervisors), !is.na(company_size)) 
+to_display <- dat2016 %>% 
+  select(gender, age, country_of_work, had_mhd_past,family_history_of_mhd, employer_has_discussed_mh_formally, would_discussing_mh_w_employer_have_negative_effects, would_discussing_ph_w_employer_have_negative_effects, company_size) %>%
+  mutate(mh_bias = ifelse(would_discussing_mh_w_employer_have_negative_effects == "No", 0,
+                                  ifelse(would_discussing_mh_w_employer_have_negative_effects == "Maybe", 0.5, 1)),
+         ph_bias = ifelse(would_discussing_ph_w_employer_have_negative_effects == "No", 0,
+                                  ifelse(would_discussing_ph_w_employer_have_negative_effects == "Maybe", 0.5, 1))) %>%
+  filter(age >= 18, age <= 50, !is.na(would_discussing_mh_w_employer_have_negative_effects), !is.na(company_size), !is.na(would_discussing_ph_w_employer_have_negative_effects)) 
 
 shared_dat <- SharedData$new(to_display)
 
-bscols(
-  d3scatter(shared_dat, ~jitter(comfort_numeric), ~jitter(age), ~ factor(company_size, levels = lels),  
+bscols(widths = c(6,6),
+  list(
+  d3scatter(shared_dat, ~jitter(mh_bias), ~jitter(age), ~ factor(company_size, levels = lels),  
           width = "100%",
-          x_label = "Comfortable discussing mental health with subervisors?", 
-          y_label = "Age", x_lim = c(-0.2, 1.3)),
+          x_label = "Discussing MENTAL HEALTH with your employer would have negative consequences", 
+          y_label = "Age", x_lim = c(-0.2, 1.3),
+          height = 350),
+  
+  d3scatter(shared_dat, ~jitter(ph_bias), ~jitter(age), ~ factor(company_size, levels = lels),  
+          width = "100%",
+          x_label = "Discussing PHYSICAL HEALTH with your employer would negative consequenses", 
+          y_label = "Age", x_lim = c(-0.2, 1.3),
+          height = 350)),
   
   shared_dat %>% 
-    datatable(options = list(pageLength = 10) )
-  
+    datatable(options = list(pageLength = 12, scrollX =TRUE) )
+
 )
-
-
-
-#leaflet(shared_quakes, width = "100%", height = 300) %>%
-    #addTiles() %>%
-    #addMarkers(),
 
 ```
 
 
-Row{.tabset .tabset-fade}
+Page 2 {data-orientation=columns}
+===================================== 
+
+Column {.tabset}
 -----------------------------------------------------------------------
-### Combined 2016 and 2018 dataset
+### Heat
 
 ```{r}
 for_heat <- combined_all %>% 
   mutate(has_mhd_now = ifelse(has_mhd_now == "Possibly", "Maybe", has_mhd_now),
-                                    had_mhd_past = ifelse(had_mhd_past == "Possibly", "Maybe", had_mhd_past)) %>% 
+                                    had_mhd_past = ifelse(had_mhd_past == "Possibly", "Maybe",had_mhd_past)) %>% 
   count(year,has_mhd_now, had_mhd_past) %>% 
   na.omit() %>% 
   filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>%
@@ -110,48 +99,30 @@ fig
 
 ```
 
-### 2016
+### Scatter
 
 ```{r}
 
-for_heat16 <- for_heat %>% select(-n_all) %>%  filter(year == 2016)
+for_scatter <- combined_all %>% 
+  mutate(has_mhd_now = ifelse(has_mhd_now == "Possibly", "Maybe", has_mhd_now),
+                                    had_mhd_past = ifelse(had_mhd_past == "Possibly","Maybe",had_mhd_past)) %>% 
+  select(age,gender, year, has_mhd_now, had_mhd_past) %>% 
+  na.omit() %>% 
+  filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>%
+  mutate(has_mhd_now = ifelse(has_mhd_now == "No", 0, ifelse(has_mhd_now == "Yes", 1, 0.5)),
+                    had_mhd_past = ifelse(had_mhd_past == "No", 0, ifelse(had_mhd_past == "Yes", 1, 0.5))) 
 
-
-fig <- plot_ly(
-    x = for_heat16$had_mhd_past , 
-    y = for_heat16$has_mhd_now,
-    z = for_heat16$n , type = "heatmap",
-    colors = colorRamp(c("yellow", "red"))) %>% 
-  layout(
-      xaxis = list(title ="Have you had a mental health disorder in the past?"),
-         yaxis = list( title = "Do you currently have a mental health disorder?"),
-         zaxis = list(title = "Count"))
-
-fig
-
-
-
+p <- for_scatter %>% ggplot(aes(x = had_mhd_past, y = has_mhd_now,                                         color = factor(year, levels = c("2016", "2018")), text = paste("Gender: ", gender, " Age:", age))) + 
+            geom_jitter(alpha = 0.6) +
+            scale_x_continuous(breaks = c(0,0.5,1), labels = c("No", "Maybe", "Yes"))+
+            scale_y_continuous(breaks = c(0,0.5,1), labels = c("No", "Maybe", "Yes"))+
+            theme_minimal() + labs(color= "Year",
+                                   x = "Have you had a mental health disorder in the past?", 
+                                   y = "Do you currently have a mental health disorder?",
+                                   title = "Reports of past vs. Present mental health")
+ggplotly(p, tooltip = "text")
 
 
 ```
 
-### 2018
 
-```{r}
-
-for_heat18 <- for_heat %>% select(-n_all) %>% filter(year == 2018)
-
-
-fig <- plot_ly(
-    x = for_heat18$had_mhd_past , 
-    y = for_heat18$has_mhd_now,
-    z = for_heat18$n , type = "heatmap",
-    colors = colorRamp(c("yellow", "red"))) %>% 
-   layout(
-     xaxis = list(title ="Have you had a mental health disorder in the past?"),
-         yaxis = list( title = "Do you currently have a mental health disorder?"),
-         zaxis = list(title = "Count"))
-
-fig
-
-```
