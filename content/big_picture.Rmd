@@ -18,16 +18,46 @@ According to the [U.S. Bureau of Labor Statistics](https://www.cyberstates.org/)
 ![](/images/spot1.png)
 <p>&nbsp;</p>
 
-But who's actually working in tech? Is it really a man's world, and a young person's world? And what is landscape of physical and mental health in these tech workers? We look into some of these answers, using data collected in the 2016 and 2018 [Open Sourcing Mental Illness Mental Health in Tech Surveys](https://osmihelp.org/research). 
+But who's actually working in tech? Are perceptions of tech as a young and male dominated endeavor true? And what is landscape of physical and mental health in these tech workers? We look into some of these answers, using data collected in the 2016 and 2018 [Open Sourcing Mental Illness Mental Health in Tech Surveys](https://osmihelp.org/research). 
 
 <p>&nbsp;</p>
 ![](/images/spot2.png)
 <p>&nbsp;</p>
 
+## Demographics
+
+### Where are the tech workers working? 
+
+Most of the respondents in both the 2016 and 2018 survey are working in the United States, followed by the United Kingdom. The following countries are the ten most common countries to work, in descending order, reported in 2016 on the left, and 2018 on the right. The top four most popular countries to work are the same in both years. In 2018, there is the addition of Poland and India. 
+
+| Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
+| --- | --- | ----------- | -- | --- | ----------- |
+| 1 | USA | 851 | &nbsp; | USA | 312 | 
+| 2 | UK | 185 | &nbsp; | UK | 19 | 
+| 3 | Canada | 74 | &nbsp; | Canada | 8 | 
+| 4 | Germany | 58 | &nbsp; | Germany | 7 | 
+| 5 | Netherlands | 47 | &nbsp; | Poland | 6 | 
+| 6 | Australia | 34 | &nbsp; | India | 5 | 
+| 7 | Sweden | 20 | &nbsp; | Netherlands | 5 | 
+| 8 | Ireland | 15 | &nbsp; | Australia | 4 | 
+| 9 | France | 14 | &nbsp; | France | 4 | 
+| 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
+
+### What are the ages and genders? 
+
+Although many more workers responded to the survey in 2018 than 2016, the pattern of gender breakdowns in both years is similar. Tech workers are predominantly male. 
+
+![](/images/Gender.png)
+
+When we take in addition the consideration age, we see most tech workers, across genders and across survey years, are relatively young, between 25-40 years of age. 
+
+![](/images/Age-Gender.png)
+
+Why are there so few women in tech? Identifying and remedying dropout points, whether in encouraging early school STEM education in women and nonbinary individuals, in encouraging women and nonbinary individuals to study computer science in college and beyond, and encouraging workspace diversity and diversity in senior leadership, may help close the gender gap in tech. 
+
 ## The landscape of mental and physical health in tech workers
 
 
-Think of this page as your 538/Upshot style article. This means that you should try to tell a story through the data and your analysis. Read articles from those sites and similar sites to get a feeling for what they are like. Importantly, these should be geared towards the general public. You shouldn't assume the reader understands how to interpret a linear regression. Focus on interpretation and visualizations.
 
 This page should have no code visible, i.e. use echo=FALSE.
 
@@ -39,7 +69,6 @@ This page should have no code visible, i.e. use echo=FALSE.
   * Each figure should be very polished and also not too complicated. There should be a clear interpretation of the figure so the figure has a clear purpose.
 * Creativity
   * Do your best to make things interesting. Think of a story. Think of how each part of your analysis supports the previous part or provides a different perspective.
-  
   
 ---
 
@@ -63,12 +92,5 @@ You should provide a quick explanation of your data and demonstrate some of the 
 This video should be no longer than 4 minutes.
 Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
 This can be presented by any subset of the team members.
-
-## Rest of the Site
-
-Finally, here are important things to keep in mind for the rest of the site. 
-
-The main title of your page is informative.
-You have removed the generic posts from the initial site template.
 
 ![](/images/woman-working.png)
