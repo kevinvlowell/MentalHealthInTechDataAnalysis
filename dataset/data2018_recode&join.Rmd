@@ -10,9 +10,9 @@ output: html_document
 ```{r ch1}
 suppressPackageStartupMessages(library(tidyverse))
 
-suppressWarnings(data2018 <- read_csv("2018_mh_data_original.csv"))
+suppressWarnings(data2018_original <- read_csv("2018_mh_data_original.csv"))
 
-data2018_joinrecode <- data2018 %>% rename(c(
+data2018_recode <- data2018_original %>% rename(c(
 "self_employed" = "<strong>Are you self-employed?</strong>",
 
 "company_size"	= "How many employees does your company or organization have?",
@@ -103,12 +103,6 @@ data2018_joinrecode <- data2018 %>% rename(c(
 
 "state_of_work"	= "What US state or territory do you <strong>work</strong> in?")
 )
-
-#change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
-data2018_joinrecode$negative_impact_of_revealing_mhd_to_clients_contacts <- recode(data2018_joinrecode$negative_impact_of_revealing_mhd_to_clients_contacts,
-                                                                                   "Negatively" = "Yes", 
-                                                                                   "Positively" = "No", 
-                                                                                   "No change" = "No")
   
 ```
 
@@ -117,7 +111,7 @@ data2018_joinrecode$negative_impact_of_revealing_mhd_to_clients_contacts <- reco
 
 ```{r ch2}
 
-data2018_joinrecode <- data2018_joinrecode %>% transmute(
+data2018_recode <- data2018_recode %>% transmute(
 self_employed,
 company_size,
 tech_company,
@@ -165,34 +159,91 @@ observed_or_experienced_unsupportiveness_or_bad_response,
 observations_of_response_to_mhd_of_others_made_less_likely_to_reveal)
 ```
 
-## Split into demographic and survey groups
+##recode relevant variable values for response consistency across datasets
 
-```{r ch3}
+```{r}
+#change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
 
-data2018_demographics <- data2018_joinrecode %>% select(1:20)
+data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts <- recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
+                                                                                   "Negatively" = "Yes", 
+                                                                                   "Positively" = "No", 
+                                                                                   "No change" = "No")
 
-data2018_survey <- data2018_joinrecode %>% select(21:45)
+#gender recode
+
+male_list <- c("Cis male" = "M", "cis male" = "M", "Cis Male" = "M", "cis man" = "M","Cis-male" = "M", "cisdude" = "M", "Cisgender male" = "M", "Dude" = "M",
+               "I'm a man why didn't you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?" = "M", "m" = "M", "M" = "M", "M|" = "M", "mail" = "M", "male" = "M", "Male" = "M", "MALE" = "M",
+               "Male (cis)" = "M", "male, born with xy chromosoms" = "M", "Male." = "M", "Malel" = "M", "Malr" = "M", "man" = "M", "Man" = "M",  "mtf" = "M", 
+               "Sex is male" = "M"
+               )
+female_list <- c("*shrug emoji* (F)" = "F", "Cis female" = "F", "Cis woman" = "F", "Cis-Female" = "F", "Cis-woman" = "F", "cisgender female" = "F",
+                 "Cisgender Female" = "F", "Cisgendered woman" = "F", "f" = "F", "F" = "F", "fem" = "F", "female" = "F", "Female" = "F", "Female (cisgender)" = "F",
+                 "Female (props for making this a freeform field, though)" = "F", "Female assigned at birth" = "F", 
+                 "Female or Multi-Gender Femme" = "F", "female-bodied; no feelings about gender" = "F", "female/woman" = "F", "fm" = "F",
+                 "I identify as female" = "F", "I identify as female." = "F", "woman" = "F", "Woman" = "F"
+                 )
+non_binary_list <- c("AFAB" = "GQ","Agender" = "GQ","Androgynous" = "GQ", "Bigender" = "GQ", "Demiguy" = "GQ", "Enby" = "GQ", "Female/gender non-binary." = "GQ",
+                "Fluid" = "GQ", "genderfluid" = "GQ", "gender non-conforming woman" = "GQ", "Genderfluid" = "GQ", "Genderfluid (born female)" = "GQ",
+                "Genderflux demi-girl" = "GQ", "genderqueer" = "GQ", "Genderqueer" = "GQ", "genderqueer woman" = "GQ", "human" = "GQ",
+               "Human" = "GQ", "Male (or female, or both)" = "GQ", "Male (trans, FtM)" = "GQ", "male 9:1 female, roughly" = "GQ", 
+               "Male/genderqueer" = "GQ", "N/A" = "GQ", "NB" = "GQ", "nb masculine" = "GQ", "non binary" = "GQ", "non-binary" = "GQ", "Nonbinary" = "GQ",
+               "Nonbinary/femme" = "GQ", "none" = "GQ", "none of your business" = "GQ", "Ostensibly Male" = "GQ", "Other" = "GQ", "Other/Transfeminine" = "GQ",
+               "Queer" = "GQ", "She/her/they/them" = "GQ", "SWM" = "GQ", "Trans female" = "GQ", "Trans man" = "GQ", "Trans woman" = "GQ", "transgender" = "GQ",
+               "Transgender woman" = "GQ", "Transitioned, M2F" = "GQ", "Unicorn" = "GQ")
+
+data2016_recode$gender <- recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+
+data2018_recode$gender <- recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
 
 ```
 
 
-## Add year variable to 2016 and 2018 data, and then join demographic and survey data based on shared variables
+##Add year data to both data sets
+
+```{r}
+
+data2016_recode <- data2016_recode %>% 
+  mutate("year" = "2016") %>% 
+  select(year, everything())
+
+data2018_recode <- data2018_recode %>% 
+  mutate("year" = "2018") %>% 
+  select(year, everything())
+
+```
+
+
+## Split 2018 data into demographic and survey groups
+
+```{r ch3}
+
+data2018_demographics <- data2018_recode %>% select(2:21)
+
+data2018_survey <- data2018_recode %>% select(22:46)
+
+```
+
+## Join full, demographic, and survey data based on shared variables
 
 ```{r ch4}
 
-#add year variable to 2016 demographic and survey datasets
-data2016_survey <- data2016_survey %>% mutate("year" = "2016") %>% select(year, everything())
-data2016_demographics <- data2016_demographics %>% mutate("year" = "2016") %>% select(year, everything())
+#join full recoded 2016 and 2018 datasets
+all_common_variables <- intersect(colnames(data2016_recode), colnames(data2018_recode))
 
-#add year variable to 2018 demographic and survery datasets
-data2018_survey <- data2018_survey %>% mutate("year" = "2018") %>% select(year, everything())
-data2018_demographics <- data2018_demographics %>% mutate("year" = "2018") %>% select(year, everything())
+combined_data <- rbind(data2016_recode[, all_common_variables], data2018_recode[, all_common_variables])
 
+```
+
+##Join demographic and survey data based on shared variables
+
+``` {r}
 #join the demographic and survey datasets separately
 common_demographic_variables <- intersect(colnames(data2016_demographics), colnames(data2018_demographics))
+
 combined_demographic_data <- rbind(data2016_demographics[, common_demographic_variables], data2018_demographics[, common_demographic_variables])
 
 common_survey_variables <- intersect(colnames(data2016_survey), colnames(data2018_survey))
+
 combined_survey_data <- rbind(data2016_survey[, common_survey_variables], data2018_survey[, common_survey_variables])
 
 ```

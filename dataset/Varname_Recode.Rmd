@@ -10,9 +10,9 @@ output: html_document
 ```{r ch1}
 suppressPackageStartupMessages(library(tidyverse))
 
-data2016 <- read_csv("2016_mh_data_original.csv")
+data2016_original <- read_csv("2016_mh_data_original.csv")
 
-data2016_recode <- data2016 %>% rename(c(
+data2016_recode <- data2016_original %>% rename(c(
 "self_employed" = "Are you self-employed?",
 
 "company_size"	= "How many employees does your company or organization have?",
@@ -146,7 +146,7 @@ data2016_recode <- data2016 %>% rename(c(
 
 ```{r ch2}
 
-data2016_recode_rearrange <- data2016_recode %>%  select(
+data2016_recode <- data2016_recode %>%  select(
 self_employed,
 company_size,
 tech_company,
@@ -180,9 +180,9 @@ everything()
 
 ## Split
 ```{r ch3}
-data2016_demographics <- data2016_recode_rearrange %>% select(1:25)
+data2016_demographics <- data2016_recode %>% select(1:25)
 
-data2016_survey <- data2016_recode_rearrange %>% select(26:63)
+data2016_survey <- data2016_recode %>% select(26:63)
 
 ```
 
@@ -191,7 +191,7 @@ data2016_survey <- data2016_recode_rearrange %>% select(26:63)
 
 ```{r ch4}
 
-write_csv(data2016_recode_rearrange, "mental_health_in_tech_names_recoded.csv")
+write_csv(data2016_recode, "mental_health_in_tech_names_recoded.csv")
 
 write_csv(data2016_demographics, "demographics_names_recoded.csv")
 

@@ -11,10 +11,29 @@ library(flexdashboard)
 library(tidyverse)
 library(plotly)
 library(viridis)
+library(crosstalk)
+library(quantmod)
 
-combined_demographic_data <- read_csv("demographics_combined_gender_recode.csv", col_types = cols())
+d <- quantmod::getSymbols("AAPL")
+df <- data.frame(Date=index(AAPL),coredata(AAPL))
 
-(problems(combined_demographic_data))
+combined_demographic_data_gender_recode <- read_csv("demographics_combined_gender_recode.csv", col_types = cols())
+(problems(combined_demographic_data_gender_recode))
+
+combined_all <- cbind(combined_demographic_data_gender_recode, select(combined_survey_data, -year))
+
+```
+
+
+```{r testing}
+
+lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
+
+#combined_all %>% select(age, comfortable_discussing_mh_with_supervisors, company_size) %>%
+  #na.omit() %>% filter(age >= 18, age <= 50) %>% ggplot(aes(x = comfortable_discussing_mh_with_supervisors , y = age, color = factor(company_size, levels = lels) )) +   geom_point(alpha = 0.6, position = "jitter")
+
+(combined_all %>% count(year, has_mhd_now, had_mhd_past) %>% na.omit() %>% filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know")) %>% group_by(has_mhd_now, had_mhd_past) %>% mutate(n2 = sum(n))
+
 
 ```
 
@@ -32,7 +51,6 @@ plot <- combined_demographic_data %>% filter(age >= 10, age <= 70, !is.na(had_mh
   labs(color= "gender", x = "Have you had a mental health disorder in the past?")
 ggplotly(plot, tooltip = "text")
 
-
 ```
 
 Column {data-width=350}
@@ -42,6 +60,74 @@ Column {data-width=350}
 
 ```{r}
 
+for_heat <- combined_all %>% count(year,has_mhd_now, had_mhd_past) %>% na.omit() %>% filter(!has_mhd_now == "Don't Know", !had_mhd_past == "Don't Know") %>% arrange(desc(has_mhd_now), desc(had_mhd_past)) %>% group_by(has_mhd_now, had_mhd_past) %>% mutate(n_all = sum(n)) %>% ungroup()
+
+has_mhd_now <- c("Possibly", "Maybe")
+had_mhd_past <- c("Maybe", "Possibly")
+n <- c(0,0)
+n_all <- c(0,0)
+year <- c(2016, 2016)
+add <- data.frame(year, has_mhd_now, had_mhd_past, n, n_all)
+(for_heat <- rbind(for_heat, add))
+
+(for_heat16 <- for_heat %>% select(-n_all) %>%  filter(year == 2016))
+(for_heat18 <- for_heat %>% select(-n_all) %>% filter(year == 2018))
+
+
+updatemenus <- list(
+  list(
+    active = 0,
+    type= 'buttons',
+    buttons = list(
+      list(
+        list(
+        label = "Both",
+        method = "update",
+        args = list(list(visible = c(TRUE, TRUE, TRUE))
+                 )),
+       list(
+        label = "2016",
+        method = "update",
+        args = list(list(visible = c(FALSE,TRUE, FALSE))
+                    )),
+      list(
+        label = "2018",
+        method = "update",
+        args = list(list(visible = c(FALSE, FALSE, TRUE))
+                    )))
+    )
+  )
+)
+
+
+
+fig <- plot_ly(for_heat, x = for_heat$had_mhd_past, y = for_heat$has_mhd_now,
+                type = "heatmap", colors = colorRamp(c("yellow", "red")))
+
+fig <- fig %>% add_heatmap(data = for_heat,
+                           z = for_heat$n_all,
+                           name = "Both")
+
+fig <- fig %>% add_heatmap(data=for_heat16,
+                           z = for_heat16$n,
+                           name = "2016")
+
+fig <- fig %>%  add_heatmap(data = for_heat18,
+                            z = for_heat18$n,
+                            name="2018")
+
+fig <- fig %>% layout(title = "Past vs Present Mental Health", 
+            xaxis=list(title="Have you had a mental health disorder in the past?"),
+            yaxis=list(title="Do you currently have a mental health disorder?"),
+            updatemenus = updatemenus)
+
+fig 
+
+
+#fig <- plot_ly(,
+    #x = for_heat$had_mhd_past , y = for_heat$has_mhd_now,
+    #z = for_heat$n2 , type = "heatmap",
+    #colors = colorRamp(c("yellow", "red")))
 
 ```
 
