@@ -20,19 +20,117 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 * Introduce what motivates your DA
   * Which variables and relationships are you most interested in?
   * What questions are you interested in answering?
+  
 * Breadth of the DA
   * Make sure that you ask enough initial questions to explore the different variables in your data.
+  
+```{r}
+# library(tidyverse)
+# 
+# ## Demographics and Exploration of Mental Health Issue Prevalence
+# 
+# #generate age demographics per year
+# 
+# combined_demographic_data %>% 
+#   filter(!is.na(age)) %>% 
+#   ggplot() +
+#   geom_histogram(aes(x = age), binwidth = 5) +
+#   facet_wrap(~year) +
+#   xlim(0, 90) +
+#   labs(title = "Ages of Total Respondents per Year") +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab("Age") +
+#   ylab("Count")
+# 
+# #gender distribution per year
+# 
+# combined_demographic_data %>% 
+#   filter(!is.na(gender)) %>% 
+#   ggplot() +
+#   geom_bar(aes(x = gender, fill = gender)) +
+#   facet_wrap(~year) +
+#   labs(title = "Gender Identity Distribution per Year") +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab("Gender Identity") +
+#   ylab("Count")
+# 
+# #generate gender demographics per group year
+# 
+# combined_demographic_data %>% 
+#   filter(!is.na(age), !is.na(gender)) %>% 
+#   ggplot() +
+#   geom_histogram(aes(x = age, fill = gender), binwidth = 5) +
+#   facet_grid(gender~ year, scales = "free") +
+#   xlim(0, 90) +
+#   labs(title = "Age Distributions per Gender Identity per Year", fill = "Gender Identity") +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab("Age") +
+#   ylab("Count")
+# 
+# 
+# #display results to some of the mental health issue prevalence
+# 
+# data2016_demographics %>% 
+#   filter(!is.na(had_mhd_past)) %>% 
+#   group_by(year, had_mhd_past) %>% 
+#   summarize(Count = n()) %>% 
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2016_demographics %>% 
+#   filter(!is.na(has_mhd_now)) %>% 
+#   group_by(year, has_mhd_now) %>% 
+#   summarize(Count = n()) %>% 
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2018_demographics %>% 
+#   filter(!is.na(had_mhd_past)) %>% 
+#   group_by(year, had_mhd_past) %>% 
+#   summarize(Count = n()) %>% 
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2018_demographics %>% 
+#   filter(!is.na(has_mhd_now)) %>% 
+#   group_by(year, has_mhd_now) %>% 
+#   summarize(Count = n()) %>% 
+#   mutate(Percentage = Count/sum(Count))
+
+#display how the results are segmented per age group and gender
+
+
+
+
+
+
+#in depth analysis could be about stigma over time
+```
+  
+  
+  
+  
+  
+  
+  
+  
+  
   * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
+  
+  
 * Depth of the DA
   * When you answer one question, usually more questions arise as well. 
   * The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.
+  
+  
 * Modeling and Inference 
   * You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.
   * Explain the techniques you used for validating your results.
   * Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.
+  
+  
 * Clarity Figures
   * Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?
   * Each figure should provide a key insight. Too many figures or other data summaries can detract from this.
+  
+  
 * Clarity of Explanations
   * Do you introduce why you are doing each analysis?
   * How well do you explain each figure/result?

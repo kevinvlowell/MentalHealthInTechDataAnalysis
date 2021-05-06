@@ -316,13 +316,26 @@ data2018_recode <- data2018_recode %>% transmute(
 
 ## Recode relevant variables in both datasets for response format consistency
 
-#change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
+#change the response values in 2018 negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
 
 data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts <- 
   recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
                                                                                "Negatively" = "Yes", 
                                                                                "Positively" = "No", 
                                                                                "No change" = "No")
+
+#change the response values in 2018 had_mhd_past and has_mhd_now to match those in 2016
+
+data2018_recode$had_mhd_past <- 
+  recode(data2018_recode$had_mhd_past,
+         "Possibly" = "Maybe", 
+         "Don't Know" = "Maybe")
+
+data2018_recode$has_mhd_now <- 
+  recode(data2018_recode$has_mhd_now,
+         "Possibly" = "Maybe", 
+         "Don't Know" = "Maybe")
+
 #gender recode
 
 male_list <- c("Cis male" = "M", "cis male" = "M", "Cis Male" = "M", "cis man" = "M",
@@ -397,6 +410,7 @@ combined_survey_data <- rbind(data2016_survey[, common_survey_variables], data20
 ## Write finished data to .csv files
 
 write_csv(combined_data, "dataset/all_combined_dataset.csv")
+
 write_csv(combined_data, "static/flex/all_combined_dataset.csv") #extra for flexdashboard
 
 write_csv(combined_demographic_data, "dataset/demographic_combined_dataset.csv")

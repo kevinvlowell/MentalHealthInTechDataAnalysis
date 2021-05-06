@@ -27,31 +27,110 @@ draft: false
 <li>Breadth of the DA
 <ul>
 <li>Make sure that you ask enough initial questions to explore the different variables in your data.</li>
-<li>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</li>
 </ul></li>
-<li>Depth of the DA
+</ul>
+<pre class="r"><code># library(tidyverse)
+# 
+# ## Demographics and Exploration of Mental Health Issue Prevalence
+# 
+# #generate age demographics per year
+# 
+# combined_demographic_data %&gt;% 
+#   filter(!is.na(age)) %&gt;% 
+#   ggplot() +
+#   geom_histogram(aes(x = age), binwidth = 5) +
+#   facet_wrap(~year) +
+#   xlim(0, 90) +
+#   labs(title = &quot;Ages of Total Respondents per Year&quot;) +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab(&quot;Age&quot;) +
+#   ylab(&quot;Count&quot;)
+# 
+# #gender distribution per year
+# 
+# combined_demographic_data %&gt;% 
+#   filter(!is.na(gender)) %&gt;% 
+#   ggplot() +
+#   geom_bar(aes(x = gender, fill = gender)) +
+#   facet_wrap(~year) +
+#   labs(title = &quot;Gender Identity Distribution per Year&quot;) +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab(&quot;Gender Identity&quot;) +
+#   ylab(&quot;Count&quot;)
+# 
+# #generate gender demographics per group year
+# 
+# combined_demographic_data %&gt;% 
+#   filter(!is.na(age), !is.na(gender)) %&gt;% 
+#   ggplot() +
+#   geom_histogram(aes(x = age, fill = gender), binwidth = 5) +
+#   facet_grid(gender~ year, scales = &quot;free&quot;) +
+#   xlim(0, 90) +
+#   labs(title = &quot;Age Distributions per Gender Identity per Year&quot;, fill = &quot;Gender Identity&quot;) +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab(&quot;Age&quot;) +
+#   ylab(&quot;Count&quot;)
+# 
+# 
+# #display results to some of the mental health issue prevalence
+# 
+# data2016_demographics %&gt;% 
+#   filter(!is.na(had_mhd_past)) %&gt;% 
+#   group_by(year, had_mhd_past) %&gt;% 
+#   summarize(Count = n()) %&gt;% 
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2016_demographics %&gt;% 
+#   filter(!is.na(has_mhd_now)) %&gt;% 
+#   group_by(year, has_mhd_now) %&gt;% 
+#   summarize(Count = n()) %&gt;% 
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2018_demographics %&gt;% 
+#   filter(!is.na(had_mhd_past)) %&gt;% 
+#   group_by(year, had_mhd_past) %&gt;% 
+#   summarize(Count = n()) %&gt;% 
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2018_demographics %&gt;% 
+#   filter(!is.na(has_mhd_now)) %&gt;% 
+#   group_by(year, has_mhd_now) %&gt;% 
+#   summarize(Count = n()) %&gt;% 
+#   mutate(Percentage = Count/sum(Count))
+
+#display how the results are segmented per age group and gender
+
+
+
+
+
+
+#in depth analysis could be about stigma over time</code></pre>
+<ul>
+<li><p>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</p></li>
+<li><p>Depth of the DA</p>
 <ul>
 <li>When you answer one question, usually more questions arise as well.</li>
 <li>The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.</li>
 </ul></li>
-<li>Modeling and Inference
+<li><p>Modeling and Inference</p>
 <ul>
 <li>You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.</li>
 <li>Explain the techniques you used for validating your results.</li>
 <li>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.</li>
 </ul></li>
-<li>Clarity Figures
+<li><p>Clarity Figures</p>
 <ul>
 <li>Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?</li>
 <li>Each figure should provide a key insight. Too many figures or other data summaries can detract from this.</li>
 </ul></li>
-<li>Clarity of Explanations
+<li><p>Clarity of Explanations</p>
 <ul>
 <li>Do you introduce why you are doing each analysis?</li>
 <li>How well do you explain each figure/result?</li>
 <li>Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?</li>
 </ul></li>
-<li>Organization and cleanliness.
+<li><p>Organization and cleanliness.</p>
 <ul>
 <li>Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.</li>
 </ul></li>
