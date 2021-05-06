@@ -1,0 +1,67 @@
+---
+title: "Gender recode"
+author: "Nanna Katrin"
+date: "24/04/2021"
+output: html_document
+---
+
+## Make lists
+
+```{r gr1}
+suppressPackageStartupMessages(library(tidyverse))
+
+male_list <- c("Cis male", "cis male", "Cis Male", "cis man","Cis-male", "cisdude", "Cisgender male", "Dude",
+               "I'm a man why didn't you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?", "m", "M", "M|", "mail", "male", "Male", "MALE",
+               "Male (cis)", "male, born with xy chromosoms", "Male.", "Malel", "Malr", "man", "Man",  "mtf", 
+               "Sex is male"
+               )
+female_list <- c("*shrug emoji* (F)", "Cis female", "Cis woman", "Cis-Female", "Cis-woman", "cisgender female",
+                 "Cisgender Female", "Cisgendered woman", "f", "F", "fem", "female", "Female", "Female (cisgender)",
+                 "Female (props for making this a freeform field, though)", "Female assigned at birth", 
+                 "Female or Multi-Gender Femme", "female-bodied; no feelings about gender", "female/woman", "fm",
+                 "I identify as female", "I identify as female.", "woman", "Woman"
+                 )
+non_binary_list <- c("AFAB","Agender","Androgynous", "Bigender", "Demiguy", "Enby", "Female/gender non-binary.",
+                "Fluid", "genderfluid", "gender non-conforming woman", "Genderfluid", "Genderfluid (born female)",
+                "Genderflux demi-girl", "genderqueer", "Genderqueer", "genderqueer woman", "human",
+               "Human", "Male (or female, or both)", "Male (trans, FtM)", "male 9:1 female, roughly", 
+               "Male/genderqueer", "N/A", "NB", "nb masculine", "non binary", "non-binary", "Nonbinary",
+               "Nonbinary/femme", "none", "none of your business", "Ostensibly Male", "Other", "Other/Transfeminine",
+               "Queer", "She/her/they/them", "SWM", "Trans female", "Trans man", "Trans woman", "transgender",
+               "Transgender woman", "Transitioned, M2F", "Unicorn")
+
+```
+
+## Recode
+
+```{r gr2}
+
+##use the combined dem data created by Kevins script
+
+combined_demographic_data <- combined_demographic_data %>% mutate(gender_recode = ifelse(
+  gender %in% female_list, "f", ifelse(gender %in% male_list, "m", "gq"))) %>% select(1:10, gender_recode, everything())
+
+
+```
+
+## Inspect
+
+```{r gr3}
+
+(combined_demographic_data %>% count(gender_recode) %>% arrange(desc(n)) %>% mutate(percentage = round((n/sum(n))*100, 2))) 
+
+```
+
+
+## Write Out 
+
+```{r gr4}
+
+
+write.csv(combined_demographic_data, "demographics_combined_gender_recode.csv", row.names = FALSE)
+
+```
+
+
+
+

@@ -1,0 +1,53 @@
+---
+title: "Brain Flex"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(plotly)
+library(viridis)
+
+combined_demographic_data <- read_csv("demographics_combined_gender_recode.csv", col_types = cols())
+
+(problems(combined_demographic_data))
+
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+plot <- combined_demographic_data %>% filter(age >= 10, age <= 70, !is.na(had_mhd_past)) %>% ggplot( aes(x = had_mhd_past , y = age, color = gender_recode,
+  text = paste("Country: ", country_of_residence))) +
+  geom_point(position = "jitter", alpha = 0.5) +
+  scale_fill_viridis()+ 
+  labs(color= "gender", x = "Have you had a mental health disorder in the past?")
+ggplotly(plot, tooltip = "text")
+
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
