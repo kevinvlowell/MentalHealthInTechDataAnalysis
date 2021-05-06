@@ -146,7 +146,9 @@ Example Mental Health Survey Variables:
 # 
 # male_list <- c("Cis male" = "M", "cis male" = "M", "Cis Male" = "M", "cis man" = "M",
 #                "Cis-male" = "M", "cisdude" = "M", "Cisgender male" = "M", "Dude" = "M",
-#                "I'm a man why didn't you make this a drop down question. You should of asked sex? And I would of answered yes please. Seriously how much text can this take?" = "M",
+#               "I'm a man why didn't you make this a drop down question. You should of
+#               asked sex?  And I would of answered yes please. 
+#               Seriously how much text can this take?" = "M",
 #                "m" = "M", "M" = "M", "M|" = "M", "mail" = "M", "male" = "M", "Male" = "M",
 #                "MALE" = "M", "Male (cis)" = "M", "male, born with xy chromosoms" = "M", 
 #                "Male." = "M", "Malel" = "M", "Malr" = "M", "man" = "M", "Man" = "M",  
@@ -162,21 +164,35 @@ Example Mental Health Survey Variables:
 #                  "fm" = "F", "I identify as female" = "F", "I identify as female." = "F", 
 #                  "woman" = "F", "Woman" = "F")
 # 
-# non_binary_list <- c("AFAB" = "GQ","Agender" = "GQ","Androgynous" = "GQ", "Bigender" = "GQ",
-#                      "Demiguy" = "GQ", "Enby" = "GQ", "Female/gender non-binary." = "GQ",
-#                      "Fluid" = "GQ", "genderfluid" = "GQ", "gender non-conforming woman" = "GQ",
-#                      "Genderfluid" = "GQ", "Genderfluid (born female)" = "GQ",
-#                      "Genderflux demi-girl" = "GQ", "genderqueer" = "GQ", "Genderqueer" = "GQ",
-#                      "genderqueer woman" = "GQ", "human" = "GQ", "Human" = "GQ", 
-#                      "Male (or female, or both)" = "GQ", "Male (trans, FtM)" = "GQ", 
-#                      "male 9:1 female, roughly" = "GQ", "Male/genderqueer" = "GQ", 
-#                      "N/A" = "GQ", "NB" = "GQ", "nb masculine" = "GQ", "non binary" = "GQ",
-#                      "non-binary" = "GQ", "Nonbinary" = "GQ", "Nonbinary/femme" = "GQ", 
-#                      "none" = "GQ", "none of your business" = "GQ", "Ostensibly Male" = "GQ", 
-#                      "Other" = "GQ", "Other/Transfeminine" = "GQ", "Queer" = "GQ", 
-#                      "She/her/they/them" = "GQ", "SWM" = "GQ", "Trans female" = "GQ", 
-#                      "Trans man" = "GQ", "Trans woman" = "GQ", "transgender" = "GQ",
-#                      "Transgender woman" = "GQ", "Transitioned, M2F" = "GQ", "Unicorn" = "GQ")
+# non_binary_list <- c("AFAB" = "GQ","Agender" = "GQ",
+#                      "Androgynous" = "GQ", "Bigender" = "GQ", 
+#                      "Demiguy" = "GQ", "Enby" = "GQ", 
+#                      "Female/gender non-binary." = "GQ", 
+#                      "Fluid" = "GQ", "genderfluid" = "GQ",
+#                      "gender non-conforming woman" = "GQ",
+#                      "Genderfluid" = "GQ", 
+#                      "Genderfluid (born female)" = "GQ", 
+#                      "Genderflux demi-girl" = "GQ", 
+#                      "genderqueer" = "GQ",
+#                      "Genderqueer" = "GQ",
+#                      "genderqueer woman" = "GQ", 
+#                      "human" = "GQ", "Human" = "GQ",
+#                      "Male (or female, or both)" = "GQ", 
+#                      "Male (trans, FtM)" = "GQ",
+#                      "male 9:1 female, roughly" = "GQ", 
+#                      "Male/genderqueer" = "GQ",
+#                      "N/A" = "GQ", "NB" = "GQ", 
+#                      "nb masculine" = "GQ", "non binary" = "GQ",
+#                      "non-binary" = "GQ", "Nonbinary" = "GQ", 
+#                      "Nonbinary/femme" = "GQ",
+#                      "none" = "GQ", "none of your business" = "GQ", 
+#                      "Ostensibly Male" = "GQ","Other" = "GQ", 
+#                      "Other/Transfeminine" = "GQ", "Queer" = "GQ",
+#                      "She/her/they/them" = "GQ", "SWM" = "GQ",
+#                      "Trans female" = "GQ", "Trans man" = "GQ", 
+#                      "Trans woman" = "GQ", "transgender" = "GQ", 
+#                      "Transgender woman" = "GQ", 
+#                      "Transitioned, M2F" = "GQ", "Unicorn" = "GQ")
 # 
 #  data2016_recode$gender <- 
 #   recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
@@ -192,14 +208,15 @@ Example Mental Health Survey Variables:
   <p>&nbsp;</p>
 
 ```{r}
-# #change the response values in negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
+# #change the response values in
+# #negative_impact_of_revealing_mhd_to_clients_contacts to match those in 2016
 # 
 # data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts <- 
 #   recode(data2018_recode$negative_impact_of_revealing_mhd_to_clients_contacts,
-#                                                                                "Negatively" = "Yes", 
-#                                                                                "Positively" = "No", 
-# 
-# "No change" = "No")
+#                                                                       "Negatively" = "Yes",
+#                                                                       "Positively" = "No",
+#  "No change" = "No"
+# )
 ```
 
   <p>&nbsp;</p>
@@ -230,14 +247,18 @@ Example Mental Health Survey Variables:
 ```{r}
 # ## Combine full, recoded datasets based on shared variables
 # all_common_variables <- intersect(colnames(data2016_recode), colnames(data2018_recode))
-# combined_data <- rbind(data2016_recode[, all_common_variables], data2018_recode[, all_common_variables])
+# combined_data <- rbind(data2016_recode[, all_common_variables],
+#                        data2018_recode[, all_common_variables])
 # 
 # ## Combine survey and demographic datasets based on shared variables
-# common_demographic_variables <- intersect(colnames(data2016_demographics), colnames(data2018_demographics))
-# combined_demographic_data <- rbind(data2016_demographics[, common_demographic_variables], data2018_demographics[, common_demographic_variables])
+# common_demographic_variables <- intersect(colnames(data2016_demographics),
+#                                           colnames(data2018_demographics))
+# combined_demographic_data <- rbind(data2016_demographics[, common_demographic_variables],
+#                                    data2018_demographics[, common_demographic_variables])
 # 
 # common_survey_variables <- intersect(colnames(data2016_survey), colnames(data2018_survey))
-# combined_survey_data <- rbind(data2016_survey[, common_survey_variables], data2018_survey[, common_survey_variables])
+# combined_survey_data <- rbind(data2016_survey[, common_survey_variables], 
+#                               data2018_survey[, common_survey_variables])
 ```
 
   <p>&nbsp;</p>
