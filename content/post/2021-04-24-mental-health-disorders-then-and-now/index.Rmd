@@ -20,6 +20,7 @@ Today we will be looking at some possible explanations for the mental health dia
   
 ### Mental health diagnosis:
 ![](/images/Fig-heatmap.png)
+cred: Karen Tian
   
 Above is a summary of the self-reported prevalence of mental health problems. There are 4 categories among the employees:   
 1. People without mental health disorder.   
