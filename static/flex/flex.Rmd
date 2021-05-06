@@ -27,7 +27,7 @@ dat2016 <- read_csv("2016_mental_health_in_tech_names_recoded.csv", col_types = 
 Row 
 -----------------------------------------------------------------------
 
-### Comfort level in discussing mental health with supervisors vs. Age, colored by Company Size
+### Bias in discussing mental health or physical health vs. Age, colored by Company Size
 
 ```{r}
 suppressPackageStartupMessages(library(d3scatter))
