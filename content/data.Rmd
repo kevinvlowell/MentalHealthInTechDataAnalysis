@@ -178,9 +178,11 @@ Example Mental Health Survey Variables:
 #                      "Trans man" = "GQ", "Trans woman" = "GQ", "transgender" = "GQ",
 #                      "Transgender woman" = "GQ", "Transitioned, M2F" = "GQ", "Unicorn" = "GQ")
 # 
-# data2016_recode$gender <- recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+#  data2016_recode$gender <- 
+#   recode(data2016_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
 # 
-# data2018_recode$gender <- recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
+# data2018_recode$gender <- 
+#   recode(data2018_recode$gender, !!!male_list, !!!female_list, !!!non_binary_list)
 ```
 
   <p>&nbsp;</p>
