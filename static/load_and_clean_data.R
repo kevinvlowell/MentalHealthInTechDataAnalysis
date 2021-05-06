@@ -395,14 +395,25 @@ combined_survey_data <- rbind(data2016_survey[, common_survey_variables], data20
 
 
 ## Write finished data to .csv files
-write_csv(data2016_recode, "2016_mental_health_in_tech_names_recoded.csv")
 
-write_csv(data2016_demographics, "2016_demographics_names_recoded.csv")
+write_csv(combined_data, "dataset/all_combined_dataset.csv")
+write_csv(combined_data, "static/flex/all_combined_dataset.csv") #extra for flexdashboard
 
-write_csv(data2016_survey, "2016_survey_names_recoded.csv")
+write_csv(combined_demographic_data, "dataset/demographic_combined_dataset.csv")
 
-write_csv(data2018_recode, "2018_mental_health_in_tech_names_recoded.csv")
+write_csv(combined_survey_data, "dataset/survey_combined_dataset.csv")
 
-write_csv(data2018_demographics, "2018_demographics_names_recoded.csv")
+write_csv(data2016_recode, "dataset/2016_mental_health_in_tech_names_recoded.csv")
 
-write_csv(data2018_survey, "2018_survey_names_recoded.csv")
+write_csv(data2016_demographics, "dataset/2016_demographics_names_recoded.csv")
+
+write_csv(data2016_survey, "dataset/2016_survey_names_recoded.csv")
+
+write_csv(data2018_recode, "dataset/2018_mental_health_in_tech_names_recoded.csv")
+
+write_csv(data2018_demographics, "dataset/2018_demographics_names_recoded.csv")
+
+write_csv(data2018_survey, "dataset/2018_survey_names_recoded.csv")
+
+
+
