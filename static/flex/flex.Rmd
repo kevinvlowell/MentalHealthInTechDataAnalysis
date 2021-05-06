@@ -3,7 +3,7 @@ title: "Interactive Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
-    vertical_layout: scroll
+    vertical_layout: fill
 ---
 
 ```{r setup, include=FALSE}
@@ -23,11 +23,13 @@ dat2016 <- read_csv("2016_mental_health_in_tech_names_recoded.csv", col_types = 
 
 ```
 
+Page 1
+==================================================
 
-Row 
+Row {data-width = "70%"}
 -----------------------------------------------------------------------
 
-### Bias in discussing mental health or physical health vs. Age, colored by Company Size
+### Bias in discussing mental health (graph 1) or physical health (graph 2) by Age, colored by Company Size
 
 ```{r}
 suppressPackageStartupMessages(library(d3scatter))
@@ -35,7 +37,7 @@ suppressPackageStartupMessages(library(d3scatter))
 lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
 
 to_display <- dat2016 %>% 
-  select(gender, age, country_of_work, self_employed, had_mhd_past, family_history_of_mhd, employer_has_discussed_mh_formally, would_discussing_mh_w_employer_have_negative_effects, would_discussing_ph_w_employer_have_negative_effects, company_size) %>%
+  select(gender, age, country_of_work, had_mhd_past,family_history_of_mhd, employer_has_discussed_mh_formally, would_discussing_mh_w_employer_have_negative_effects, would_discussing_ph_w_employer_have_negative_effects, company_size) %>%
   mutate(mh_bias = ifelse(would_discussing_mh_w_employer_have_negative_effects == "No", 0,
                                   ifelse(would_discussing_mh_w_employer_have_negative_effects == "Maybe", 0.5, 1)),
          ph_bias = ifelse(would_discussing_ph_w_employer_have_negative_effects == "No", 0,
@@ -44,29 +46,32 @@ to_display <- dat2016 %>%
 
 shared_dat <- SharedData$new(to_display)
 
-bscols(
+bscols(widths = c(6,6),
   list(
   d3scatter(shared_dat, ~jitter(mh_bias), ~jitter(age), ~ factor(company_size, levels = lels),  
-          width = 300,
-          x_label = "Would discussing a mental health disorder with your employer have negative consequences?", 
+          width = "100%",
+          x_label = "Discussing MENTAL HEALTH with your employer would have negative consequences", 
           y_label = "Age", x_lim = c(-0.2, 1.3),
           height = 350),
   
   d3scatter(shared_dat, ~jitter(ph_bias), ~jitter(age), ~ factor(company_size, levels = lels),  
-          width = 300,
-          x_label = "Would discussing a physical health issue with your employer have negative consequences?", 
+          width = "100%",
+          x_label = "Discussing PHYSICAL HEALTH with your employer would negative consequenses", 
           y_label = "Age", x_lim = c(-0.2, 1.3),
           height = 350)),
   
   shared_dat %>% 
-    datatable(options = list(pageLength = 10) )
+    datatable(options = list(pageLength = 12, scrollX =TRUE) )
 
 )
 
 ```
 
 
-Row{.tabset .tabset-fade}
+Page 2 {data-orientation=columns}
+===================================== 
+
+Column {.tabset}
 -----------------------------------------------------------------------
 ### Heat
 
@@ -108,7 +113,7 @@ for_scatter <- combined_all %>%
                     had_mhd_past = ifelse(had_mhd_past == "No", 0, ifelse(had_mhd_past == "Yes", 1, 0.5))) 
 
 p <- for_scatter %>% ggplot(aes(x = had_mhd_past, y = has_mhd_now,                                         color = factor(year, levels = c("2016", "2018")), text = paste("Gender: ", gender, " Age:", age))) + 
-            geom_jitter(alpha = 0.3) +
+            geom_jitter(alpha = 0.6) +
             scale_x_continuous(breaks = c(0,0.5,1), labels = c("No", "Maybe", "Yes"))+
             scale_y_continuous(breaks = c(0,0.5,1), labels = c("No", "Maybe", "Yes"))+
             theme_minimal() + labs(color= "Year",
