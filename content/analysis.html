@@ -35,8 +35,8 @@ draft: false
 # 
 # #generate age demographics per year
 # 
-# combined_demographic_data %&gt;% 
-#   filter(!is.na(age)) %&gt;% 
+# combined_demographic_data %&gt;%
+#   filter(!is.na(age)) %&gt;%
 #   ggplot() +
 #   geom_histogram(aes(x = age), binwidth = 5) +
 #   facet_wrap(~year) +
@@ -48,8 +48,8 @@ draft: false
 # 
 # #gender distribution per year
 # 
-# combined_demographic_data %&gt;% 
-#   filter(!is.na(gender)) %&gt;% 
+# combined_demographic_data %&gt;%
+#   filter(!is.na(gender)) %&gt;%
 #   ggplot() +
 #   geom_bar(aes(x = gender, fill = gender)) +
 #   facet_wrap(~year) +
@@ -60,8 +60,8 @@ draft: false
 # 
 # #generate gender demographics per group year
 # 
-# combined_demographic_data %&gt;% 
-#   filter(!is.na(age), !is.na(gender)) %&gt;% 
+# combined_demographic_data %&gt;%
+#   filter(!is.na(age), !is.na(gender)) %&gt;%
 #   ggplot() +
 #   geom_histogram(aes(x = age, fill = gender), binwidth = 5) +
 #   facet_grid(gender~ year, scales = &quot;free&quot;) +
@@ -72,40 +72,91 @@ draft: false
 #   ylab(&quot;Count&quot;)
 # 
 # 
-# #display results to some of the mental health issue prevalence
+# #summarize metrics surrounding mental health issue prevalence
 # 
-# data2016_demographics %&gt;% 
-#   filter(!is.na(had_mhd_past)) %&gt;% 
-#   group_by(year, had_mhd_past) %&gt;% 
-#   summarize(Count = n()) %&gt;% 
+# data2016_demographics %&gt;%
+#   filter(!is.na(had_mhd_past)) %&gt;%
+#   group_by(year, had_mhd_past) %&gt;%
+#   summarize(Count = n()) %&gt;%
 #   mutate(Percentage = Count/sum(Count))
 # 
-# data2016_demographics %&gt;% 
-#   filter(!is.na(has_mhd_now)) %&gt;% 
-#   group_by(year, has_mhd_now) %&gt;% 
-#   summarize(Count = n()) %&gt;% 
+# data2016_demographics %&gt;%
+#   filter(!is.na(has_mhd_now)) %&gt;%
+#   group_by(year, has_mhd_now) %&gt;%
+#   summarize(Count = n()) %&gt;%
 #   mutate(Percentage = Count/sum(Count))
 # 
-# data2018_demographics %&gt;% 
-#   filter(!is.na(had_mhd_past)) %&gt;% 
-#   group_by(year, had_mhd_past) %&gt;% 
-#   summarize(Count = n()) %&gt;% 
+# data2018_demographics %&gt;%
+#   filter(!is.na(had_mhd_past)) %&gt;%
+#   group_by(year, had_mhd_past) %&gt;%
+#   summarize(Count = n()) %&gt;%
 #   mutate(Percentage = Count/sum(Count))
 # 
-# data2018_demographics %&gt;% 
-#   filter(!is.na(has_mhd_now)) %&gt;% 
-#   group_by(year, has_mhd_now) %&gt;% 
-#   summarize(Count = n()) %&gt;% 
+# data2018_demographics %&gt;%
+#   filter(!is.na(has_mhd_now)) %&gt;%
+#   group_by(year, has_mhd_now) %&gt;%
+#   summarize(Count = n()) %&gt;%
 #   mutate(Percentage = Count/sum(Count))
-
-#display how the results are segmented per age group and gender
-
-
-
-
-
-
-#in depth analysis could be about stigma over time</code></pre>
+# 
+# ## how has stigma changed over time
+# 
+# copy_combined_data &lt;- combined_data
+# 
+# #quantify measures of stigma
+# copy_combinedData$difficulty_asking_for_mh_related_medical_leave &lt;- 
+#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
+#          &quot;Very easy&quot; = 1, 
+#          &quot;Somewhat easy&quot; = 2,
+#          &quot;Neither easy or difficult&quot; = 3,
+#          &quot;Somewhat difficult&quot; = 4,
+#          &quot;Very difficult&quot; = 5)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_coworkers &lt;- 
+#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
+#          &quot;Yes&quot; = 1, 
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_supervisors &lt;- 
+#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
+#          &quot;Yes&quot; = 1, 
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n &lt;- 
+#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
+#          &quot;Yes&quot; = 1, 
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# #generate total &quot;stigma score&quot; per person by summing quantified measures of 
+# #stigma, and plot distribution of scores per gender per year
+# 
+# copy_combinedData %&gt;% 
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;% 
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n) %&gt;% 
+#   ggplot() +
+#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
+#   facet_grid(gender~ year, scales = &quot;free&quot;)
+# 
+# #compare averages of stigma scores per year and gender
+# copy_combinedData %&gt;% 
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;% 
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n) %&gt;% 
+#   group_by(year, gender) %&gt;% 
+#   summarize(Average_stigma_score = mean(stigma_score))</code></pre>
 <ul>
 <li><p>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</p></li>
 <li><p>Depth of the DA</p>
