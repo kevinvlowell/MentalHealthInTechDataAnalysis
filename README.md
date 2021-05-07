@@ -1,5 +1,9 @@
 # MA[46]15 Final Project
 
+## Video From team Brains:
+https://drive.google.com/file/d/1onGbJPBkvJB8nYpIxovcHTF6X5Plt8e4/view?usp=sharing
+
+
 For your final project, your team will be 
 
 * finding data, 
