@@ -91,8 +91,17 @@ With this metric, we evaluated trends in stigma by gender and across time.
 <p>&nbsp;</p>
 
 ![](/images/stigma.png)
+<p>&nbsp;</p>
 
-Overall, our analysis seemed to show that the distributions of stigma remained largely the same per gender between 2016 and 2018; if anything, the distribution for females and gender-queer/non-binary individuals seemed to have move slightly toward a lower stigma distribution between the two years. After calculating the average stigma scores per gender per year, these original observations seemed confirmed: the average scores slightly decreased for both female and gender-queer/non-binary respondents between 2016 and 2018, yet remained about the same for males.
+Comparing the stigma score by gender and by the two survey years, we find a promising trend: the average reported stigma is lower in 2018 than 2016, for all gender groups. This may reflect a changing sociological climate in attitudes towards mental health, and the increased advocacy in recent years for treatment and open discussions of mental health issues. Acknowledging mental health as important as physical health seems to be gaining footing institutionally, with some [schools](https://www.nytimes.com/2019/07/24/health/oregon-mental-health-days.html) and [workplaces](https://dualdiagnosis.org/mental-health-days-are-real-and-corporate-america-is-going-to-accept-that-or-not-at-their-own-peril) offering now not only sick days for physical health but mental health. 
+
+<p>&nbsp;</p>
+
+| Gender | 2018 stigma score  | 2016 stigma score | 
+| ----------- | ----- | ----- | 
+| Female | 9.52 | 8.44 |
+| Gender queer | 9.26 | 7.13 |
+| Male | 8.92 | 8.23 |
 
 ## Mental health and family history 
 
