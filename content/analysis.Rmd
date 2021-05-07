@@ -15,14 +15,22 @@ We describe here our detailed data analysis.
 
 -------
 
-NOTE: Your DA can be broken up into multiple pages if that helps with your organization.
+Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
 
-* Introduce what motivates your DA
-  * Which variables and relationships are you most interested in?
-  * What questions are you interested in answering?
-  
-* Breadth of the DA
-  * Make sure that you ask enough initial questions to explore the different variables in your data.
+For demographics, we identify several variables of interest: 
+* Diversity 
+  * Age 
+  * Gender 
+* Country of work
+
+We assess these first univariately, then in relation to each other, and then in relation to time. Temporally, we want to address whether there are changes in the response pattern or relationship of response patterns over the two years of survey data we combined from 2016 and 2018. 
+
+For mental health, we identify the following variables of interest: 
+* Prevalence of mental health disorder, past or present 
+* Stigma associated with mental health, which we calculate from a number survey measures 
+* Family history of mental health 
+* Perceptions of employee attitudes to mental health 
+* Perceptions of employee attitudes to physical health 
   
 ```{r}
 # library(tidyverse)
