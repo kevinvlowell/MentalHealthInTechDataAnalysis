@@ -175,20 +175,105 @@ Age and gender
 ```
   
 
-  
+Age vs stigma
 ```{r }
-  
+
+####Check for relationship between: "Would you be comfortable discussing mental health with your supervisor?" and age
 
 
+# ##2018 model
+
+# dat_agelm <- data2018_recode %>% filter(age >=18 & age < 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
+# 
+# dat_agelm$bad_conseq <- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == "Yes" | dat_agelm$comfortable_discussing_mh_with_supervisors == "Maybe", 1, 0)
+# 
+# dat_agelm <- dat_agelm %>% select(age, comfortable_discussing_mh_with_supervisors , bad_conseq)
+# 
+# age_model <- glm(bad_conseq ~ age, data = dat_agelm, family = binomial)
+# 
+# grid <- dat_agelm %>% data_grid(age) %>% add_predictions(age_model, type = "response")
+# 
+# p18 <- dat_agelm %>%  ggplot(aes(x = age)) + 
+#   geom_point(aes(y = bad_conseq), alpha = 0.5) + 
+#   geom_line(aes(y=pred), data = grid, color = "red", size = 1) +
+#   labs(y = "Comfortable? (1/0)",
+#        title = "2018") + theme(title = element_text(size = 10))+
+#   theme_minimal()
 
 
+# ##2016 model
+
+# dat_agelm <- data2016_recode_rearrange %>% filter(age >=18 & age < 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
+# 
+# dat_agelm$bad_conseq <- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == "Yes" | dat_agelm$comfortable_discussing_mh_with_supervisors == "Maybe", 1, 0)
+# 
+# dat_agelm <- dat_agelm %>% select(age, comfortable_discussing_mh_with_supervisors , bad_conseq)
+# 
+# age_model <- glm(bad_conseq ~ age, data = dat_agelm, family = binomial)
+# 
+# grid <- dat_agelm %>% data_grid(age) %>% add_predictions(age_model, type = "response")
+# 
+# p16 <- dat_agelm %>%  ggplot(aes(x = age)) + 
+#   geom_point(aes(y = bad_conseq), alpha = 0.5) + 
+#   geom_line(aes(y=pred), data = grid, color = "red", size = 1) +
+#   labs(y = "Comfortable? (1/0)",
+#        title = "2016" ) + theme(title = element_text(size = 10))+
+#   theme_minimal()
 
 
+# ##Both 2016 and 2018 model
+
+# dat_agelm <- combined_all %>% filter(age >=18 & age < 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
+# 
+# dat_agelm$bad_conseq <- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == "Yes" | dat_agelm$comfortable_discussing_mh_with_supervisors == "Maybe", 1, 0)
+# 
+# dat_agelm <- dat_agelm %>% select(age, comfortable_discussing_mh_with_supervisors , bad_conseq)
+# 
+# age_model <- glm(bad_conseq ~ age, data = dat_agelm, family = binomial)
+# 
+# grid <- dat_agelm %>% data_grid(age) %>% add_predictions(age_model, type = "response")
+# 
+# pboth <- dat_agelm %>%  ggplot(aes(x = age)) + 
+#   geom_point(aes(y = bad_conseq), alpha = 0.5) + 
+#   geom_line(aes(y=pred), data = grid, color = "red", size = 1) +
+#   labs(y = "Comfortable? (1/0)",
+#        title = "Both 2016 and 2018") + theme(title = element_text(size = 10))+
+#   theme_minimal()
+# 
+# png("comfortable_talking_to_supervisors_vs_age.png", width = 700, height = 500)
+# 
+# plot <- grid.arrange(
+#   arrangeGrob(p16,p18, ncol=2),
+#   pboth,
+#   top = "\nComfort (0-1) in discussing mental health with supervisors as a function of age\n
+#   Difference across years\n"
+#   )
+# 
+# print(plot)
+# dev.off()
 
 
+####Check forelationship between stigma score and age?
 
+# stigma_agelm <- copy_combinedData %>% filter(age >=18 & age < 80)
+# 
+# age_model <- lm(stigma_score ~ age, data = stigma_agelm)
+# 
+# grid <- stigma_agelm %>% data_grid(age) %>% add_predictions(age_model, type = "response")
+# 
+# png("stigma_vs_age.png", width = 700, height = 500)
+# 
+# stigma_plot <- stigma_agelm %>% ggplot(aes(x = age)) +
+#   geom_point(aes(y = stigma_score), position = "jitter", alpha = 0.5, color = "coral") + 
+#   geom_line(aes(y=pred), data = grid, color = "black") + 
+#   theme_minimal()+
+#   labs(title = "Relationship between Stigma Score and Age",
+#        y = "Stigma Score",
+#        x = "Age")+ theme(plot.title = element_text(hjust = 0.5))
+# 
+# print(stigma_plot)
+# dev.off()
 
-  
 ```
   * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
   
