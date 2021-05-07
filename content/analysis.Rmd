@@ -112,7 +112,7 @@ Adults in the workforce are the target group of mental health disorders. SAMHSA 
 #   ylab("Count")
 ```
 
-Exploration of mental health prevalence
+###Exploration of mental health prevalence
 ```{r}
 # #summarize metrics surrounding mental health issue prevalence
 # 
@@ -196,7 +196,21 @@ Exploration of mental health prevalence
 ```
   
 
-Age vs stigma
+###Age vs stigma
+
+<p>&nbsp;</p>
+
+For the age and stigma analysis, a new dataset containing only age and question on the comfortable scale when talking to supervisor was created. We apply three regression models on the comfortable scale and age for 2016, 2018 and combination of both surveys. Zero will stand in for no, and one for yes. To visualize this procedure, we included graph for regressions. Since only the result for linear regression of 2018 data shows significant result, it's the only one showing below. 
+
+<p>&nbsp;</p>
+
+![](/images/p18.png)
+<p>&nbsp;</p>
+
+Many people who need help for a mental health issue don’t seek it. A study by the World Health Organization found that between 30 and 80 percent of people with mental health issues don’t seek treatment. People are afraid of being stigmatized if they admit they need help, and the absence of a safe environment where people can discuss their issues worsen the problem. However, awareness of mental illness and the need for treatment has been growing in recent years. The younger generations have learn to be more vocal in the search for help. The 2018 analysis shows a significant correlation about the youths talking to their supervisor about their problems. There were no significant result from the 2016 or combination of both surveys, but it's never harm to raise awareness for company to establish campaign to prevent stigma at workplace.
+
+<p>&nbsp;</p>
+
 ```{r age-stigma}
 ###Check for relationship between: "Would you be comfortable discussing mental health with your supervisor?" and age
 ##2018 model
