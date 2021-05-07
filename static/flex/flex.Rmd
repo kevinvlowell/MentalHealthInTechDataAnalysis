@@ -1,5 +1,5 @@
 ---
-title: "Interactive Dashboard"
+title: "Mental Health in Tech Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -29,7 +29,7 @@ Page 1
 Row {data-width = "70%"}
 -----------------------------------------------------------------------
 
-### Bias in discussing mental health (graph 1) or physical health (graph 2) by Age, colored by Company Size
+### Believed negative consequences of discussing mental health (graph 1) or physical health (graph 2) by Age, colored by Company Size
 
 
 ```{r}
@@ -125,5 +125,65 @@ ggplotly(p, tooltip = "text")
 
 
 ```
+
+Column 
+--------------------------------------------
+### Stigma
+
+```{r}
+
+copy_combinedData <- combined_all
+
+#quantify measures of stigma
+copy_combinedData$difficulty_asking_for_mh_related_medical_leave <-
+  recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
+         "Very easy" = 1,
+         "Somewhat easy" = 2,
+         "Neither easy or difficult" = 3,
+         "Somewhat difficult" = 4,
+         "Very difficult" = 5)
+
+copy_combinedData$comfortable_discussing_mh_with_coworkers <-
+  recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
+         "Yes" = 1,
+         "Maybe" = 2,
+         "No" = 3)
+
+copy_combinedData$comfortable_discussing_mh_with_supervisors <-
+  recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
+         "Yes" = 1,
+         "Maybe" = 2,
+         "No" = 3)
+
+copy_combinedData$willing_to_bring_up_mh_in_interview_y_n <-
+  recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
+         "Yes" = 1,
+         "Maybe" = 2,
+         "No" = 3)
+
+#generate total "stigma score" per person by summing quantified measures of
+#stigma, and plot distribution of scores per gender per year
+
+stigma_data <- copy_combinedData %>%
+  filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+         !is.na(comfortable_discussing_mh_with_coworkers),
+         !is.na(comfortable_discussing_mh_with_supervisors),
+         !is.na(willing_to_bring_up_mh_in_interview_y_n)) %>%
+  mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+                               comfortable_discussing_mh_with_coworkers +
+                               comfortable_discussing_mh_with_supervisors +
+                               willing_to_bring_up_mh_in_interview_y_n)
+
+
+fig <- plot_ly(stigma_data, y = ~stigma_score, color = ~gender, type = "box")
+fig <- fig %>% layout( title = "Scores on our stigma-scale for different genders",
+        xaxis = list(title ="Gender"),
+         yaxis = list( title = "Stigma Score"),
+         zaxis = list(title = "Gender"))
+
+fig
+
+```
+
 
 

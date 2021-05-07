@@ -105,11 +105,17 @@ add log reg of fam hist (0,1), and current (0 0.5 1)
 
 ## Landscape of physical and mental health in tech workers
 
-## Interactive
 
+<<<<<<< HEAD
 example [this one](/flex/flex_Sussman.html).
 
 Making our own interactive dashboard now [here](/flex/flex.html). 
+=======
+## An Interactive Look At Demographics and Stigma
+
+For a more in-depth, high-level view of mental health in tech, we recommend checking out our [interactive dashboard](/flex/flex.html). It further explores attitudes towards mental and physical health, prevalence of mental health diseases among tech workers and possible stigma through interactive graphs and tables that are both informative and fun to play with! 
+
+>>>>>>> 13d27003df259bd50c520fdfa01d0a35202b01da
 
 ## Video Recording
 
@@ -118,6 +124,10 @@ You should provide a quick explanation of your data and demonstrate some of the 
 This video should be no longer than 4 minutes.
 Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 13d27003df259bd50c520fdfa01d0a35202b01da
 # misc
 ![](/images/mh.png)
 
