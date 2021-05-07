@@ -64,12 +64,6 @@ We assess the prevalence of mental health disorders in tech workers.
 
 ![](/images/fam-hist.png)
 
-
-  * You should have a clear thesis/goal for this page. Make sure that you explain your analysis in detail but 
-* Quality of Figures
-  * Each figure should be very polished and also not too complicated. 
-* Creativity
-  * Do your best to make things interesting. Think of a story. Think of how each part of your analysis supports the previous part or provides a different perspective.
   
 ---
 
@@ -80,10 +74,6 @@ You will also be required to make an interactive dashboard like [this one](/flex
 Making our own interactive dashboard now [here](/flex/flex.html). 
 
 Your Big Data page should include a link to an interactive dashboard. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
-
-Is it clear what can be explored using your interactive components?
-Does it enhance and reinforce your conlusions from the Big Picture?
-Plotly with default hover text does not count.
 
 ## Video Recording
 
