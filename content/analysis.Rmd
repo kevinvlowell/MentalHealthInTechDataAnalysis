@@ -81,9 +81,9 @@ Age and gender analysis
 #   ylab("Count")
 ```
 
-Female (49.7%) tends to seek for mental health treatmets comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responders from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations report on mental health issues worldwide. 
+Female (49.7%) tends to seek for mental health treatments comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responds from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations on mental health issues worldwide.
 
-
+Adults in the workforce are the target group of mental health disorders. SAMHSA reports 25% from the age of 26 to 49 has experienced some form of mental issues in United States. That correspond with the age range in both surveys. What we are having here is the target group for promoting mental health awareness, and there is a rising need for supporting resources in their workplace. This can be either effective counseling therapy, safe environment for discussion or better coverage in health care for mental diseases. 
 
 
 Exploration of mental health prevalence
