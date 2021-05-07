@@ -141,12 +141,10 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 #                                willing_to_bring_up_mh_in_interview_y_n) %>% 
 #   group_by(year, gender) %>% 
 #   summarize(Average_stigma_score = mean(stigma_score))
-
 ```
   
 Country of work
 ```{r country}
-
 # whereFrom2016 <- combined_demographic_data %>% filter(year=="2016") %>% group_by(country_of_work) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
 # knitr::kable(whereFrom2016)
 # 
@@ -177,12 +175,8 @@ Age and gender
 
 Age vs stigma
 ```{r }
-
 ####Check for relationship between: "Would you be comfortable discussing mental health with your supervisor?" and age
-
-
 # ##2018 model
-
 # dat_agelm <- data2018_recode %>% filter(age >=18 & age < 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq <- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == "Yes" | dat_agelm$comfortable_discussing_mh_with_supervisors == "Maybe", 1, 0)
@@ -199,10 +193,7 @@ Age vs stigma
 #   labs(y = "Comfortable? (1/0)",
 #        title = "2018") + theme(title = element_text(size = 10))+
 #   theme_minimal()
-
-
 # ##2016 model
-
 # dat_agelm <- data2016_recode_rearrange %>% filter(age >=18 & age < 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq <- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == "Yes" | dat_agelm$comfortable_discussing_mh_with_supervisors == "Maybe", 1, 0)
@@ -219,10 +210,7 @@ Age vs stigma
 #   labs(y = "Comfortable? (1/0)",
 #        title = "2016" ) + theme(title = element_text(size = 10))+
 #   theme_minimal()
-
-
 # ##Both 2016 and 2018 model
-
 # dat_agelm <- combined_all %>% filter(age >=18 & age < 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq <- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == "Yes" | dat_agelm$comfortable_discussing_mh_with_supervisors == "Maybe", 1, 0)
@@ -251,10 +239,7 @@ Age vs stigma
 # 
 # print(plot)
 # dev.off()
-
-
 ####Check forelationship between stigma score and age?
-
 # stigma_agelm <- copy_combinedData %>% filter(age >=18 & age < 80)
 # 
 # age_model <- lm(stigma_score ~ age, data = stigma_agelm)
@@ -273,8 +258,9 @@ Age vs stigma
 # 
 # print(stigma_plot)
 # dev.off()
-
 ```
+
+  
   * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
   
   
