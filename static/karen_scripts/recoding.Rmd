@@ -24,13 +24,11 @@ data <- read_csv("/Users/kantian/Dropbox/BU/2021_Spring/MA415_DataScienceR/final
 
 ```{r country}
 # where are the respondents from
-
 whereFrom2016 <- combined_demographic_data %>% filter(year=="2016") %>% group_by(country_of_work) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
 knitr::kable(whereFrom2016)
 
 whereFrom2018 <- combined_demographic_data %>% filter(year=="2018") %>% group_by(country_of_residence) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
 knitr::kable(whereFrom2018)
-
 ```
 
 
@@ -42,6 +40,36 @@ knitr::kable(age)
 ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat='identity', position="dodge") + labs(x="Gender", y="Count") + scale_x_discrete(labels=c("Female","Queer/Undefined","Male"))
 ```
 
+```{r mental-health}
+# age
+mh_yes <- combined_demographic_data %>% filter(!(family_history_of_mhd=="I don't know")) %>%  group_by(family_history_of_mhd,had_mhd_past,has_mhd_now) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
+knitr::kable(mhhist)
+
+# mh_no <- combined_demographic_data %>% filter(!(family_history_of_mhd=="I don't know")) %>% filter(!(family_history_of_mhd=="yes")) %>% group_by(family_history_of_mhd,had_mhd_past,has_mhd_now) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
+# knitr::kable(mh)
+
+# mhhist <- combined_demographic_data %>% filter(!(family_history_of_mhd=="I don't know")) %>%  group_by(family_history_of_mhd) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
+# knitr::kable(mhhist)
+
+ggplot(mh_no, aes(x=family_history_of_mhd, y = n, fill=has_mhd_now)) + geom_bar(stat='identity', position="stack") + labs(x="Family history of mental health disorder", y="Count") + scale_fill_discrete(name="Has mental health disorder now")
+
+ggplot(
+  mh,
+  aes(fill = has_mhd_now, 
+      x = family_history_of_mhd)
+) + 
+  geom_bar(stat = "count", 
+           position = "stack") 
+
+```
+
+```{r mh}
+mh <- combined_demographic_data %>% group_by(has_mhd_now) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
+knitr::kable(mh)
+
+ggplot(mh, aes(x=1, y = freq, fill=has_mhd_now)) + geom_bar(stat='identity', position="stack") + labs(x="Has mental health disorder now", y="Frequency") + coord_flip() + 
+
+```
 
 ```{r r1}
 # combine combined_demo and combined_survey 

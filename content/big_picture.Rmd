@@ -28,7 +28,8 @@ But who's actually working in tech? Are perceptions of tech as a young and male 
 
 ### Where are the tech workers working? 
 
-Most of the respondents in both the 2016 and 2018 survey are working in the United States, followed by the United Kingdom. The following countries are the ten most common countries to work, in descending order, reported in 2016 on the left, and 2018 on the right. The top four most popular countries to work are the same in both years. In 2018, there is the addition of Poland and India. 
+Most of the respondents in both the 2016 and 2018 survey are working in the United States, followed by the United Kingdom. The following countries are the ten most common countries to work in tech, in descending order, reported in 2016 on the left, and 2018 on the right. The top four most popular countries to work in tech are the same in both years, but in 2018, there are the additions of Poland and India in the top ten.  
+<p>&nbsp;</p>
 
 | Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
 | --- | --- | ----------- | -- | --- | ----------- |
@@ -45,28 +46,28 @@ Most of the respondents in both the 2016 and 2018 survey are working in the Unit
 
 ### What are the ages and genders? 
 
-Although many more workers responded to the survey in 2018 than 2016, the pattern of gender breakdowns in both years is similar. Tech workers are predominantly male. 
+Although many more workers responded to the survey in 2018 than 2016, the pattern of gender breakdowns in both years is similar: tech workers are predominantly male. 
 
+<p>&nbsp;</p>
 ![](/images/Gender.png)
 
-When we take in addition the consideration age, we see most tech workers, across genders and across survey years, are relatively young, between 25-40 years of age. 
+When we take in addition the consideration of age, we see most tech workers, across genders and across survey years, are relatively young, between 25-40 years old. 
 
+<p>&nbsp;</p>
 ![](/images/Age-Gender.png)
 
-Why are there so few women in tech? Identifying and remedying dropout points, whether in encouraging early school STEM education in women and nonbinary individuals, in encouraging women and nonbinary individuals to study computer science in college and beyond, and encouraging workspace diversity and diversity in senior leadership, may help close the gender gap in tech. 
+Why are there so few women in tech? Identifying and remedying dropout points, whether in encouraging early school STEM education in women and nonbinary individuals, in encouraging these underrepresented groups to study computer science in college and beyond, and encouraging workspace diversity and especially diversity in senior leadership, may help close the gender gap in tech. 
 
 ## The landscape of mental and physical health in tech workers
 
+We assess the prevalence of mental health disorders in tech workers. 
+
+![](/images/fam-hist.png)
 
 
-This page should have no code visible, i.e. use echo=FALSE.
-
-* Title
-  * Your big picture page should have a creative title/headline that provides a hint about your thesis.
-* Clarity of Explanation
-  * You should have a clear thesis/goal for this page. What are you trying to show? Make sure that you explain your analysis in detail but don't go into to much mathematics or statistics. The audience for this page is the general public (to the extent possible).
+  * You should have a clear thesis/goal for this page. Make sure that you explain your analysis in detail but 
 * Quality of Figures
-  * Each figure should be very polished and also not too complicated. There should be a clear interpretation of the figure so the figure has a clear purpose.
+  * Each figure should be very polished and also not too complicated. 
 * Creativity
   * Do your best to make things interesting. Think of a story. Think of how each part of your analysis supports the previous part or provides a different perspective.
   
@@ -78,9 +79,8 @@ You will also be required to make an interactive dashboard like [this one](/flex
 
 Making our own interactive dashboard now [here](/flex/flex.html). 
 
-Your Big Data page should include a link to an interactive dashboard. The dashboard should be created either using Shiny or FlexDashboard (or another tool with professor's approval). This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
+Your Big Data page should include a link to an interactive dashboard. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
 
-* Quality and ease of use of the interactive components.
 Is it clear what can be explored using your interactive components?
 Does it enhance and reinforce your conlusions from the Big Picture?
 Plotly with default hover text does not count.
