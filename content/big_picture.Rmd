@@ -64,17 +64,9 @@ We assess the prevalence of mental health disorders in tech workers.
 
 ![](/images/fam-hist.png)
 
-  
+## An Interactive Look At Demographics and Stigma
 
-
-## Interactive
-
-You will also be required to make an interactive dashboard like [this one](/flex/flex_Sussman.html).
-
-Making our own interactive dashboard now [here](/flex/flex.html). 
-
-
-Your Big Data page should include a link to an interactive dashboard. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
+For a more in-depth, high-level view of mental health in tech, we recommend checking out our [interactive dashboard](/flex/flex.html). It further explores attitudes towards mental and physical health, prevalence of mental health diseases among tech workers and possible stigma through interactive graphs and tables that are both informative and fun to play with! 
 
 
 ## Video Recording
