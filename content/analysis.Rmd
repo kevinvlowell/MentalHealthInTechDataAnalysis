@@ -32,7 +32,7 @@ For mental health, we identify the following variables of interest:
 + Perceptions of employee attitudes to mental health 
 + Perceptions of employee attitudes to physical health
 
-We assess these first univariately, then in relation to each other (for variables we think may interesting to map relationally, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018. 
+We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018. 
   
 ```{r}
 # library(tidyverse)
