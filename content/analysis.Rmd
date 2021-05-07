@@ -259,6 +259,8 @@ Age vs stigma
 # print(stigma_plot)
 # dev.off()
 ```
+
+  
   * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
   
   
