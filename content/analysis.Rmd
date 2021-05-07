@@ -31,8 +31,8 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 # 
 # #generate age demographics per year
 # 
-# combined_demographic_data %>% 
-#   filter(!is.na(age)) %>% 
+# combined_demographic_data %>%
+#   filter(!is.na(age)) %>%
 #   ggplot() +
 #   geom_histogram(aes(x = age), binwidth = 5) +
 #   facet_wrap(~year) +
@@ -42,22 +42,10 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 #   xlab("Age") +
 #   ylab("Count")
 # 
-# #gender distribution per year
-# 
-# combined_demographic_data %>% 
-#   filter(!is.na(gender)) %>% 
-#   ggplot() +
-#   geom_bar(aes(x = gender, fill = gender)) +
-#   facet_wrap(~year) +
-#   labs(title = "Gender Identity Distribution per Year") +
-#   theme(plot.title = element_text(hjust = 0.5)) +
-#   xlab("Gender Identity") +
-#   ylab("Count")
-# 
 # #generate gender demographics per group year
 # 
-# combined_demographic_data %>% 
-#   filter(!is.na(age), !is.na(gender)) %>% 
+# combined_demographic_data %>%
+#   filter(!is.na(age), !is.na(gender)) %>%
 #   ggplot() +
 #   geom_histogram(aes(x = age, fill = gender), binwidth = 5) +
 #   facet_grid(gender~ year, scales = "free") +
@@ -68,48 +56,131 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 #   ylab("Count")
 # 
 # 
-# #display results to some of the mental health issue prevalence
+# #summarize metrics surrounding mental health issue prevalence
 # 
-# data2016_demographics %>% 
-#   filter(!is.na(had_mhd_past)) %>% 
-#   group_by(year, had_mhd_past) %>% 
-#   summarize(Count = n()) %>% 
+# data2016_demographics %>%
+#   filter(!is.na(had_mhd_past)) %>%
+#   group_by(year, had_mhd_past) %>%
+#   summarize(Count = n()) %>%
 #   mutate(Percentage = Count/sum(Count))
 # 
-# data2016_demographics %>% 
-#   filter(!is.na(has_mhd_now)) %>% 
-#   group_by(year, has_mhd_now) %>% 
-#   summarize(Count = n()) %>% 
+# data2016_demographics %>%
+#   filter(!is.na(has_mhd_now)) %>%
+#   group_by(year, has_mhd_now) %>%
+#   summarize(Count = n()) %>%
 #   mutate(Percentage = Count/sum(Count))
 # 
-# data2018_demographics %>% 
-#   filter(!is.na(had_mhd_past)) %>% 
-#   group_by(year, had_mhd_past) %>% 
-#   summarize(Count = n()) %>% 
+# data2018_demographics %>%
+#   filter(!is.na(had_mhd_past)) %>%
+#   group_by(year, had_mhd_past) %>%
+#   summarize(Count = n()) %>%
 #   mutate(Percentage = Count/sum(Count))
 # 
-# data2018_demographics %>% 
-#   filter(!is.na(has_mhd_now)) %>% 
-#   group_by(year, has_mhd_now) %>% 
-#   summarize(Count = n()) %>% 
+# data2018_demographics %>%
+#   filter(!is.na(has_mhd_now)) %>%
+#   group_by(year, has_mhd_now) %>%
+#   summarize(Count = n()) %>%
 #   mutate(Percentage = Count/sum(Count))
+# 
+# ## how has stigma changed over time
+# 
+# copy_combined_data <- combined_data
+# 
+# #quantify measures of stigma
+# copy_combinedData$difficulty_asking_for_mh_related_medical_leave <- 
+#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
+#          "Very easy" = 1, 
+#          "Somewhat easy" = 2,
+#          "Neither easy or difficult" = 3,
+#          "Somewhat difficult" = 4,
+#          "Very difficult" = 5)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_coworkers <- 
+#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
+#          "Yes" = 1, 
+#          "Maybe" = 2,
+#          "No" = 3)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_supervisors <- 
+#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
+#          "Yes" = 1, 
+#          "Maybe" = 2,
+#          "No" = 3)
+# 
+# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n <- 
+#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
+#          "Yes" = 1, 
+#          "Maybe" = 2,
+#          "No" = 3)
+# 
+# #generate total "stigma score" per person by summing quantified measures of 
+# #stigma, and plot distribution of scores per gender per year
+# 
+# copy_combinedData %>% 
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %>% 
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n) %>% 
+#   ggplot() +
+#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
+#   facet_grid(gender~ year, scales = "free")
+# 
+# #compare averages of stigma scores per year and gender
+# copy_combinedData %>% 
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %>% 
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n) %>% 
+#   group_by(year, gender) %>% 
+#   summarize(Average_stigma_score = mean(stigma_score))
 
-#display how the results are segmented per age group and gender
-
-
-
-
-
-
-#in depth analysis could be about stigma over time
 ```
   
+Country of work
+```{r country}
+
+# whereFrom2016 <- combined_demographic_data %>% filter(year=="2016") %>% group_by(country_of_work) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
+# knitr::kable(whereFrom2016)
+# 
+# whereFrom2018 <- combined_demographic_data %>% filter(year=="2018") %>% group_by(country_of_residence) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
+# knitr::kable(whereFrom2018)
+```  
+| Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
+| --- | --- | ----------- | -- | --- | ----------- |
+| 1 | USA | 851 | &nbsp; | USA | 312 | 
+| 2 | UK | 185 | &nbsp; | UK | 19 | 
+| 3 | Canada | 74 | &nbsp; | Canada | 8 | 
+| 4 | Germany | 58 | &nbsp; | Germany | 7 | 
+| 5 | Netherlands | 47 | &nbsp; | Poland | 6 | 
+| 6 | Australia | 34 | &nbsp; | India | 5 | 
+| 7 | Sweden | 20 | &nbsp; | Netherlands | 5 | 
+| 8 | Ireland | 15 | &nbsp; | Australia | 4 | 
+| 9 | France | 14 | &nbsp; | France | 4 | 
+| 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
   
+Age and gender 
+```{r age}
+# age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
+# knitr::kable(age)
+# 
+# ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat='identity', position="dodge") + labs(x="Gender", y="Count") + scale_x_discrete(labels=c("Female","Queer/Undefined","Male"))
+```
   
-  
+
   
 ```{r }
   
+
+
+
 
 
 
