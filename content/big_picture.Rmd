@@ -129,11 +129,6 @@ According to the [NIH](https://www.nimh.nih.gov/about/advisory-boards-and-groups
 
 Sensitivity to such factors may improve the quality of the tech workspace and prevent mental health illness in its workers. 
 
-## Video Recording
 
-Make a video recording (probably using Zoom) demonstrating your interactive components.
-You should provide a quick explanation of your data and demonstrate some of the conclusions from your EDA.
-This video should be no longer than 4 minutes.
-Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
 
 ![](/images/mh.png)
