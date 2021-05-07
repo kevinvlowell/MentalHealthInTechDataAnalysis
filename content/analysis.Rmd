@@ -15,13 +15,7 @@ We describe here our detailed data analysis.
 
 -------
 
-* Introduce what motivates your DA
-  * Which variables and relationships are you most interested in?
-  * What questions are you interested in answering?
-
-  
-* Breadth of the DA
-  * Make sure that you ask enough initial questions to explore the different variables in your data.
+##Introduction
 
 Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
 
@@ -40,9 +34,13 @@ For mental health, we identify the following variables of interest:
 + Perceptions of employee attitudes to mental health 
 + Perceptions of employee attitudes to physical health
 
-We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018. 
+We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018.
+
+##Demographics
   
-  Country of work
+To get a sense of the geographic diversity of our response pool, we started our analysis by grouping the data from each year by country, and then generating counts per country per year using summarize(). Visualization via tables was facilitated using knitr::kable().
+
+<p>&nbsp;</p>
 ```{r country}
 
 # library(tidyverse)
@@ -66,7 +64,18 @@ We assess these first univariately, then in relation to each other (for variable
 | 9 | France | 14 | &nbsp; | France | 4 | 
 | 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
   
-Age and gender analysis
+###Age and gender analysis
+
+<p>&nbsp;</p>
+
+For our age and gender analysis, we started with a per-year visualization of the participant gender breakdowns. To produce this visualization, we filtered our combined demographic data to remove any observations that contained no response for gender (value = NA). We then grouped the data by gender and year in order to calculate the counts per group using summarize. To produce the visualization, the summary tibble was simply passed to ggplot using geom_bar, with gender on the x-axis, counts on the y-axis, and bars colored by year. Position was set to "dodge" to allow for side-by-side bars plotting.
+
+<p>&nbsp;</p>
+
+To further explore our demographic, we sought to explore the age distributions within each of these gender groups. Using a ggplot's histogram functionality and a facet grid, we produced this visualization using a tibble filtered for non-NA gender and age observations, and grouped by gender and year.
+
+<p>&nbsp;</p>
+
 ```{r age-gender}
 # age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
 # knitr::kable(age)
