@@ -126,7 +126,7 @@ More respondents reported having a family history of mental disorder than not. C
 
 For a more in-depth, high-level view of mental health in tech, we recommend checking out our [interactive dashboard](/flex/flex.html). It further explores attitudes towards mental and physical health, prevalence of mental health diseases among tech workers and possible stigma through interactive graphs and tables that are both informative and fun to play with! 
 
-## How to protect mental health 
+## Supporting mental health in the tech workspace
 
 According to the [NIH](https://www.nimh.nih.gov/about/advisory-boards-and-groups/namhc/reports/genetics-and-mental-disorders-report-of-the-national-institute-of-mental-healths-genetics-workgroup#toc-i), the annual cost to the U.S. for treatment, social service, lost productivity, and related costs to mental health issues is more than $150 billion. Improving mental health lowers not only these monetary costs, but more importantly, the costs to well-being of workers in tech and the companies they work for. We've identified some potential factors for improving mental health in the tech workplace: 
 <p>&nbsp;</p>
@@ -138,6 +138,10 @@ According to the [NIH](https://www.nimh.nih.gov/about/advisory-boards-and-groups
 
 Sensitivity to such factors may improve the quality of the tech workspace and prevent mental health illness in its workers. 
 
+## [Video tour](https://www.dropbox.com/s/esczq8vxfvqp7vx/Brains_video.mp4?dl=0)
 
+[![Video](/images/vid.png)](https://www.dropbox.com/s/esczq8vxfvqp7vx/Brains_video.mp4?dl=0)
+
+<p>&nbsp;</p>
 
 ![](/images/mh.png)
