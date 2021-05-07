@@ -12,25 +12,31 @@ We describe here our detailed data analysis.
 -------
 ##Introduction
 Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
+
 For demographics, we identify several variables of interest: 
-+ Diversity     
+  + Diversity     
   + Age 
   + Gender 
-+ Country of work
+  + Country of work
+
 For mental health, we identify the following variables of interest: 
-+ Prevalence of mental health disorder, past or present 
-+ Stigma associated with mental health, which we calculate from a number survey measures 
-+ Family history of mental health 
-+ Perceptions of employee attitudes to mental health 
-+ Perceptions of employee attitudes to physical health
+  + Prevalence of mental health disorder, past or present 
+  + Stigma associated with mental health, which we calculate from a number survey measures 
+  + Family history of mental health 
+  + Perceptions of employee attitudes to mental health 
+  + Perceptions of employee attitudes to physical health
+
 We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018.
+
 ##Demographics
   
-We first explore the demographics of our data from both 2016 and 2018.
+In the section, we will be exploring our three variables of interest: age, gender, and country of work and their relations to the big picture. 
 
 ###Countries
 To get a sense of the geographic diversity of our response pool, we started our analysis by grouping the data from each year by country, and then generating counts per country per year using summarize(). Visualization via tables was facilitated using knitr::kable().
+
 <p>&nbsp;</p>
+
 | Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
 | --- | --- | ----------- | -- | --- | ----------- |
 | 1 | USA | 851 | &nbsp; | USA | 312 | 
@@ -101,7 +107,8 @@ Adults in the workforce are the target group of mental health disorders. SAMHSA 
 #   ylab("Count")
 ```
 
-###Exploration of mental health prevalence
+##Exploration of mental health prevalence
+
 ```{r}
 # #summarize metrics surrounding mental health issue prevalence
 # 
@@ -173,15 +180,6 @@ Adults in the workforce are the target group of mental health disorders. SAMHSA 
 #                                comfortable_discussing_mh_with_supervisors +
 #                                willing_to_bring_up_mh_in_interview_y_n)
 # 
-# #plot distribution of stigma scores per gender per year
-#   ggplot(copy_combinedData) +
-#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
-#   facet_grid(gender~ year, scales = "free")
-# 
-# #compare averages of stigma scores per year and gender
-# copy_combinedData %>%
-#   group_by(year, gender) %>%
-#   summarize(Average_stigma_score = mean(stigma_score))
 ```
 
 ###Age vs stigma
@@ -293,7 +291,44 @@ Many people who need help for a mental health issue don’t seek it. A study by 
 # dev.off()
 ```
 
+###Gender vs Stigma
+
+We perform another analysis on stigma score and gender for both 2016 and 2018. All NAs are eliminated from the gender variables, keeping only male, female and gender queer. We use histogram plot to show the distribution of score throughout the years, by gender. We also included a table of average stigma scores.
+
+<p>&nbsp;</p>
+
+|year |gender | Average_stigma_score|
+|:----|:------|--------------------:|
+|2016 |F      |             9.517241|
+|2016 |GQ     |             9.260870|
+|2016 |M      |             8.920608|
+|2018 |F      |             8.444444|
+|2018 |GQ     |             7.133333|
+|2018 |M      |             8.234043|
+
+<p>&nbsp;</p>
+
+The stigma of mental illness imposes substantial costs on both the individuals who experience mental illness and society at large, and gender has an important role. A study published on NIH shows that when a case is gender typical, responders felt more negative affect, less sympathy, and less inclination to help than a gender atypical case (Wirth & Bodenhausen, 2009). However, the table shows that stigma score did decrease for both female and gender queer, maybe in response widespread mental health awareness.
+
+<p>&nbsp;</p>
+
+![](/images/stigma.png)
+
+```{r}
+# #plot distribution of stigma scores per gender per year
+#   ggplot(copy_combinedData) +
+#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
+#   facet_grid(gender~ year, scales = "free")
+# 
+# #compare averages of stigma scores per year and gender
+# copy_combinedData %>%
+#   group_by(year, gender) %>%
+#   summarize(Average_stigma_score = mean(stigma_score))
+# knitr::kable(copy_combinedData)
+```
+
 Function converting likert scale responses to numeric so it is easier to model
+
 ```{r convertnum}
 # convert_str <- function (sub_string) {
 #   if (sub_string == 'Yes')
@@ -352,6 +387,6 @@ $$
 Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
 $$ 
 
-<p>&nbsp;</p>
+\<p>&nbsp;</p>
 
 A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates  that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health. 
