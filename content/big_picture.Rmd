@@ -18,7 +18,7 @@ According to the [U.S. Bureau of Labor Statistics](https://www.cyberstates.org/)
 ![](/images/spot1.png)
 <p>&nbsp;</p>
 
-But who's actually working in tech? Are perceptions of tech as a young and male dominated endeavor true? And what is landscape of physical and mental health in these tech workers? We look into some of these answers, using data collected in the 2016 and 2018 [Open Sourcing Mental Illness Mental Health in Tech Surveys](https://osmihelp.org/research). 
+But who's actually working in tech? Are perceptions of tech as a young and male dominated endeavor true? And what is the landscape of physical and mental health in these tech workers? We look into some of these answers, using data collected in the 2016 and 2018 [Open Sourcing Mental Illness Mental Health in Tech Surveys](https://osmihelp.org/research). 
 
 <p>&nbsp;</p>
 ![](/images/spot2.png)
@@ -105,7 +105,7 @@ add log reg of fam hist (0,1), and current (0 0.5 1)
 
 ## Landscape of physical and mental health in tech workers
 
-
+![](/images/mental-physical.png)
 
 Making our own interactive dashboard now [here](/flex/flex.html). 
 
@@ -120,7 +120,7 @@ You should provide a quick explanation of your data and demonstrate some of the 
 This video should be no longer than 4 minutes.
 Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
 
-# misc
+### misc
 ![](/images/mh.png)
 
 ![](/images/woman-working.png)
