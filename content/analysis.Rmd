@@ -18,14 +18,29 @@ We describe here our detailed data analysis.
 * Introduce what motivates your DA
   * Which variables and relationships are you most interested in?
   * What questions are you interested in answering?
-  
-Variables that we are most interested in:
-* Measures of stigma surrounding mental health over time, and distributions of stigma in demographic groups like age and gender
-* 
 
   
 * Breadth of the DA
   * Make sure that you ask enough initial questions to explore the different variables in your data.
+
+Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
+
+For demographics, we identify several variables of interest: 
+
++ Diversity     
+  + Age 
+  + Gender 
++ Country of work
+
+For mental health, we identify the following variables of interest: 
+
++ Prevalence of mental health disorder, past or present 
++ Stigma associated with mental health, which we calculate from a number survey measures 
++ Family history of mental health 
++ Perceptions of employee attitudes to mental health 
++ Perceptions of employee attitudes to physical health
+
+We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018. 
   
   Country of work
 ```{r country}
@@ -300,9 +315,15 @@ Linear regression prediciting mental health disorder by family history
 # modelSummary <- summary(model)
 
 ```
+
 <p>&nbsp;</p>
 
 We use linear regression to model the relationship between a family history of mental health and mental health disorder: 
+
+We use linear regression to model the relationship between having a family history of mental health disorder and having a mental health disorder oneself: 
+
+<p>&nbsp;</p>
+
 $$
 Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
 $$ 
