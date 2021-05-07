@@ -15,7 +15,13 @@ We describe here our detailed data analysis.
 
 -------
 
-##Introduction
+* Introduce what motivates your DA
+  * Which variables and relationships are you most interested in?
+  * What questions are you interested in answering?
+
+  
+* Breadth of the DA
+  * Make sure that you ask enough initial questions to explore the different variables in your data.
 
 Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
 
@@ -34,18 +40,19 @@ For mental health, we identify the following variables of interest:
 + Perceptions of employee attitudes to mental health 
 + Perceptions of employee attitudes to physical health
 
-We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018.
-
-##Demographics
+We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018. 
   
-We first explore the demographics of our data from both 2016 and 2018.
+  Country of work
+```{r country}
 
-###Countries
-
-To get a sense of the geographic diversity of our response pool, we started our analysis by grouping the data from each year by country, and then generating counts per country per year using summarize(). Visualization via tables was facilitated using knitr::kable().
-
-<p>&nbsp;</p>
-
+# library(tidyverse)
+#
+# whereFrom2016 <- combined_demographic_data %>% filter(year=="2016") %>% group_by(country_of_work) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
+# knitr::kable(whereFrom2016)
+# 
+# whereFrom2018 <- combined_demographic_data %>% filter(year=="2018") %>% group_by(country_of_residence) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
+# knitr::kable(whereFrom2018)
+```  
 | Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
 | --- | --- | ----------- | -- | --- | ----------- |
 | 1 | USA | 851 | &nbsp; | USA | 312 | 
@@ -58,46 +65,14 @@ To get a sense of the geographic diversity of our response pool, we started our 
 | 8 | Ireland | 15 | &nbsp; | Australia | 4 | 
 | 9 | France | 14 | &nbsp; | France | 4 | 
 | 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
-
-<p>&nbsp;</p>
-
-Millions of people worldwide have mental health conditions and an estimated 1 in 4 people globally will experience a mental health condition in their lifetime. Another report from NIH says that approximately 1 in 5 U.S. adults experience some type of mental illness every year. Known for a competitive and fast-moving style of living, Americans have developed a definite stigma surrounding mental health, as well as an aversion to taking the time for proper self-care or even treatment. Not only in America, but among the developing countries, the numbers are really similar. And all the developing countries happens to be in the table above about the numbers of employees in each countries working in tech industry. 
-
-```{r country}
-# library(tidyverse)
-#
-# whereFrom2016 <- combined_demographic_data %>% filter(year=="2016") %>% group_by(country_of_work) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
-# knitr::kable(whereFrom2016)
-# 
-# whereFrom2018 <- combined_demographic_data %>% filter(year=="2018") %>% group_by(country_of_residence) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
-# knitr::kable(whereFrom2018)
-```  
-
-###Age and gender
-
-<p>&nbsp;</p>
-
-For our age and gender analysis, we started with a per-year visualization of the participant gender breakdowns. To produce this visualization, we filtered our combined demographic data to remove any observations that contained no response for gender (value = NA). We then grouped the data by gender and year in order to calculate the counts per group using summarize. To produce the visualization, the summary tibble was simply passed to ggplot using geom_bar, with gender on the x-axis, counts on the y-axis, and bars colored by year. Position was set to "dodge" to allow for side-by-side bars plotting.
-
-<p>&nbsp;</p>
-
-To further explore our demographic, we sought to explore the age distributions within each of these gender groups. Using a ggplot's histogram functionality and a facet grid, we produced this visualization using a tibble filtered for non-NA gender and age observations, and grouped by gender and year.
-
-
-![](/images/analysis_age_gender.png)
-
-<p>&nbsp;</p>
-Female (49.7%) tends to seek for mental health treatments comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responds from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations on mental health issues worldwide.
-
-<p>&nbsp;</p>
-
-Adults in the workforce are the target group of mental health disorders. SAMHSA reports 25% from the age of 26 to 49 has experienced some form of mental issues in United States. That correspond with the age range in both surveys. What we are having here is the target group for promoting mental health awareness, and there is a rising need for supporting resources in their workplace. This can be either effective counseling therapy, safe environment for discussion or better coverage in health care for mental diseases. 
-
+  
+Age and gender analysis
 ```{r age-gender}
 # age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
 # knitr::kable(age)
 # 
 # ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat='identity', position="dodge") + labs(x="Gender", y="Count") + scale_x_discrete(labels=c("Female","Queer/Undefined","Male"))
+
 # #generate plot of age distributions per gender identity
 # 
 # combined_demographic_data %>%
@@ -111,9 +86,15 @@ Adults in the workforce are the target group of mental health disorders. SAMHSA 
 #   xlab("Age") +
 #   ylab("Count")
 ```
+<<<<<<< HEAD
 
 ###Exploration of mental health prevalence
+=======
+  
+Exploration of mental health prevalence
+>>>>>>> c97f99854babae3301ccfa3d4f79a422823c93a7
 ```{r}
+
 # #summarize metrics surrounding mental health issue prevalence
 # 
 # data2016_demographics %>%
@@ -213,6 +194,7 @@ Many people who need help for a mental health issue don’t seek it. A study by 
 
 ```{r age-stigma}
 ###Check for relationship between: "Would you be comfortable discussing mental health with your supervisor?" and age
+
 ##2018 model
 # 
 # library(modelr)
@@ -350,6 +332,7 @@ Linear regression prediciting mental health disorder by family history
 #          scale_y_continuous(breaks=c(0,0.5,1),labels=c( "No","Maybe","Yes"), limits=c(-0.2,1.2))
 # 
 # modelSummary <- summary(model)
+
 ```
 
 <p>&nbsp;</p>
@@ -366,3 +349,31 @@ $$
 <p>&nbsp;</p>
 
 A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates  that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health. 
+
+<p>&nbsp;</p>
+
+  * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
+  
+  
+* Depth of the DA
+  * When you answer one question, usually more questions arise as well. 
+  * The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.
+  
+  
+* Modeling and Inference 
+  * You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.
+  * Explain the techniques you used for validating your results.
+  * Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.
+  
+  
+* Clarity Figures
+  * Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?
+  * Each figure should provide a key insight. Too many figures or other data summaries can detract from this.
+  
+  
+* Clarity of Explanations
+  * Do you introduce why you are doing each analysis?
+  * How well do you explain each figure/result?
+  * Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?
+* Organization and cleanliness.
+  * Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.
