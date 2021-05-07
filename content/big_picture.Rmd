@@ -28,7 +28,7 @@ But who's actually working in tech? Are perceptions of tech as a young and male 
 
 ### Where are the tech workers working? 
 
-Most of the respondents in both the 2016 and 2018 survey are working in the United States, followed by the United Kingdom. The following countries are the ten most common countries to work in tech, in descending order, reported in 2016 on the left, and 2018 on the right. The top four most popular countries to work in tech are the same in both years, but in 2018, there are the additions of Poland and India in the top ten.  
+Most of the respondents in both the 2016 and 2018 survey are working in the United States, followed by the United Kingdom. The following are the ten most common countries to work in tech, in descending order, reported in 2016 on the left, and 2018 on the right. The top four most popular countries to work in tech are the same in both years, but in 2018, there are the additions of Poland and India in the top ten.  
 <p>&nbsp;</p>
 
 | Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
@@ -60,7 +60,15 @@ Why are there so few women in tech? Identifying and remedying dropout points, wh
 
 ## The landscape of mental and physical health in tech workers
 
-We assess the prevalence of mental health disorders in tech workers. 
+We assess the prevalence of mental health disorders in tech workers. Of the respondents, 441 (23.8%) report having an ongoing mental health disorder, whereas many more individuals 949 (50.8%) report having had a mental health disorder in the past. This may be due to selection bias, in which individuals with acute, ongoing mental health disorders would less likely be reponsive to such a survey or currently employed in the tech industry. 
+
+<p>&nbsp;</p>
+
+These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individaully internalized levels, are very much still prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling. 
+
+![](/images/mh-now-past.png)
+
+As mental health has a genetic component, we ask: does a family history of mental health disorder predict prevalence of an ongoing mental disorder? 
 
 ![](/images/fam-hist.png)
 
@@ -81,6 +89,10 @@ Make a video recording (probably using Zoom) demonstrating your interactive comp
 You should provide a quick explanation of your data and demonstrate some of the conclusions from your EDA.
 This video should be no longer than 4 minutes.
 Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
-This can be presented by any subset of the team members.
+
+
+
+# misc
+![](/images/mh.png)
 
 ![](/images/woman-working.png)

@@ -67,6 +67,9 @@ ggplot(
 mh <- combined_demographic_data %>% group_by(has_mhd_now) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
 knitr::kable(mh)
 
+mh <- combined_demographic_data %>% group_by(had_mhd_past) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
+knitr::kable(mh)
+
 ggplot(mh, aes(x=1, y = freq, fill=has_mhd_now)) + geom_bar(stat='identity', position="stack") + labs(x="Has mental health disorder now", y="Frequency") + coord_flip() + 
 
 ```
