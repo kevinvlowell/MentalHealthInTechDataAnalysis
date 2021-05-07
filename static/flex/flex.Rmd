@@ -38,7 +38,13 @@ suppressPackageStartupMessages(library(d3scatter))
 lels <- c("1-5", "6-25" ,"26-100" ,"100-500" ,"500-1000","More than 1000")
 
 to_display <- dat2016 %>% 
-  select(gender, age, country_of_work, had_mhd_past,family_history_of_mhd, employer_has_discussed_mh_formally, would_discussing_mh_w_employer_have_negative_effects, would_discussing_ph_w_employer_have_negative_effects, company_size) %>%
+  select(gender, age, country_of_work, had_mhd_past,family_history_of_mhd, employer_has_discussed_mh_formally,
+         difficulty_asking_for_mh_related_medical_leave,
+         comfortable_discussing_mh_with_coworkers,
+         comfortable_discussing_mh_with_supervisors,
+         willing_to_bring_up_mh_in_interview_y_n,
+         would_discussing_mh_w_employer_have_negative_effects, would_discussing_ph_w_employer_have_negative_effects, 
+         company_size) %>%
   mutate(mh_bias = ifelse(would_discussing_mh_w_employer_have_negative_effects == "No", 0,
                                   ifelse(would_discussing_mh_w_employer_have_negative_effects == "Maybe", 0.5, 1)),
          ph_bias = ifelse(would_discussing_ph_w_employer_have_negative_effects == "No", 0,
