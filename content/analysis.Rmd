@@ -156,11 +156,37 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 
 ```
   
+Country of work
+```{r country}
+
+# whereFrom2016 <- combined_demographic_data %>% filter(year=="2016") %>% group_by(country_of_work) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
+# knitr::kable(whereFrom2016)
+# 
+# whereFrom2018 <- combined_demographic_data %>% filter(year=="2018") %>% group_by(country_of_residence) %>% count() %>% arrange(desc(n)) %>% head(n, n = 10) 
+# knitr::kable(whereFrom2018)
+```  
+| Rank | Country of work (2016) | Count | &nbsp; | Country of work (2018) | Count |
+| --- | --- | ----------- | -- | --- | ----------- |
+| 1 | USA | 851 | &nbsp; | USA | 312 | 
+| 2 | UK | 185 | &nbsp; | UK | 19 | 
+| 3 | Canada | 74 | &nbsp; | Canada | 8 | 
+| 4 | Germany | 58 | &nbsp; | Germany | 7 | 
+| 5 | Netherlands | 47 | &nbsp; | Poland | 6 | 
+| 6 | Australia | 34 | &nbsp; | India | 5 | 
+| 7 | Sweden | 20 | &nbsp; | Netherlands | 5 | 
+| 8 | Ireland | 15 | &nbsp; | Australia | 4 | 
+| 9 | France | 14 | &nbsp; | France | 4 | 
+| 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
   
+Age and gender 
+```{r age}
+# age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
+# knitr::kable(age)
+# 
+# ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat='identity', position="dodge") + labs(x="Gender", y="Count") + scale_x_discrete(labels=c("Female","Queer/Undefined","Male"))
+```
   
-  
-  
-  
+![](/images/Gender.png)
   
   
   
