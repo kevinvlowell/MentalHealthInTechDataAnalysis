@@ -107,10 +107,14 @@ Comparing the stigma score by gender and by the two survey years, we find a prom
 
 In addition, we evaluated trends between stigma and age and how these trends may have changed over time. In our first model below, we analyzed how responses to the question "Would you feel comfortable talking to your supervisor about mental health?" varied with age.
 
+<p>&nbsp;</p>
+
 ![](/images/comfortable_talking_to_supervisors_vs_age.png)
 <p>&nbsp;</p>
 
 In our next model, we analyzed how our calculated overall stigma score varied with age as well.
+
+<p>&nbsp;</p>
 
 ![](/images/stigma_vs_age.png)
 <p>&nbsp;</p>
