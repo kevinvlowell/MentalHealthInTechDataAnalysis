@@ -7,53 +7,60 @@ featuredImage: images/Charlotte-Edey-stairs.jpg
 draft: false
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 
 </div>
 
-<p>Image credit: <a href="https://www.charlotteedey.com/">Charlotte Edey</a></p>
-<p>This comes from the file <code>content/analysis.Rmd</code>.</p>
-<p>We describe here our detailed data analysis.</p>
-<hr />
-<ul>
-<li>Introduce what motivates your DA
-<ul>
-<li>Which variables and relationships are you most interested in?</li>
-<li>What questions are you interested in answering?</li>
-</ul></li>
-<li>Breadth of the DA
-<ul>
-<li>Make sure that you ask enough initial questions to explore the different variables in your data.</li>
-</ul></li>
-</ul>
+<p>Image credit: <a href="https://www.charlotteedey.com/">Charlotte Edey</a>
+This comes from the file <code>content/analysis.Rmd</code>.
+We describe here our detailed data analysis.
+——-</p>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
 <p>Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace.</p>
-<p>For demographics, we identify several variables of interest:</p>
+<p>
+ 
+</p>
+For demographics, we identify several variables of interest:<br />
+
+<p style="margin-left: 20px;">
 <ul>
-<li>Diversity
-<ul>
-<li>Age</li>
+<li>Country of work<br />
+</li>
+<li>Age<br />
+</li>
 <li>Gender</li>
-</ul></li>
-<li>Country of work</li>
 </ul>
-<p>For mental health, we identify the following variables of interest:</p>
+</p>
+<p>
+ 
+</p>
+For mental health, we identify the following variables of interest:
+<p style="margin-left: 20px;">
 <ul>
 <li>Prevalence of mental health disorder, past or present</li>
-<li>Stigma associated with mental health, which we calculate from a number survey measures</li>
+<li>Stigma associated with mental health</li>
 <li>Family history of mental health</li>
 <li>Perceptions of employee attitudes to mental health</li>
 <li>Perceptions of employee attitudes to physical health</li>
 </ul>
+</p>
+<p>
+ 
+</p>
 <p>We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018.</p>
-<p>Country of work</p>
-<pre class="r"><code># library(tidyverse)
-#
-# whereFrom2016 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2016&quot;) %&gt;% group_by(country_of_work) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
-# knitr::kable(whereFrom2016)
-# 
-# whereFrom2018 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2018&quot;) %&gt;% group_by(country_of_residence) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
-# knitr::kable(whereFrom2018)</code></pre>
+</div>
+<div id="demographics" class="section level2">
+<h2>Demographics</h2>
+<p>In the section, we will be exploring our three variables of interest: age, gender, and country of work and their relations to the big picture.</p>
+<div id="countries" class="section level3">
+<h3>Countries</h3>
+<p>To get a sense of the geographic diversity of our response pool, we started our analysis by grouping the data from each year by country, and then generating counts per country per year using summarize(). Visualization via tables was facilitated using knitr::kable().</p>
+<p>
+ 
+</p>
 <table>
 <thead>
 <tr class="header">
@@ -148,12 +155,44 @@ draft: false
 </tr>
 </tbody>
 </table>
-<p>Age and gender analysis</p>
+<p>
+ 
+</p>
+<p>Millions of people worldwide have mental health conditions and an estimated 1 in 4 people globally will experience a mental health condition in their lifetime. Another report from NIH says that approximately 1 in 5 U.S. adults experience some type of mental illness every year. Known for a competitive and fast-moving style of living, Americans have developed a definite stigma surrounding mental health, as well as an aversion to taking the time for proper self-care or even treatment. Not only in America, but among the developing countries, the numbers are really similar. And all the developing countries happens to be in the table above about the numbers of employees in each countries working in tech industry.</p>
+<p>
+ 
+</p>
+<pre class="r"><code># library(tidyverse)
+#
+# whereFrom2016 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2016&quot;) %&gt;% group_by(country_of_work) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
+# knitr::kable(whereFrom2016)
+# 
+# whereFrom2018 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2018&quot;) %&gt;% group_by(country_of_residence) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
+# knitr::kable(whereFrom2018)</code></pre>
+</div>
+<div id="age-and-gender" class="section level3">
+<h3>Age and gender</h3>
+<p>For our age and gender analysis, we started with a per-year visualization of the participant gender breakdowns. To produce this visualization, we filtered our combined demographic data to remove any observations that contained no response for gender (value = NA). We then grouped the data by gender and year in order to calculate the counts per group using summarize. To produce the visualization, the summary tibble was simply passed to ggplot using geom_bar, with gender on the x-axis, counts on the y-axis, and bars colored by year. Position was set to “dodge” to allow for side-by-side bars plotting.</p>
+<p>
+ 
+</p>
+<p>To further explore our demographic, we sought to explore the age distributions within each of these gender groups. Using a ggplot’s histogram functionality and a facet grid, we produced this visualization using a tibble filtered for non-NA gender and age observations, and grouped by gender and year.</p>
+<p>
+ 
+</p>
+<p><img src="/images/analysis_age_gender.png" /></p>
+<p>
+ 
+</p>
+<p>Female (49.7%) tends to seek for mental health treatments comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responds from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations on mental health issues worldwide.</p>
+<p>
+ 
+</p>
+<p>Adults in the workforce are the target group of mental health disorders. SAMHSA reports 25% from the age of 26 to 49 has experienced some form of mental issues in United States. That correspond with the age range in both surveys. What we are having here is the target group for promoting mental health awareness, and there is a rising need for supporting resources in their workplace. This can be either effective counseling therapy, safe environment for discussion or better coverage in health care for mental diseases.</p>
 <pre class="r"><code># age &lt;- combined_demographic_data %&gt;% filter(!is.na(gender)) %&gt;% group_by(gender,year) %&gt;% summarise(n = n()) %&gt;% mutate(freq = n / sum(n)) %&gt;% ungroup
 # knitr::kable(age)
 # 
 # ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat=&#39;identity&#39;, position=&quot;dodge&quot;) + labs(x=&quot;Gender&quot;, y=&quot;Count&quot;) + scale_x_discrete(labels=c(&quot;Female&quot;,&quot;Queer/Undefined&quot;,&quot;Male&quot;))
-
 # #generate plot of age distributions per gender identity
 # 
 # combined_demographic_data %&gt;%
@@ -166,7 +205,73 @@ draft: false
 #   theme(plot.title = element_text(hjust = 0.5)) +
 #   xlab(&quot;Age&quot;) +
 #   ylab(&quot;Count&quot;)</code></pre>
-<p>Exploration of mental health prevalence</p>
+</div>
+</div>
+<div id="exploration-of-mental-health-prevalence" class="section level2">
+<h2>Exploration of mental health prevalence</h2>
+<p>We created a heat map based on the mental health diagnosis for both 2016 and 2018 survey. There are two important things to note about this report. Approximately 17.9% people reported to recover from their disorders, and only 4.86% to have suffer from a new disorder. However, the red block on the top right shows that 31.5% continue to suffer with a mental disorders.</p>
+<p>
+ 
+</p>
+<img src="/images/Fig-heatmap.png" />
+<p>
+ 
+</p>
+<p>The table below show the percentage of people with mental health disorder by the time of the survey, divided by year.</p>
+<p>
+ 
+</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">year</th>
+<th align="left">has_mhd_now</th>
+<th align="right">count</th>
+<th align="right">percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2016</td>
+<td align="left">Maybe</td>
+<td align="right">327</td>
+<td align="right">0.2281926</td>
+</tr>
+<tr class="even">
+<td align="left">2016</td>
+<td align="left">No</td>
+<td align="right">531</td>
+<td align="right">0.3705513</td>
+</tr>
+<tr class="odd">
+<td align="left">2016</td>
+<td align="left">Yes</td>
+<td align="right">575</td>
+<td align="right">0.4012561</td>
+</tr>
+<tr class="even">
+<td align="left">2018</td>
+<td align="left">Maybe</td>
+<td align="right">114</td>
+<td align="right">0.2733813</td>
+</tr>
+<tr class="odd">
+<td align="left">2018</td>
+<td align="left">No</td>
+<td align="right">112</td>
+<td align="right">0.2685851</td>
+</tr>
+<tr class="even">
+<td align="left">2018</td>
+<td align="left">Yes</td>
+<td align="right">191</td>
+<td align="right">0.4580336</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
 <pre class="r"><code># #summarize metrics surrounding mental health issue prevalence
 # 
 # data2016_demographics %&gt;%
@@ -191,64 +296,26 @@ draft: false
 #   filter(!is.na(has_mhd_now)) %&gt;%
 #   group_by(year, has_mhd_now) %&gt;%
 #   summarize(Count = n()) %&gt;%
-#   mutate(Percentage = Count/sum(Count))
-# 
-# ## how has stigma changed over time
-# 
-# copy_combinedData &lt;- combined_data
-# 
-# #quantify measures of stigma
-# copy_combinedData$difficulty_asking_for_mh_related_medical_leave &lt;-
-#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
-#          &quot;Very easy&quot; = 1,
-#          &quot;Somewhat easy&quot; = 2,
-#          &quot;Neither easy or difficult&quot; = 3,
-#          &quot;Somewhat difficult&quot; = 4,
-#          &quot;Very difficult&quot; = 5)
-# 
-# copy_combinedData$comfortable_discussing_mh_with_coworkers &lt;-
-#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
-#          &quot;Yes&quot; = 1,
-#          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)
-# 
-# copy_combinedData$comfortable_discussing_mh_with_supervisors &lt;-
-#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
-#          &quot;Yes&quot; = 1,
-#          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)
-# 
-# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n &lt;-
-#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
-#          &quot;Yes&quot; = 1,
-#          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)
-# 
-# #generate total &quot;stigma score&quot; per person by summing quantified measures of
-# #stigma, and plot distribution of scores per gender per year
-# 
-# copy_combinedData &lt;- copy_combinedData %&gt;%
-#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
-#          !is.na(comfortable_discussing_mh_with_coworkers),
-#          !is.na(comfortable_discussing_mh_with_supervisors),
-#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;%
-#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
-#                                comfortable_discussing_mh_with_coworkers +
-#                                comfortable_discussing_mh_with_supervisors +
-#                                willing_to_bring_up_mh_in_interview_y_n)
-# 
-# #plot distribution of stigma scores per gender per year
-#   ggplot(copy_combinedData) +
-#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
-#   facet_grid(gender~ year, scales = &quot;free&quot;)
-# 
-# #compare averages of stigma scores per year and gender
-# copy_combinedData %&gt;%
-#   group_by(year, gender) %&gt;%
-#   summarize(Average_stigma_score = mean(stigma_score))</code></pre>
-<p>Age vs stigma</p>
+#   mutate(Percentage = Count/sum(Count))</code></pre>
+</div>
+<div id="stigma-against-mental-health" class="section level2">
+<h2>Stigma Against Mental Health</h2>
+<p>A study by the World Health Organization found that between 30 and 80 percent of people with mental health issues don’t receive help. People avoid seeking treatment due to concerns about jobs and livelihood. One might face potential of unemployment and separation from society for having issues. That is the reason why stigma, prejudice and discrimination against people with mental illness is a very serious problem.</p>
+<div id="age-vs-stigma" class="section level3">
+<h3>Age vs stigma</h3>
+<p>For the age and stigma analysis, a new dataset containing only age and question on the comfortable scale when talking to supervisor was created. We apply three regression models on the comfortable scale and age for 2016, 2018 and combination of both surveys. Zero will stand in for no, and one for yes. To visualize this procedure, we included graph for regressions. Since only the result for linear regression of 2018 data shows significant result, it’s the only one showing below.</p>
+<p>
+ 
+</p>
+<p><img src="/images/p18.png" /></p>
+<p>
+ 
+</p>
+<p>More than half of people with mental illness don’t receive help for their disorders. People are afraid of being stigmatized if they admit they need help, and the absence of a safe environment where people can discuss their issues worsen the problem. However, awareness of mental illness and the need for treatment has been growing in recent years. The younger generations have learn to be more vocal in the search for help. The 2018 analysis shows a significant correlation about the youths talking to their supervisor about their problems. There were no significant result from the 2016 or combination of both surveys, but it’s never harm to raise awareness for company to establish campaign to prevent stigma at workplace.</p>
+<p>
+ 
+</p>
 <pre class="r"><code>###Check for relationship between: &quot;Would you be comfortable discussing mental health with your supervisor?&quot; and age
-
 ##2018 model
 # 
 # library(modelr)
@@ -317,28 +384,141 @@ draft: false
 #   )
 # 
 # print(plot)
-# dev.off()
-# 
-# ###Check forelationship between stigma score and age?
-# stigma_agelm &lt;- copy_combinedData %&gt;% filter(age &gt;=18 &amp; age &lt; 80)
-# 
-# age_model &lt;- lm(stigma_score ~ age, data = stigma_agelm)
-# 
-# grid &lt;- stigma_agelm %&gt;% data_grid(age) %&gt;% add_predictions(age_model, type = &quot;response&quot;)
-# 
-# png(&quot;stigma_vs_age.png&quot;, width = 700, height = 500)
-# 
-# stigma_plot &lt;- stigma_agelm %&gt;% ggplot(aes(x = age)) +
-#   geom_point(aes(y = stigma_score), position = &quot;jitter&quot;, alpha = 0.5, color = &quot;coral&quot;) +
-#   geom_line(aes(y=pred), data = grid, color = &quot;black&quot;) +
-#   theme_minimal()+
-#   labs(title = &quot;Relationship between Stigma Score and Age&quot;,
-#        y = &quot;Stigma Score&quot;,
-#        x = &quot;Age&quot;)+ theme(plot.title = element_text(hjust = 0.5))
-# 
-# print(stigma_plot)
 # dev.off()</code></pre>
-<p>Function converting likert scale responses to numeric so it is easier to model</p>
+</div>
+<div id="gender-vs-stigma" class="section level3">
+<h3>Gender vs Stigma</h3>
+<p>Stigma scores were created based on questions about responders’ willingness to discuss their mental health with their co-workers or supervisors. We assigned an value to each responses, ranging from lowest score for extremely comfortable discussing to highest score for the opposite. Due to the different response in every questions, response scale will differ. The range go from 1 to either 3 or 5.</p>
+<p>
+ 
+</p>
+<p>We perform another analysis on stigma score and gender for both 2016 and 2018. All NAs are eliminated from the gender variables, keeping only male, female and gender queer. We use histogram plot to show the distribution of score throughout the years, by gender. We also included a table of average stigma scores.</p>
+<p>
+ 
+</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">year</th>
+<th align="left">gender</th>
+<th align="right">Average_stigma_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2016</td>
+<td align="left">F</td>
+<td align="right">9.517241</td>
+</tr>
+<tr class="even">
+<td align="left">2016</td>
+<td align="left">GQ</td>
+<td align="right">9.260870</td>
+</tr>
+<tr class="odd">
+<td align="left">2016</td>
+<td align="left">M</td>
+<td align="right">8.920608</td>
+</tr>
+<tr class="even">
+<td align="left">2018</td>
+<td align="left">F</td>
+<td align="right">8.444444</td>
+</tr>
+<tr class="odd">
+<td align="left">2018</td>
+<td align="left">GQ</td>
+<td align="right">7.133333</td>
+</tr>
+<tr class="even">
+<td align="left">2018</td>
+<td align="left">M</td>
+<td align="right">8.234043</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p>The stigma of mental illness imposes substantial costs on both the individuals who experience mental illness and society at large, and gender has an important role. A study published on NIH shows that when a case is gender typical, responders felt more negative affect, less sympathy, and less inclination to help than a gender atypical case (Wirth &amp; Bodenhausen, 2009). However, the table shows that stigma score did decrease for both female and gender queer, maybe in response widespread mental health awareness.</p>
+<p>
+ 
+</p>
+<p><img src="/images/stigma.png" /></p>
+<pre class="r"><code># ## how has stigma changed over time
+# 
+# copy_combinedData &lt;- combined_data
+# 
+# #quantify measures of stigma
+# copy_combinedData$difficulty_asking_for_mh_related_medical_leave &lt;-
+#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
+#          &quot;Very easy&quot; = 1,
+#          &quot;Somewhat easy&quot; = 2,
+#          &quot;Neither easy or difficult&quot; = 3,
+#          &quot;Somewhat difficult&quot; = 4,
+#          &quot;Very difficult&quot; = 5)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_coworkers &lt;-
+#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
+#          &quot;Yes&quot; = 1,
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_supervisors &lt;-
+#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
+#          &quot;Yes&quot; = 1,
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n &lt;-
+#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
+#          &quot;Yes&quot; = 1,
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3) 
+#
+# #generate total &quot;stigma score&quot; per person by summing quantified measures of
+# #stigma, and plot distribution of scores per gender per year
+# 
+# copy_combinedData &lt;- copy_combinedData %&gt;%
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;%
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n)
+# 
+# #plot distribution of stigma scores per gender per year
+#   ggplot(copy_combinedData) +
+#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
+#   facet_grid(gender~ year, scales = &quot;free&quot;)
+# 
+# #compare averages of stigma scores per year and gender
+# copy_combinedData %&gt;%
+#   group_by(year, gender) %&gt;%
+#   summarize(Average_stigma_score = mean(stigma_score))
+# knitr::kable(copy_combinedData)</code></pre>
+</div>
+</div>
+<div id="linear-regression-prediciting-mental-health-disorder-by-family-history" class="section level2">
+<h2>Linear regression prediciting mental health disorder by family history</h2>
+<p>We use linear regression to model the relationship between a family history of mental health and mental health disorder:
+We use linear regression to model the relationship between having a family history of mental health disorder and having a mental health disorder oneself:</p>
+<p>
+ 
+</p>
+<p><span class="math display">\[
+Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
+\]</span></p>
+<p>
+ 
+</p>
+<p>A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health.</p>
+<p>
+ 
+</p>
+<p><img src="/images/famhist-model.png" /></p>
 <pre class="r"><code># convert_str &lt;- function (sub_string) {
 #   if (sub_string == &#39;Yes&#39;)
 #     {str_num &lt;- 1}
@@ -352,17 +532,16 @@ draft: false
 #     {str_num &lt;- -1}
 #   return(str_num)
 # }
-# 
-# combined_data$num_had_mhd_past &lt;- numeric()
-# combined_data$num_has_mhd_now &lt;- numeric()
-# combined_data$num_family_history_of_mhd &lt;- numeric()
+ 
+#combined_data$num_had_mhd_past &lt;- numeric()
+#combined_data$num_has_mhd_now &lt;- numeric()
+#combined_data$num_family_history_of_mhd &lt;- numeric()
 # for (i in 1:length(combined_data$had_mhd_past)) 
 # {
 #   combined_data$num_had_mhd_past[i] &lt;- convert_str(combined_data$had_mhd_past[i])
 #   combined_data$num_has_mhd_now[i] &lt;- convert_str(combined_data$has_mhd_now[i])
 #   combined_data$num_family_history_of_mhd[i] &lt;- convert_str(combined_data$family_history_of_mhd[i])
 # }</code></pre>
-<p>Linear regression prediciting mental health disorder by family history</p>
 <pre class="r"><code># library(ggplot2)
 # library(reshape2)
 # 
@@ -380,50 +559,4 @@ draft: false
 #          scale_y_continuous(breaks=c(0,0.5,1),labels=c( &quot;No&quot;,&quot;Maybe&quot;,&quot;Yes&quot;), limits=c(-0.2,1.2))
 # 
 # modelSummary &lt;- summary(model)</code></pre>
-<p>
- 
-</p>
-<p>We use linear regression to model the relationship between a family history of mental health and mental health disorder:</p>
-<p>We use linear regression to model the relationship between having a family history of mental health disorder and having a mental health disorder oneself:</p>
-<p>
- 
-</p>
-<span class="math display">\[
-Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
-\]</span>
-<p>
- 
-</p>
-<p>A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health.</p>
-<p>
- 
-</p>
-<ul>
-<li><p>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</p></li>
-<li>Depth of the DA
-<ul>
-<li>When you answer one question, usually more questions arise as well.</li>
-<li>The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.</li>
-</ul></li>
-<li>Modeling and Inference
-<ul>
-<li>You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.</li>
-<li>Explain the techniques you used for validating your results.</li>
-<li>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.</li>
-</ul></li>
-<li>Clarity Figures
-<ul>
-<li>Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?</li>
-<li>Each figure should provide a key insight. Too many figures or other data summaries can detract from this.</li>
-</ul></li>
-<li>Clarity of Explanations
-<ul>
-<li>Do you introduce why you are doing each analysis?</li>
-<li>How well do you explain each figure/result?</li>
-<li>Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?</li>
-</ul></li>
-<li>Organization and cleanliness.
-<ul>
-<li>Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.</li>
-</ul></li>
-</ul>
+</div>

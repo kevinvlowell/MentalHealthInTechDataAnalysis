@@ -9,30 +9,40 @@ draft: false
 Image credit: [Charlotte Edey](https://www.charlotteedey.com/)
 This comes from the file `content/analysis.Rmd`.
 We describe here our detailed data analysis. 
--------
-##Introduction
+-------  
+
+## Introduction
 Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
 
-For demographics, we identify several variables of interest: 
-  + Diversity     
-  + Age 
-  + Gender 
-  + Country of work
+<p>&nbsp;</p>
+
+For demographics, we identify several variables of interest:  
+<p style="margin-left: 20px;">
++ Country of work  
++ Age   
++ Gender   
+
+</p>
+<p>&nbsp;</p>
 
 For mental health, we identify the following variables of interest: 
-  + Prevalence of mental health disorder, past or present 
-  + Stigma associated with mental health, which we calculate from a number survey measures 
-  + Family history of mental health 
-  + Perceptions of employee attitudes to mental health 
-  + Perceptions of employee attitudes to physical health
+<p style="margin-left: 20px;">
++ Prevalence of mental health disorder, past or present
++ Stigma associated with mental health
++ Family history of mental health
++ Perceptions of employee attitudes to mental health
++ Perceptions of employee attitudes to physical health
+</p>
 
+<p>&nbsp;</p>  
+      
 We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018.
-
-##Demographics
+  
+## Demographics
   
 In the section, we will be exploring our three variables of interest: age, gender, and country of work and their relations to the big picture. 
 
-###Countries
+### Countries
 To get a sense of the geographic diversity of our response pool, we started our analysis by grouping the data from each year by country, and then generating counts per country per year using summarize(). Visualization via tables was facilitated using knitr::kable().
 
 <p>&nbsp;</p>
@@ -66,9 +76,7 @@ Millions of people worldwide have mental health conditions and an estimated 1 in
 # knitr::kable(whereFrom2018)
 ```  
 
-###Age and gender
-
-<p>&nbsp;</p>
+### Age and gender
 
 For our age and gender analysis, we started with a per-year visualization of the participant gender breakdowns. To produce this visualization, we filtered our combined demographic data to remove any observations that contained no response for gender (value = NA). We then grouped the data by gender and year in order to calculate the counts per group using summarize. To produce the visualization, the summary tibble was simply passed to ggplot using geom_bar, with gender on the x-axis, counts on the y-axis, and bars colored by year. Position was set to "dodge" to allow for side-by-side bars plotting.
 
@@ -107,7 +115,29 @@ Adults in the workforce are the target group of mental health disorders. SAMHSA 
 #   ylab("Count")
 ```
 
-##Exploration of mental health prevalence
+## Exploration of mental health prevalence
+
+We created a heat map based on the mental health diagnosis for both 2016 and 2018 survey. There are two important things to note about this report. Approximately 17.9% people reported to recover from their disorders, and only 4.86% to have suffer from a new disorder. However, the red block on the top right shows that 31.5% continue to suffer with a mental disorders. 
+
+<p>&nbsp;</p>  
+
+![](/images/Fig-heatmap.png)
+<p>&nbsp;</p>  
+
+The table below show the percentage of people with mental health disorder by the time of the survey, divided by year.
+
+<p>&nbsp;</p>  
+
+|year |has_mhd_now | count| percentage|
+|:----|:-----------|-----:|----------:|
+|2016 |Maybe       |   327|  0.2281926|
+|2016 |No          |   531|  0.3705513|
+|2016 |Yes         |   575|  0.4012561|
+|2018 |Maybe       |   114|  0.2733813|
+|2018 |No          |   112|  0.2685851|
+|2018 |Yes         |   191|  0.4580336|
+
+<p>&nbsp;</p>  
 
 ```{r}
 # #summarize metrics surrounding mental health issue prevalence
@@ -135,56 +165,14 @@ Adults in the workforce are the target group of mental health disorders. SAMHSA 
 #   group_by(year, has_mhd_now) %>%
 #   summarize(Count = n()) %>%
 #   mutate(Percentage = Count/sum(Count))
-# 
-# ## how has stigma changed over time
-# 
-# copy_combinedData <- combined_data
-# 
-# #quantify measures of stigma
-# copy_combinedData$difficulty_asking_for_mh_related_medical_leave <-
-#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
-#          "Very easy" = 1,
-#          "Somewhat easy" = 2,
-#          "Neither easy or difficult" = 3,
-#          "Somewhat difficult" = 4,
-#          "Very difficult" = 5)
-# 
-# copy_combinedData$comfortable_discussing_mh_with_coworkers <-
-#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
-#          "Yes" = 1,
-#          "Maybe" = 2,
-#          "No" = 3)
-# 
-# copy_combinedData$comfortable_discussing_mh_with_supervisors <-
-#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
-#          "Yes" = 1,
-#          "Maybe" = 2,
-#          "No" = 3)
-# 
-# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n <-
-#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
-#          "Yes" = 1,
-#          "Maybe" = 2,
-#          "No" = 3)
-# 
-# #generate total "stigma score" per person by summing quantified measures of
-# #stigma, and plot distribution of scores per gender per year
-# 
-# copy_combinedData <- copy_combinedData %>%
-#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
-#          !is.na(comfortable_discussing_mh_with_coworkers),
-#          !is.na(comfortable_discussing_mh_with_supervisors),
-#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %>%
-#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
-#                                comfortable_discussing_mh_with_coworkers +
-#                                comfortable_discussing_mh_with_supervisors +
-#                                willing_to_bring_up_mh_in_interview_y_n)
-# 
 ```
+## Stigma Against Mental Health
 
-###Age vs stigma
+A study by the World Health Organization found that between 30 and 80 percent of people with mental health issues don’t receive help. People avoid seeking treatment due to concerns about jobs and livelihood. One might face potential of unemployment and separation from society for having issues. That is the reason why stigma, prejudice and discrimination against people with mental illness is a very serious problem.
 
-<p>&nbsp;</p>
+
+### Age vs stigma
+
 
 For the age and stigma analysis, a new dataset containing only age and question on the comfortable scale when talking to supervisor was created. We apply three regression models on the comfortable scale and age for 2016, 2018 and combination of both surveys. Zero will stand in for no, and one for yes. To visualize this procedure, we included graph for regressions. Since only the result for linear regression of 2018 data shows significant result, it's the only one showing below. 
 
@@ -194,7 +182,7 @@ For the age and stigma analysis, a new dataset containing only age and question 
 
 <p>&nbsp;</p>
 
-Many people who need help for a mental health issue don’t seek it. A study by the World Health Organization found that between 30 and 80 percent of people with mental health issues don’t seek treatment. People are afraid of being stigmatized if they admit they need help, and the absence of a safe environment where people can discuss their issues worsen the problem. However, awareness of mental illness and the need for treatment has been growing in recent years. The younger generations have learn to be more vocal in the search for help. The 2018 analysis shows a significant correlation about the youths talking to their supervisor about their problems. There were no significant result from the 2016 or combination of both surveys, but it's never harm to raise awareness for company to establish campaign to prevent stigma at workplace.
+More than half of people with mental illness don't receive help for their disorders. People are afraid of being stigmatized if they admit they need help, and the absence of a safe environment where people can discuss their issues worsen the problem. However, awareness of mental illness and the need for treatment has been growing in recent years. The younger generations have learn to be more vocal in the search for help. The 2018 analysis shows a significant correlation about the youths talking to their supervisor about their problems. There were no significant result from the 2016 or combination of both surveys, but it's never harm to raise awareness for company to establish campaign to prevent stigma at workplace.
 
 <p>&nbsp;</p>
 
@@ -269,29 +257,13 @@ Many people who need help for a mental health issue don’t seek it. A study by 
 # 
 # print(plot)
 # dev.off()
-# 
-# ###Check forelationship between stigma score and age?
-# stigma_agelm <- copy_combinedData %>% filter(age >=18 & age < 80)
-# 
-# age_model <- lm(stigma_score ~ age, data = stigma_agelm)
-# 
-# grid <- stigma_agelm %>% data_grid(age) %>% add_predictions(age_model, type = "response")
-# 
-# png("stigma_vs_age.png", width = 700, height = 500)
-# 
-# stigma_plot <- stigma_agelm %>% ggplot(aes(x = age)) +
-#   geom_point(aes(y = stigma_score), position = "jitter", alpha = 0.5, color = "coral") +
-#   geom_line(aes(y=pred), data = grid, color = "black") +
-#   theme_minimal()+
-#   labs(title = "Relationship between Stigma Score and Age",
-#        y = "Stigma Score",
-#        x = "Age")+ theme(plot.title = element_text(hjust = 0.5))
-# 
-# print(stigma_plot)
-# dev.off()
 ```
 
-###Gender vs Stigma
+### Gender vs Stigma
+
+Stigma scores were created based on questions about responders' willingness to discuss their mental health with their co-workers or supervisors. We assigned an value to each responses, ranging from lowest score for extremely comfortable discussing to highest score for the opposite. Due to the different response in every questions, response scale will differ. The range go from 1 to either 3 or 5. 
+
+<p>&nbsp;</p>
 
 We perform another analysis on stigma score and gender for both 2016 and 2018. All NAs are eliminated from the gender variables, keeping only male, female and gender queer. We use histogram plot to show the distribution of score throughout the years, by gender. We also included a table of average stigma scores.
 
@@ -315,6 +287,50 @@ The stigma of mental illness imposes substantial costs on both the individuals w
 ![](/images/stigma.png)
 
 ```{r}
+# ## how has stigma changed over time
+# 
+# copy_combinedData <- combined_data
+# 
+# #quantify measures of stigma
+# copy_combinedData$difficulty_asking_for_mh_related_medical_leave <-
+#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
+#          "Very easy" = 1,
+#          "Somewhat easy" = 2,
+#          "Neither easy or difficult" = 3,
+#          "Somewhat difficult" = 4,
+#          "Very difficult" = 5)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_coworkers <-
+#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
+#          "Yes" = 1,
+#          "Maybe" = 2,
+#          "No" = 3)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_supervisors <-
+#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
+#          "Yes" = 1,
+#          "Maybe" = 2,
+#          "No" = 3)
+# 
+# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n <-
+#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
+#          "Yes" = 1,
+#          "Maybe" = 2,
+#          "No" = 3) 
+#
+# #generate total "stigma score" per person by summing quantified measures of
+# #stigma, and plot distribution of scores per gender per year
+# 
+# copy_combinedData <- copy_combinedData %>%
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %>%
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n)
+# 
 # #plot distribution of stigma scores per gender per year
 #   ggplot(copy_combinedData) +
 #   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
@@ -327,7 +343,25 @@ The stigma of mental illness imposes substantial costs on both the individuals w
 # knitr::kable(copy_combinedData)
 ```
 
-Function converting likert scale responses to numeric so it is easier to model
+
+## Linear regression prediciting mental health disorder by family history
+
+We use linear regression to model the relationship between a family history of mental health and mental health disorder: 
+We use linear regression to model the relationship between having a family history of mental health disorder and having a mental health disorder oneself: 
+
+<p>&nbsp;</p>
+
+$$
+Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
+$$ 
+
+<p>&nbsp;</p>
+
+A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates  that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health. 
+
+<p>&nbsp;</p>
+
+![](/images/famhist-model.png)
 
 ```{r convertnum}
 # convert_str <- function (sub_string) {
@@ -343,10 +377,10 @@ Function converting likert scale responses to numeric so it is easier to model
 #     {str_num <- -1}
 #   return(str_num)
 # }
-# 
-# combined_data$num_had_mhd_past <- numeric()
-# combined_data$num_has_mhd_now <- numeric()
-# combined_data$num_family_history_of_mhd <- numeric()
+ 
+#combined_data$num_had_mhd_past <- numeric()
+#combined_data$num_has_mhd_now <- numeric()
+#combined_data$num_family_history_of_mhd <- numeric()
 # for (i in 1:length(combined_data$had_mhd_past)) 
 # {
 #   combined_data$num_had_mhd_past[i] <- convert_str(combined_data$had_mhd_past[i])
@@ -355,7 +389,6 @@ Function converting likert scale responses to numeric so it is easier to model
 # }
 ```
 
-Linear regression prediciting mental health disorder by family history
 ```{r famhist}
 # library(ggplot2)
 # library(reshape2)
@@ -376,17 +409,5 @@ Linear regression prediciting mental health disorder by family history
 # modelSummary <- summary(model)
 ```
 
-<p>&nbsp;</p>
 
-We use linear regression to model the relationship between a family history of mental health and mental health disorder: 
-We use linear regression to model the relationship between having a family history of mental health disorder and having a mental health disorder oneself: 
 
-<p>&nbsp;</p>
-
-$$
-Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
-$$ 
-
-\<p>&nbsp;</p>
-
-A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates  that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health. 
