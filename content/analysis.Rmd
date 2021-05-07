@@ -34,7 +34,7 @@ For mental health, we identify the following variables of interest:
 
 We assess these first univariately, then in relation to each other (for variables we think may interesting to map together, such as age with gender, and perceptions of employee attitudes to mental health with those of physical health). Lastly, we look at the response patterns ond relationships of response patterns over time, made possible by combining survey data from two years, collected in 2016 and 2018. 
   
-  Country of work
+## Country of work
 ```{r country}
 
 # library(tidyverse)
@@ -60,7 +60,7 @@ We assess these first univariately, then in relation to each other (for variable
   
 Millions of people worldwide have mental health conditions and an estimated 1 in 4 people globally will experience a mental health condition in their lifetime. Another report from NIH says that approximately 1 in 5 U.S. adults experience some type of mental illness every year. Known for a competitive and fast-moving style of living, Americans have developed a definite stigma surrounding mental health, as well as an aversion to taking the time for proper self-care or even treatment. Not only in America, but among the developing countries, the number is really similar. And all the developing countries happens to be in the table above about the numbers of employees in each countries working in tech industry. 
 
-Age and gender analysis
+## Age and gender
 ```{r age-gender}
 # age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
 # knitr::kable(age)
@@ -81,6 +81,7 @@ Age and gender analysis
 #   ylab("Count")
 ```
 
+![](/images/Age-Gender.png)
 Female (49.7%) tends to seek for mental health treatments comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responds from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations on mental health issues worldwide.
 
 Adults in the workforce are the target group of mental health disorders. SAMHSA reports 25% from the age of 26 to 49 has experienced some form of mental issues in United States. That correspond with the age range in both surveys. What we are having here is the target group for promoting mental health awareness, and there is a rising need for supporting resources in their workplace. This can be either effective counseling therapy, safe environment for discussion or better coverage in health care for mental diseases. 
@@ -265,6 +266,7 @@ Age vs stigma
 # print(stigma_plot)
 # dev.off()
 ```
+One of the stigma against mental health is open discussion. Company needs to establish a safe area for their workers to talk about their problem and encourage them to seek for treatments. 
 
 Function converting likert scale responses to numeric so it is easier to model
 ```{r convertnum}
