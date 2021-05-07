@@ -70,9 +70,21 @@ knitr::kable(mh)
 mh <- combined_demographic_data %>% group_by(had_mhd_past) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup()
 knitr::kable(mh)
 
-ggplot(mh, aes(x=1, y = freq, fill=has_mhd_now)) + geom_bar(stat='identity', position="stack") + labs(x="Has mental health disorder now", y="Frequency") + coord_flip() + 
-
+ggplot(mh, aes(x=1, y = freq, fill=has_mhd_now)) + geom_bar(stat='identity', position="stack") + labs(x="Has mental health disorder now", y="Frequency") + coord_flip() 
 ```
+
+```{r age-gender}
+age <- combined_demographic_data %>% filter(age<99) %>% group_by(gender) %>% summarise(mean = mean(age),iqr = IQR(age), max = max(age))
+
+knitr::kable(age)
+```
+
+```{r famhistory}
+age <- combined_demographic_data %>% filter(age<99) %>% group_by(gender) %>% summarise(mean = mean(age),iqr = IQR(age), max = max(age))
+
+knitr::kable(age)
+```
+
 
 ```{r r1}
 # combine combined_demo and combined_survey 
@@ -107,21 +119,23 @@ convert_str <- function (sub_string) {
     {str_num <- 1}
   else if (sub_string == 'No')
     {str_num <- 0}
-  else if (sub_string == 'Possibly')
-    {str_num <- 0.33}
+  # else if (sub_string == 'Possibly')
+  #   {str_num <- 0.33}
   else if (sub_string == 'Maybe')
-    {str_num <- 0.67}
+    {str_num <- 0.5}
   else
     {str_num <- -1}
   return(str_num)
 }
 
-d$num_had_mhd_past <- numeric()
-d$num_has_mhd_now <- numeric()
-for (i in 1:length(d$had_mhd_past)) 
+combined_data$num_had_mhd_past <- numeric()
+combined_data$num_has_mhd_now <- numeric()
+combined_data$num_family_history_of_mhd <- numeric()
+for (i in 1:length(combined_data$had_mhd_past)) 
 {
-  d$num_had_mhd_past[i] <- convert_str(d$had_mhd_past[i])
-  d$num_has_mhd_now[i] <- convert_str(d$has_mhd_now[i])
+  combined_data$num_had_mhd_past[i] <- convert_str(combined_data$had_mhd_past[i])
+  combined_data$num_has_mhd_now[i] <- convert_str(combined_data$has_mhd_now[i])
+  combined_data$num_family_history_of_mhd[i] <- convert_str(combined_data$family_history_of_mhd[i])
 }
 
 # d_melt <- melt(d,id=c("num_had_mhd_past","num_has_mhd_now"))
@@ -130,6 +144,27 @@ d_mhd   <- d %>% group_by(num_has_mhd_now) %>% summarise(n = n())
 d_mhd   <- d %>% group_by(num_had_mhd_past) %>% summarise(n = n())
 
 d_mhd_melt <- melt(d_mhd,id="X1")
+```
+
+```{r famhist}
+library(ggplot2)
+library(reshape2)
+
+# filter data for respondents who reported (1) yes family history of mhd or (0) no history
+famhist <- combined_data %>% filter(!(num_family_history_of_mhd==-1))
+
+# fit linear model
+model = lm(num_family_history_of_mhd ~num_has_mhd_now, famhist)
+mt_coef = coef(model)
+
+ggplot(famhist, aes(x= num_has_mhd_now, y= num_family_history_of_mhd)) + geom_jitter(aes(colour=year),alpha = .3) +
+  geom_abline(intercept = mt_coef[1], slope = mt_coef[2], color = "red", size = 1) + 
+         labs(x='Family history of mental health disorder',y='Do you have a mental health disorder now?') + 
+         scale_x_continuous(breaks=c(0,0.5,1),labels=c( "No","Maybe","Yes"), limits=c(-0.2,1.2)) +
+         scale_y_continuous(breaks=c(0,0.5,1),labels=c( "No","Maybe","Yes"), limits=c(-0.2,1.2))
+
+modelSummary <- summary(model)
+
 ```
 
 ```{r plotHeatmap}
@@ -141,6 +176,7 @@ ggplot(data = d_mhd_melt, aes(x=X1, y=variable, fill=value)) +
    name="Count") + 
  geom_text(aes(X1, variable, label = value), color = "black", size = 4) + coord_flip() + labs(x="Has mental health disorder now", y="Has had mental health disorder in past)") + scale_x_continuous(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes")) + scale_y_discrete(breaks=c(0,0.33,0.67,1),labels=c( "No","Possibly","Maybe","Yes"))
 ```
+
 ```{r mhd-past}
 dbar <- d %>% group_by(num_had_mhd_past) %>% count()
 ggplot(data=dbar, aes(x=`num_had_mhd_past`, y=n)) +
@@ -162,29 +198,29 @@ ggplot(d, aes(x=num_had_mhd_past, y=num_has_mhd_now, color=year)) + geom_jitter(
 ```
 
 ```{r correlation-matrix}
-cormat <- cor(d$num_had_mhd_past,d$num_has_mhd_now)
+cormat <- cor(combined_data$num_had_mhd_past,combined_data$num_has_mhd_now)
 head(cormat)
 
+melt(cormat) -> cormat_melted
 
 library(ggplot2)
 ggplot(data = melted_cormat, aes(x=Var1, y=Var2, fill=value)) + 
   geom_tile()
 
-
-# correlation ma# Melt the correlation matrix
+# correlation matrix, melt the correlation matrix
 library(reshape2)
 melted_cormat <- melt(upper_tri, na.rm = TRUE)
-# Heatmap
+
+# heatmap
 library(ggplot2)
 ggplot(data = melted_cormat, aes(Var2, Var1, fill = value))+
  geom_tile(color = "white")+
  scale_fill_gradient2(low = "blue", high = "red", mid = "white", 
    midpoint = 0, limit = c(-1,1), space = "Lab", 
    name="Pearson\nCorrelation") +
-  theme_minimal()+ 
- theme(axis.text.x = element_text(angle = 45, vjust = 1, 
-    size = 12, hjust = 1))+
- coord_fixed()trix 
+theme_minimal() + 
+theme(axis.text.x = element_text(angle = 45, vjust = 1, size = 12, hjust = 1)) +
+coord_fixed()
 
 ```
 

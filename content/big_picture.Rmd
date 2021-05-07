@@ -96,18 +96,23 @@ With this metric, we evaluated trends in stigma by gender and across time.
 Overall, our analysis seemed to show that the distributions of stigma remained largely the same per gender between 2016 and 2018; if anything, the distribution for females and gender-queer/non-binary individuals seemed to have move slightly toward a lower stigma distribution between the two years. After calculating the average stigma scores per gender per year, these original observations seemed confirmed: the average scores slightly decreased for both female and gender-queer/non-binary respondents between 2016 and 2018, yet remained about the same for males.
 
 ## Mental health and family history 
-<p>&nbsp;</p>
 
-As mental health has a genetic component, we ask: does a family history of mental health disorder predict prevalence of an ongoing mental disorder? 
+As mental health has a genetic component, we ask: does a family history of mental health disorder predict a respondent's own presence of a mental health disorder? 
 
 ![](/images/fam-hist.png)
-add log reg of fam hist (0,1), and current (0 0.5 1)
+<p>&nbsp;</p>
+
+More respondents reported having a family history of mental disorder than not. Compellingly, we find one's own mental health is strongly related to the mental health history of family members, such that individuals with a high family history of mental health disorder are more likely of having a mental health disorder themselves. In red is the trend line, or the straight line that best models the relationship one's own and one's family's mental health. 
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+![](/images/famhist-model.png)
 
 ## Landscape of physical and mental health in tech workers
 
 ![](/images/mental-physical.png)
-
-Making our own interactive dashboard now [here](/flex/flex.html). 
 
 ## An interactive look at demographics and stigma
 
@@ -122,5 +127,3 @@ Include a link to your video (and password if needed) in your README.md file on 
 
 ### misc
 ![](/images/mh.png)
-
-![](/images/woman-working.png)

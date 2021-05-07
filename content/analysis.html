@@ -333,6 +333,48 @@ draft: false
 # 
 # print(stigma_plot)
 # dev.off()</code></pre>
+<p>Function converting likert scale responses to numeric so it is easier to model</p>
+<pre class="r"><code># convert_str &lt;- function (sub_string) {
+#   if (sub_string == &#39;Yes&#39;)
+#     {str_num &lt;- 1}
+#   else if (sub_string == &#39;No&#39;)
+#     {str_num &lt;- 0}
+#   else if (sub_string == &#39;Possibly&#39;)
+#     {str_num &lt;- 0.33}
+#   else if (sub_string == &#39;Maybe&#39;)
+#     {str_num &lt;- 0.67}
+#   else
+#     {str_num &lt;- -1}
+#   return(str_num)
+# }
+# 
+# combined_data$num_had_mhd_past &lt;- numeric()
+# combined_data$num_has_mhd_now &lt;- numeric()
+# combined_data$num_family_history_of_mhd &lt;- numeric()
+# for (i in 1:length(combined_data$had_mhd_past)) 
+# {
+#   combined_data$num_had_mhd_past[i] &lt;- convert_str(combined_data$had_mhd_past[i])
+#   combined_data$num_has_mhd_now[i] &lt;- convert_str(combined_data$has_mhd_now[i])
+#   combined_data$num_family_history_of_mhd[i] &lt;- convert_str(combined_data$family_history_of_mhd[i])
+# }</code></pre>
+<p>Linear regression prediciting mental health disorder by family history</p>
+<pre class="r"><code># library(ggplot2)
+# library(reshape2)
+# 
+# # filter data for respondents who reported (1) yes family history of mhd or (0) no history
+# famhist &lt;- combined_data %&gt;% filter(!(num_family_history_of_mhd==-1))
+# 
+# # fit linear model
+# model = lm(num_family_history_of_mhd ~num_has_mhd_now, famhist)
+# mt_coef = coef(model)
+# 
+# ggplot(famhist, aes(x= num_has_mhd_now, y= num_family_history_of_mhd)) + geom_jitter(aes(colour=year),alpha = .3) +
+#   geom_abline(intercept = mt_coef[1], slope = mt_coef[2], color = &quot;red&quot;, size = 1) + 
+#          labs(x=&#39;Family history of mental health disorder&#39;,y=&#39;Do you have a mental health disorder now?&#39;) + 
+#          scale_x_continuous(breaks=c(0,0.5,1),labels=c( &quot;No&quot;,&quot;Maybe&quot;,&quot;Yes&quot;), limits=c(-0.2,1.2)) +
+#          scale_y_continuous(breaks=c(0,0.5,1),labels=c( &quot;No&quot;,&quot;Maybe&quot;,&quot;Yes&quot;), limits=c(-0.2,1.2))
+# 
+# modelSummary &lt;- summary(model)</code></pre>
 <ul>
 <li><p>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</p></li>
 <li>Depth of the DA
