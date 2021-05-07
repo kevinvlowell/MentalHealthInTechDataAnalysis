@@ -308,6 +308,13 @@ Linear regression prediciting mental health disorder by family history
 # modelSummary <- summary(model)
 
 ```
+We use linear regression to model the relationship between a family history of mental health and mental health disorder: 
+$$
+Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
+$$ 
+A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates  that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health. 
+
+<p>&nbsp;</p>
 
   * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
   
