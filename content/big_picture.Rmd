@@ -65,7 +65,7 @@ We assess the prevalence of mental health disorders in tech workers.
 ![](/images/fam-hist.png)
 
   
----
+
 
 ## Interactive
 
@@ -73,7 +73,9 @@ You will also be required to make an interactive dashboard like [this one](/flex
 
 Making our own interactive dashboard now [here](/flex/flex.html). 
 
+
 Your Big Data page should include a link to an interactive dashboard. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
+
 
 ## Video Recording
 

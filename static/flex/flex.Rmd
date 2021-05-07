@@ -31,6 +31,7 @@ Row {data-width = "70%"}
 
 ### Bias in discussing mental health (graph 1) or physical health (graph 2) by Age, colored by Company Size
 
+
 ```{r}
 suppressPackageStartupMessages(library(d3scatter))
 
