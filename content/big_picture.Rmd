@@ -62,7 +62,7 @@ Why are there so few women in tech? Identifying and remedying dropout points, wh
 
 We assess the prevalence of mental health disorders in tech workers. Of the respondents, 441 (23.8%) report having an ongoing mental health disorder, whereas many more individuals 949 (50.8%) report having had a mental health disorder in the past. This may be due to selection bias, in which individuals with acute, ongoing mental health disorders would less likely be reponsive to such a survey or currently employed in the tech industry. 
 
-![](/images/mh-now-past.png)
+![](/images/mh-now-past2.png) 
 
 These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individually internalized levels, are very much prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling. 
 
