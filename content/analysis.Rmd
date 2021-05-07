@@ -11,7 +11,7 @@ Image credit: [Charlotte Edey](https://www.charlotteedey.com/)
 
 This comes from the file `content/analysis.Rmd`.
 
-We describe here our detailed data analysis. test
+We describe here our detailed data analysis. 
 
 -------
 
@@ -111,7 +111,7 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 #   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
 #          "Yes" = 1, 
 #          "Maybe" = 2,
-#          "No" = 3)
+#          "No" = 3)<p>&nbsp;</p>
 # 
 # #generate total "stigma score" per person by summing quantified measures of 
 # #stigma, and plot distribution of scores per gender per year

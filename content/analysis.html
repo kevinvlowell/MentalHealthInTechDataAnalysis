@@ -14,7 +14,7 @@ draft: false
 
 <p>Image credit: <a href="https://www.charlotteedey.com/">Charlotte Edey</a></p>
 <p>This comes from the file <code>content/analysis.Rmd</code>.</p>
-<p>We describe here our detailed data analysis. test</p>
+<p>We describe here our detailed data analysis.</p>
 <hr />
 <p>NOTE: Your DA can be broken up into multiple pages if that helps with your organization.</p>
 <ul>
@@ -114,7 +114,7 @@ draft: false
 #   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
 #          &quot;Yes&quot; = 1, 
 #          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)
+#          &quot;No&quot; = 3)&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 # 
 # #generate total &quot;stigma score&quot; per person by summing quantified measures of 
 # #stigma, and plot distribution of scores per gender per year
@@ -251,10 +251,7 @@ draft: false
 # ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat=&#39;identity&#39;, position=&quot;dodge&quot;) + labs(x=&quot;Gender&quot;, y=&quot;Count&quot;) + scale_x_discrete(labels=c(&quot;Female&quot;,&quot;Queer/Undefined&quot;,&quot;Male&quot;))</code></pre>
 <p>Age vs stigma</p>
 <pre class="r"><code>####Check for relationship between: &quot;Would you be comfortable discussing mental health with your supervisor?&quot; and age
-
-
 # ##2018 model
-
 # dat_agelm &lt;- data2018_recode %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq &lt;- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Yes&quot; | dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Maybe&quot;, 1, 0)
@@ -271,10 +268,7 @@ draft: false
 #   labs(y = &quot;Comfortable? (1/0)&quot;,
 #        title = &quot;2018&quot;) + theme(title = element_text(size = 10))+
 #   theme_minimal()
-
-
 # ##2016 model
-
 # dat_agelm &lt;- data2016_recode_rearrange %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq &lt;- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Yes&quot; | dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Maybe&quot;, 1, 0)
@@ -291,10 +285,7 @@ draft: false
 #   labs(y = &quot;Comfortable? (1/0)&quot;,
 #        title = &quot;2016&quot; ) + theme(title = element_text(size = 10))+
 #   theme_minimal()
-
-
 # ##Both 2016 and 2018 model
-
 # dat_agelm &lt;- combined_all %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq &lt;- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Yes&quot; | dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Maybe&quot;, 1, 0)
@@ -323,10 +314,7 @@ draft: false
 # 
 # print(plot)
 # dev.off()
-
-
 ####Check forelationship between stigma score and age?
-
 # stigma_agelm &lt;- copy_combinedData %&gt;% filter(age &gt;=18 &amp; age &lt; 80)
 # 
 # age_model &lt;- lm(stigma_score ~ age, data = stigma_agelm)

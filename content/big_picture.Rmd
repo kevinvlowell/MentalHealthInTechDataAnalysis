@@ -10,7 +10,7 @@ draft: false
 
 Image credit: [Charlotte Edey](https://www.charlotteedey.com/)
 
-# Who's working in tech?
+## Who's working in tech?
 
 According to the [U.S. Bureau of Labor Statistics](https://www.cyberstates.org/), there are an estimated 12.4 million workers in information technology in the U.S. The industry is lucrative, and expanding. Technology companies account for 10% of the nation's economy. The output of tech companies has greatly changed the ways in which we communicate, create, share, and play, in ways particularly palpable and beneficial during the covid-19 pandemic, which has digitized our once physical school, work, and social lives. 
 
@@ -65,8 +65,37 @@ We assess the prevalence of mental health disorders in tech workers. Of the resp
 ![](/images/mh-now-past.png)
 <p>&nbsp;</p>
 
-These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individaully internalized levels, are very much prevalent concerns, and so surveys of these kinds may underestimate the true number of individuals struggling. 
+These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individually internalized levels, are very much prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling. 
 
+## Stigma and mental health 
+We further investigate the stigma surrounding mental health in the tech workplace. How strongly stigmatized is it? Has stigma evolved over time as the topic of mental health has garnered more attention? Does it vary between demographic groups? In order to uncover potential answers to these interesting questions, we developed a quantitative, overall measure of stigma for each survey participant: we called this metric the “stigma score.”
+
+<p>&nbsp;</p>
+
+To generate this score, we quantified the responses to four questions related to stigma, then summed to arrive at an overall stigma score per respondent. The higher the numerical score, the greater the stigma we deemed surrounding mental health for that individual. 
+
+<p>&nbsp;</p>
+
+The questions we used to determined the stigma score were: 
+
+<p>&nbsp;</p>
+
++ [1] How difficult is it for you to ask for mental health related medical leave?
++ [2] How comfortable are you in discussing mental health with a coworker? 
++ [3] How comfortable are you in discussing mental health with supervisors?
++ [4] Are you willing to bring up mental health in an interview? 
+
+<p>&nbsp;</p>
+
+With this metric, we evaluated trends in stigma by gender and across time. 
+
+<p>&nbsp;</p>
+
+![](/images/stigma.png)
+
+Overall, our analysis seemed to show that the distributions of stigma remained largely the same per gender between 2016 and 2018; if anything, the distribution for females and gender-queer/non-binary individuals seemed to have move slightly toward a lower stigma distribution between the two years. After calculating the average stigma scores per gender per year, these original observations seemed confirmed: the average scores slightly decreased for both female and gender-queer/non-binary respondents between 2016 and 2018, yet remained about the same for males.
+
+## Mental health and family history 
 <p>&nbsp;</p>
 
 As mental health has a genetic component, we ask: does a family history of mental health disorder predict prevalence of an ongoing mental disorder? 
@@ -74,24 +103,13 @@ As mental health has a genetic component, we ask: does a family history of menta
 ![](/images/fam-hist.png)
 add log reg of fam hist (0,1), and current (0 0.5 1)
 
-## Stigma and mental health 
-In addition, one of the topics that we wanted to explore in depth was the stigma surrounding mental health in the tech workplace. How strongly stigmatized or not stigmatized is it? Has stigma evolved over time as the topic of mental health has garnered more attention? Does it vary between demographic groups? In order to uncover potential answers to these interesting questions, we sought to generate some quantitative, overall measure of stigma for each survey participant: we called this metric the “stigma score.”
-To generate a stigma score for each participant, we quantified the responses to several questions whose responses were indicative of stigma, and summed the scores of each of these questions together to get an overall stigma score. The higher the numerical score, the greater we deemed the stigma surrounding mental health was for that individual. As an example, the survey question “"Would you feel comfortable discussing a mental health issue with your coworkers?" allowed survey participants to choose from the responses “Yes,” “Maybe,” and “No.” Each of these responses was recoded to values of 1, 2, and 3, respectively.
-With a rough overall measure of stigma calculated, we were able to produce some interesting visuals and trends regarding the distributions of stigma per gender per year:
-INSERT VISUALS
-Overall, our analysis seemed to show that the distributions of stigma remained largely the same per gender between 2016 and 2018; if anything, the distribution for females and gender-queer/non-binary individuals seemed to have move slightly toward a lower stigma distribution between the two years. After calculating the average stigma scores per gender per year, these original observations seemed confirmed: the average scores slightly decreased for both female and gender-queer/non-binary respondents between 2016 and 2018, yet remained about the same for males.
-
 ## Landscape of physical and mental health in tech workers
 
 ## Interactive
 
-You will also be required to make an interactive dashboard like [this one](/flex/flex_Sussman.html).
+example [this one](/flex/flex_Sussman.html).
 
 Making our own interactive dashboard now [here](/flex/flex.html). 
-
-
-Your Big Data page should include a link to an interactive dashboard. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
-
 
 ## Video Recording
 
@@ -99,8 +117,6 @@ Make a video recording (probably using Zoom) demonstrating your interactive comp
 You should provide a quick explanation of your data and demonstrate some of the conclusions from your EDA.
 This video should be no longer than 4 minutes.
 Include a link to your video (and password if needed) in your README.md file on your Github repository. You are not required to provide a link on the website.
-
-
 
 # misc
 ![](/images/mh.png)
