@@ -15,14 +15,6 @@ We describe here our detailed data analysis.
 
 -------
 
-* Introduce what motivates your DA
-  * Which variables and relationships are you most interested in?
-  * What questions are you interested in answering?
-
-  
-* Breadth of the DA
-  * Make sure that you ask enough initial questions to explore the different variables in your data.
-
 Our data analysis focuses on assessing the demographics of tech workers, the prevalence of mental health disorders within this group, and their attitudes and perceptions of mental health in the context of their workspace. 
 
 For demographics, we identify several variables of interest: 
@@ -66,6 +58,8 @@ We assess these first univariately, then in relation to each other (for variable
 | 9 | France | 14 | &nbsp; | France | 4 | 
 | 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
   
+Millions of people worldwide have mental health conditions and an estimated 1 in 4 people globally will experience a mental health condition in their lifetime. Another report from NIH says that approximately 1 in 5 U.S. adults experience some type of mental illness every year. Known for a competitive and fast-moving style of living, Americans have developed a definite stigma surrounding mental health, as well as an aversion to taking the time for proper self-care or even treatment. Not only in America, but among the developing countries, the number is really similar. And all the developing countries happens to be in the table above about the numbers of employees in each countries working in tech industry. 
+
 Age and gender analysis
 ```{r age-gender}
 # age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
@@ -86,7 +80,12 @@ Age and gender analysis
 #   xlab("Age") +
 #   ylab("Count")
 ```
-  
+
+Female (49.7%) tends to seek for mental health treatmets comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responders from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations report on mental health issues worldwide. 
+
+
+
+
 Exploration of mental health prevalence
 ```{r}
 
