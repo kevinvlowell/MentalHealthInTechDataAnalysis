@@ -136,8 +136,8 @@ Most of the respondents in both the 2016 and 2018 survey are working in the Unit
 </tbody>
 </table>
 </div>
-<div id="what-are-the-ages-and-genders" class="section level3">
-<h3>What are the ages and genders?</h3>
+<div id="is-there-diversity-in-tech" class="section level3">
+<h3>Is there diversity in tech?</h3>
 <p>Although many more workers responded to the survey in 2018 than 2016, the pattern of gender breakdowns in both years is similar: tech workers are predominantly male.</p>
 <p>
  
@@ -151,35 +151,37 @@ Most of the respondents in both the 2016 and 2018 survey are working in the Unit
 <p>Why are there so few women in tech? Identifying and remedying dropout points, whether in encouraging early school STEM education in women and nonbinary individuals, in encouraging these underrepresented groups to study computer science in college and beyond, and encouraging workspace diversity and especially diversity in senior leadership, may help close the gender gap in tech.</p>
 </div>
 </div>
-<div id="the-landscape-of-mental-and-physical-health-in-tech-workers" class="section level2">
-<h2>The landscape of mental and physical health in tech workers</h2>
+<div id="mental-health-in-tech-workers" class="section level2">
+<h2>Mental health in tech workers</h2>
 <p>We assess the prevalence of mental health disorders in tech workers. Of the respondents, 441 (23.8%) report having an ongoing mental health disorder, whereas many more individuals 949 (50.8%) report having had a mental health disorder in the past. This may be due to selection bias, in which individuals with acute, ongoing mental health disorders would less likely be reponsive to such a survey or currently employed in the tech industry.</p>
+<img src="/images/mh-now-past.png" />
 <p>
  
 </p>
-<p>These estimates of mental health prevalence in tech workers are higher than <a href="https://ourworldindata.org/mental-health#eating-disorders">global estimates</a>, in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the <a href="https://www.psychiatry.org/patients-families/stigma-and-discrimination">American Psychiatric Association</a>, stigma against mental health, at the institutional and individaully internalized levels, are very much still prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling.</p>
-<p><img src="/images/mh-now-past.png" /></p>
+<p>These estimates of mental health prevalence in tech workers are higher than <a href="https://ourworldindata.org/mental-health#eating-disorders">global estimates</a>, in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the <a href="https://www.psychiatry.org/patients-families/stigma-and-discrimination">American Psychiatric Association</a>, stigma against mental health, at the institutional and individaully internalized levels, are very much prevalent concerns, and so surveys of these kinds may underestimate the true number of individuals struggling.</p>
+<p>
+ 
+</p>
 <p>As mental health has a genetic component, we ask: does a family history of mental health disorder predict prevalence of an ongoing mental disorder?</p>
-<p><img src="/images/fam-hist.png" /></p>
-<hr />
+<p><img src="/images/fam-hist.png" />
+add log reg of fam hist (0,1), and current (0 0.5 1)</p>
+</div>
+<div id="stigma-and-mental-health" class="section level2">
+<h2>Stigma and mental health</h2>
+<p>In addition, one of the topics that we wanted to explore in depth was the stigma surrounding mental health in the tech workplace. How strongly stigmatized or not stigmatized is it? Has stigma evolved over time as the topic of mental health has garnered more attention? Does it vary between demographic groups? In order to uncover potential answers to these interesting questions, we sought to generate some quantitative, overall measure of stigma for each survey participant: we called this metric the “stigma score.”
+To generate a stigma score for each participant, we quantified the responses to several questions whose responses were indicative of stigma, and summed the scores of each of these questions together to get an overall stigma score. The higher the numerical score, the greater we deemed the stigma surrounding mental health was for that individual. As an example, the survey question ““Would you feel comfortable discussing a mental health issue with your coworkers?” allowed survey participants to choose from the responses “Yes,” “Maybe,” and “No.” Each of these responses was recoded to values of 1, 2, and 3, respectively.
+With a rough overall measure of stigma calculated, we were able to produce some interesting visuals and trends regarding the distributions of stigma per gender per year:
+INSERT VISUALS
+Overall, our analysis seemed to show that the distributions of stigma remained largely the same per gender between 2016 and 2018; if anything, the distribution for females and gender-queer/non-binary individuals seemed to have move slightly toward a lower stigma distribution between the two years. After calculating the average stigma scores per gender per year, these original observations seemed confirmed: the average scores slightly decreased for both female and gender-queer/non-binary respondents between 2016 and 2018, yet remained about the same for males.</p>
+</div>
+<div id="landscape-of-physical-and-mental-health-in-tech-workers" class="section level2">
+<h2>Landscape of physical and mental health in tech workers</h2>
 </div>
 <div id="interactive" class="section level2">
 <h2>Interactive</h2>
 <p>You will also be required to make an interactive dashboard like <a href="/flex/flex_Sussman.html">this one</a>.</p>
 <p>Making our own interactive dashboard now <a href="/flex/flex.html">here</a>.</p>
-<<<<<<< HEAD
-<ul>
-<li>Quality and ease of use of the interactive components.
-Is it clear what can be explored using your interactive components?
-=======
 <p>Your Big Data page should include a link to an interactive dashboard. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.</p>
-<<<<<<< HEAD
-<p>Is it clear what can be explored using your interactive components?
->>>>>>> 3fd1939bf209aff84d2bf5f4c56425ca4b02d66d
-Does it enhance and reinforce your conlusions from the Big Picture?
-Plotly with default hover text does not count.</p>
-=======
->>>>>>> d8a942f4c3600c9b3ce66cb1246b30f4fb050188
 </div>
 <div id="video-recording" class="section level2">
 <h2>Video Recording</h2>

@@ -44,7 +44,7 @@ Most of the respondents in both the 2016 and 2018 survey are working in the Unit
 | 9 | France | 14 | &nbsp; | France | 4 | 
 | 10 | Brazil | 10 | &nbsp; | Italy | 4 | 
 
-### What are the ages and genders? 
+### Is there diversity in tech?
 
 Although many more workers responded to the survey in 2018 than 2016, the pattern of gender breakdowns in both years is similar: tech workers are predominantly male. 
 
@@ -58,22 +58,30 @@ When we take in addition the consideration of age, we see most tech workers, acr
 
 Why are there so few women in tech? Identifying and remedying dropout points, whether in encouraging early school STEM education in women and nonbinary individuals, in encouraging these underrepresented groups to study computer science in college and beyond, and encouraging workspace diversity and especially diversity in senior leadership, may help close the gender gap in tech. 
 
-## The landscape of mental and physical health in tech workers
+## Mental health in tech workers
 
 We assess the prevalence of mental health disorders in tech workers. Of the respondents, 441 (23.8%) report having an ongoing mental health disorder, whereas many more individuals 949 (50.8%) report having had a mental health disorder in the past. This may be due to selection bias, in which individuals with acute, ongoing mental health disorders would less likely be reponsive to such a survey or currently employed in the tech industry. 
 
+![](/images/mh-now-past.png)
 <p>&nbsp;</p>
 
-These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individaully internalized levels, are very much still prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling. 
+These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individaully internalized levels, are very much prevalent concerns, and so surveys of these kinds may underestimate the true number of individuals struggling. 
 
-![](/images/mh-now-past.png)
+<p>&nbsp;</p>
 
 As mental health has a genetic component, we ask: does a family history of mental health disorder predict prevalence of an ongoing mental disorder? 
 
 ![](/images/fam-hist.png)
+add log reg of fam hist (0,1), and current (0 0.5 1)
 
-  
+## Stigma and mental health 
+In addition, one of the topics that we wanted to explore in depth was the stigma surrounding mental health in the tech workplace. How strongly stigmatized or not stigmatized is it? Has stigma evolved over time as the topic of mental health has garnered more attention? Does it vary between demographic groups? In order to uncover potential answers to these interesting questions, we sought to generate some quantitative, overall measure of stigma for each survey participant: we called this metric the “stigma score.”
+To generate a stigma score for each participant, we quantified the responses to several questions whose responses were indicative of stigma, and summed the scores of each of these questions together to get an overall stigma score. The higher the numerical score, the greater we deemed the stigma surrounding mental health was for that individual. As an example, the survey question “"Would you feel comfortable discussing a mental health issue with your coworkers?" allowed survey participants to choose from the responses “Yes,” “Maybe,” and “No.” Each of these responses was recoded to values of 1, 2, and 3, respectively.
+With a rough overall measure of stigma calculated, we were able to produce some interesting visuals and trends regarding the distributions of stigma per gender per year:
+INSERT VISUALS
+Overall, our analysis seemed to show that the distributions of stigma remained largely the same per gender between 2016 and 2018; if anything, the distribution for females and gender-queer/non-binary individuals seemed to have move slightly toward a lower stigma distribution between the two years. After calculating the average stigma scores per gender per year, these original observations seemed confirmed: the average scores slightly decreased for both female and gender-queer/non-binary respondents between 2016 and 2018, yet remained about the same for males.
 
+## Landscape of physical and mental health in tech workers
 
 ## Interactive
 
