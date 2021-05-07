@@ -76,6 +76,10 @@ To further explore our demographic, we sought to explore the age distributions w
 
 <p>&nbsp;</p>
 
+Millions of people worldwide have mental health conditions and an estimated 1 in 4 people globally will experience a mental health condition in their lifetime. Another report from NIH says that approximately 1 in 5 U.S. adults experience some type of mental illness every year. Known for a competitive and fast-moving style of living, Americans have developed a definite stigma surrounding mental health, as well as an aversion to taking the time for proper self-care or even treatment. Not only in America, but among the developing countries, the number is really similar. And all the developing countries happens to be in the table above about the numbers of employees in each countries working in tech industry. 
+
+Age and gender analysis
+
 ```{r age-gender}
 # age <- combined_demographic_data %>% filter(!is.na(gender)) %>% group_by(gender,year) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
 # knitr::kable(age)
@@ -95,7 +99,12 @@ To further explore our demographic, we sought to explore the age distributions w
 #   xlab("Age") +
 #   ylab("Count")
 ```
-  
+
+Female (49.7%) tends to seek for mental health treatments comparing to male (36.8%), according to a NIH report. Tech companies usually have a significantly bigger percentage of male workers, yet approximately 40% of responds from both year reported to suffer from a mental health problem. This is higher than the number from the United Nations on mental health issues worldwide.
+
+Adults in the workforce are the target group of mental health disorders. SAMHSA reports 25% from the age of 26 to 49 has experienced some form of mental issues in United States. That correspond with the age range in both surveys. What we are having here is the target group for promoting mental health awareness, and there is a rising need for supporting resources in their workplace. This can be either effective counseling therapy, safe environment for discussion or better coverage in health care for mental diseases. 
+
+
 Exploration of mental health prevalence
 ```{r}
 
@@ -339,31 +348,3 @@ $$
 <p>&nbsp;</p>
 
 A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates  that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health. 
-
-<p>&nbsp;</p>
-
-  * i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?
-  
-  
-* Depth of the DA
-  * When you answer one question, usually more questions arise as well. 
-  * The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.
-  
-  
-* Modeling and Inference 
-  * You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.
-  * Explain the techniques you used for validating your results.
-  * Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.
-  
-  
-* Clarity Figures
-  * Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?
-  * Each figure should provide a key insight. Too many figures or other data summaries can detract from this.
-  
-  
-* Clarity of Explanations
-  * Do you introduce why you are doing each analysis?
-  * How well do you explain each figure/result?
-  * Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?
-* Organization and cleanliness.
-  * Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.
