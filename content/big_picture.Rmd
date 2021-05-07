@@ -86,7 +86,7 @@ The questions we used to determined the stigma score were:
 
 <p>&nbsp;</p>
 
-With this metric, we evaluated trends in stigma by gender and across time. 
+With this metric, we evaluated trends in stigma by gender and across time.
 
 <p>&nbsp;</p>
 
@@ -102,6 +102,20 @@ Comparing the stigma score by gender and by the two survey years, we find a prom
 | Female | 9.52 | 8.44 |
 | Gender queer | 9.26 | 7.13 |
 | Male | 8.92 | 8.23 |
+
+<p>&nbsp;</p>
+
+In addition, we evaluated trends between stigma and age and how these trends may have changed over time. In our first model below, we analyzed how responses to the question "Would you feel comfortable talking to your supervisor about mental health?" varied with age.
+
+![](/images/comfortable_talking_to_supervisors_vs_age.png)
+<p>&nbsp;</p>
+
+In our next model, we analyzed how our calculated overall stigma score varied with age as well.
+
+![](/images/stigma_vs_age.png)
+<p>&nbsp;</p>
+
+According to our analysis, a consistent relationship between age and stigma was not apparent. Further analysis of other datasets may be required in order to confirm or deny this relationship.
 
 ## Mental health and family history 
 
