@@ -7,6 +7,7 @@ featuredImage: images/Charlotte-Edey-stairs.jpg
 draft: false
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 
@@ -16,136 +17,26 @@ draft: false
 <p>This comes from the file <code>content/analysis.Rmd</code>.</p>
 <p>We describe here our detailed data analysis.</p>
 <hr />
-<p>NOTE: Your DA can be broken up into multiple pages if that helps with your organization.</p>
 <ul>
 <li>Introduce what motivates your DA
 <ul>
 <li>Which variables and relationships are you most interested in?</li>
 <li>What questions are you interested in answering?</li>
 </ul></li>
+</ul>
+<p>Variables that we are most interested in:
+* Measures of stigma surrounding mental health over time, and distributions of stigma in demographic groups like age and gender
+*</p>
+<ul>
 <li>Breadth of the DA
 <ul>
 <li>Make sure that you ask enough initial questions to explore the different variables in your data.</li>
-</ul></li>
+</ul>
+Country of work</li>
 </ul>
 <pre class="r"><code># library(tidyverse)
-# 
-# ## Demographics and Exploration of Mental Health Issue Prevalence
-# 
-# #generate age demographics per year
-# 
-# combined_demographic_data %&gt;%
-#   filter(!is.na(age)) %&gt;%
-#   ggplot() +
-#   geom_histogram(aes(x = age), binwidth = 5) +
-#   facet_wrap(~year) +
-#   xlim(0, 90) +
-#   labs(title = &quot;Ages of Total Respondents per Year&quot;) +
-#   theme(plot.title = element_text(hjust = 0.5)) +
-#   xlab(&quot;Age&quot;) +
-#   ylab(&quot;Count&quot;)
-# 
-# #generate gender demographics per group year
-# 
-# combined_demographic_data %&gt;%
-#   filter(!is.na(age), !is.na(gender)) %&gt;%
-#   ggplot() +
-#   geom_histogram(aes(x = age, fill = gender), binwidth = 5) +
-#   facet_grid(gender~ year, scales = &quot;free&quot;) +
-#   xlim(0, 90) +
-#   labs(title = &quot;Age Distributions per Gender Identity per Year&quot;, fill = &quot;Gender Identity&quot;) +
-#   theme(plot.title = element_text(hjust = 0.5)) +
-#   xlab(&quot;Age&quot;) +
-#   ylab(&quot;Count&quot;)
-# 
-# 
-# #summarize metrics surrounding mental health issue prevalence
-# 
-# data2016_demographics %&gt;%
-#   filter(!is.na(had_mhd_past)) %&gt;%
-#   group_by(year, had_mhd_past) %&gt;%
-#   summarize(Count = n()) %&gt;%
-#   mutate(Percentage = Count/sum(Count))
-# 
-# data2016_demographics %&gt;%
-#   filter(!is.na(has_mhd_now)) %&gt;%
-#   group_by(year, has_mhd_now) %&gt;%
-#   summarize(Count = n()) %&gt;%
-#   mutate(Percentage = Count/sum(Count))
-# 
-# data2018_demographics %&gt;%
-#   filter(!is.na(had_mhd_past)) %&gt;%
-#   group_by(year, had_mhd_past) %&gt;%
-#   summarize(Count = n()) %&gt;%
-#   mutate(Percentage = Count/sum(Count))
-# 
-# data2018_demographics %&gt;%
-#   filter(!is.na(has_mhd_now)) %&gt;%
-#   group_by(year, has_mhd_now) %&gt;%
-#   summarize(Count = n()) %&gt;%
-#   mutate(Percentage = Count/sum(Count))
-# 
-# ## how has stigma changed over time
-# 
-# copy_combined_data &lt;- combined_data
-# 
-# #quantify measures of stigma
-# copy_combinedData$difficulty_asking_for_mh_related_medical_leave &lt;- 
-#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
-#          &quot;Very easy&quot; = 1, 
-#          &quot;Somewhat easy&quot; = 2,
-#          &quot;Neither easy or difficult&quot; = 3,
-#          &quot;Somewhat difficult&quot; = 4,
-#          &quot;Very difficult&quot; = 5)
-# 
-# copy_combinedData$comfortable_discussing_mh_with_coworkers &lt;- 
-#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
-#          &quot;Yes&quot; = 1, 
-#          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)
-# 
-# copy_combinedData$comfortable_discussing_mh_with_supervisors &lt;- 
-#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
-#          &quot;Yes&quot; = 1, 
-#          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)
-# 
-# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n &lt;- 
-#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
-#          &quot;Yes&quot; = 1, 
-#          &quot;Maybe&quot; = 2,
-#          &quot;No&quot; = 3)&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-# 
-# #generate total &quot;stigma score&quot; per person by summing quantified measures of 
-# #stigma, and plot distribution of scores per gender per year
-# 
-# copy_combinedData %&gt;% 
-#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
-#          !is.na(comfortable_discussing_mh_with_coworkers),
-#          !is.na(comfortable_discussing_mh_with_supervisors),
-#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;% 
-#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
-#                                comfortable_discussing_mh_with_coworkers +
-#                                comfortable_discussing_mh_with_supervisors +
-#                                willing_to_bring_up_mh_in_interview_y_n) %&gt;% 
-#   ggplot() +
-#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
-#   facet_grid(gender~ year, scales = &quot;free&quot;)
-# 
-# #compare averages of stigma scores per year and gender
-# copy_combinedData %&gt;% 
-#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
-#          !is.na(comfortable_discussing_mh_with_coworkers),
-#          !is.na(comfortable_discussing_mh_with_supervisors),
-#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;% 
-#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
-#                                comfortable_discussing_mh_with_coworkers +
-#                                comfortable_discussing_mh_with_supervisors +
-#                                willing_to_bring_up_mh_in_interview_y_n) %&gt;% 
-#   group_by(year, gender) %&gt;% 
-#   summarize(Average_stigma_score = mean(stigma_score))</code></pre>
-<p>Country of work</p>
-<pre class="r"><code># whereFrom2016 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2016&quot;) %&gt;% group_by(country_of_work) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
+#
+# whereFrom2016 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2016&quot;) %&gt;% group_by(country_of_work) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
 # knitr::kable(whereFrom2016)
 # 
 # whereFrom2018 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2018&quot;) %&gt;% group_by(country_of_residence) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
@@ -244,14 +135,112 @@ draft: false
 </tr>
 </tbody>
 </table>
-<p>Age and gender</p>
+<p>Age and gender analysis</p>
 <pre class="r"><code># age &lt;- combined_demographic_data %&gt;% filter(!is.na(gender)) %&gt;% group_by(gender,year) %&gt;% summarise(n = n()) %&gt;% mutate(freq = n / sum(n)) %&gt;% ungroup
 # knitr::kable(age)
 # 
-# ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat=&#39;identity&#39;, position=&quot;dodge&quot;) + labs(x=&quot;Gender&quot;, y=&quot;Count&quot;) + scale_x_discrete(labels=c(&quot;Female&quot;,&quot;Queer/Undefined&quot;,&quot;Male&quot;))</code></pre>
+# ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat=&#39;identity&#39;, position=&quot;dodge&quot;) + labs(x=&quot;Gender&quot;, y=&quot;Count&quot;) + scale_x_discrete(labels=c(&quot;Female&quot;,&quot;Queer/Undefined&quot;,&quot;Male&quot;))
+
+# #generate plot of age distributions per gender identity
+# 
+# combined_demographic_data %&gt;%
+#   filter(!is.na(age), !is.na(gender)) %&gt;%
+#   ggplot() +
+#   geom_histogram(aes(x = age, fill = gender), binwidth = 5) +
+#   facet_grid(gender~ year, scales = &quot;free&quot;) +
+#   xlim(0, 90) +
+#   labs(title = &quot;Age Distributions per Gender Identity per Year&quot;, fill = &quot;Gender Identity&quot;) +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   xlab(&quot;Age&quot;) +
+#   ylab(&quot;Count&quot;)</code></pre>
+<p>Exploration of mental health prevalence</p>
+<pre class="r"><code># #summarize metrics surrounding mental health issue prevalence
+# 
+# data2016_demographics %&gt;%
+#   filter(!is.na(had_mhd_past)) %&gt;%
+#   group_by(year, had_mhd_past) %&gt;%
+#   summarize(Count = n()) %&gt;%
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2016_demographics %&gt;%
+#   filter(!is.na(has_mhd_now)) %&gt;%
+#   group_by(year, has_mhd_now) %&gt;%
+#   summarize(Count = n()) %&gt;%
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2018_demographics %&gt;%
+#   filter(!is.na(had_mhd_past)) %&gt;%
+#   group_by(year, had_mhd_past) %&gt;%
+#   summarize(Count = n()) %&gt;%
+#   mutate(Percentage = Count/sum(Count))
+# 
+# data2018_demographics %&gt;%
+#   filter(!is.na(has_mhd_now)) %&gt;%
+#   group_by(year, has_mhd_now) %&gt;%
+#   summarize(Count = n()) %&gt;%
+#   mutate(Percentage = Count/sum(Count))
+# 
+# ## how has stigma changed over time
+# 
+# copy_combinedData &lt;- combined_data
+# 
+# #quantify measures of stigma
+# copy_combinedData$difficulty_asking_for_mh_related_medical_leave &lt;-
+#   recode(copy_combinedData$difficulty_asking_for_mh_related_medical_leave,
+#          &quot;Very easy&quot; = 1,
+#          &quot;Somewhat easy&quot; = 2,
+#          &quot;Neither easy or difficult&quot; = 3,
+#          &quot;Somewhat difficult&quot; = 4,
+#          &quot;Very difficult&quot; = 5)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_coworkers &lt;-
+#   recode(copy_combinedData$comfortable_discussing_mh_with_coworkers,
+#          &quot;Yes&quot; = 1,
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# copy_combinedData$comfortable_discussing_mh_with_supervisors &lt;-
+#   recode(copy_combinedData$comfortable_discussing_mh_with_supervisors,
+#          &quot;Yes&quot; = 1,
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# copy_combinedData$willing_to_bring_up_mh_in_interview_y_n &lt;-
+#   recode(copy_combinedData$willing_to_bring_up_mh_in_interview_y_n,
+#          &quot;Yes&quot; = 1,
+#          &quot;Maybe&quot; = 2,
+#          &quot;No&quot; = 3)
+# 
+# #generate total &quot;stigma score&quot; per person by summing quantified measures of
+# #stigma, and plot distribution of scores per gender per year
+# 
+# copy_combinedData &lt;- copy_combinedData %&gt;%
+#   filter(!is.na(gender), !is.na(difficulty_asking_for_mh_related_medical_leave),
+#          !is.na(comfortable_discussing_mh_with_coworkers),
+#          !is.na(comfortable_discussing_mh_with_supervisors),
+#          !is.na(willing_to_bring_up_mh_in_interview_y_n)) %&gt;%
+#   mutate(stigma_score = difficulty_asking_for_mh_related_medical_leave +
+#                                comfortable_discussing_mh_with_coworkers +
+#                                comfortable_discussing_mh_with_supervisors +
+#                                willing_to_bring_up_mh_in_interview_y_n)
+# 
+# #plot distribution of stigma scores per gender per year
+#   ggplot(copy_combinedData) +
+#   geom_histogram(aes(x = stigma_score, fill = gender), binwidth = 1) +
+#   facet_grid(gender~ year, scales = &quot;free&quot;)
+# 
+# #compare averages of stigma scores per year and gender
+# copy_combinedData %&gt;%
+#   group_by(year, gender) %&gt;%
+#   summarize(Average_stigma_score = mean(stigma_score))</code></pre>
 <p>Age vs stigma</p>
-<pre class="r"><code>####Check for relationship between: &quot;Would you be comfortable discussing mental health with your supervisor?&quot; and age
-# ##2018 model
+<pre class="r"><code>###Check for relationship between: &quot;Would you be comfortable discussing mental health with your supervisor?&quot; and age
+
+##2018 model
+# 
+# library(modelr)
+# library(gridExtra)
+# 
 # dat_agelm &lt;- data2018_recode %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq &lt;- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Yes&quot; | dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Maybe&quot;, 1, 0)
@@ -262,14 +251,15 @@ draft: false
 # 
 # grid &lt;- dat_agelm %&gt;% data_grid(age) %&gt;% add_predictions(age_model, type = &quot;response&quot;)
 # 
-# p18 &lt;- dat_agelm %&gt;%  ggplot(aes(x = age)) + 
-#   geom_point(aes(y = bad_conseq), alpha = 0.5) + 
+# p18 &lt;- dat_agelm %&gt;%  ggplot(aes(x = age)) +
+#   geom_point(aes(y = bad_conseq), alpha = 0.5) +
 #   geom_line(aes(y=pred), data = grid, color = &quot;red&quot;, size = 1) +
 #   labs(y = &quot;Comfortable? (1/0)&quot;,
 #        title = &quot;2018&quot;) + theme(title = element_text(size = 10))+
 #   theme_minimal()
+# 
 # ##2016 model
-# dat_agelm &lt;- data2016_recode_rearrange %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
+# dat_agelm &lt;- data2016_recode %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq &lt;- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Yes&quot; | dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Maybe&quot;, 1, 0)
 # 
@@ -279,14 +269,15 @@ draft: false
 # 
 # grid &lt;- dat_agelm %&gt;% data_grid(age) %&gt;% add_predictions(age_model, type = &quot;response&quot;)
 # 
-# p16 &lt;- dat_agelm %&gt;%  ggplot(aes(x = age)) + 
-#   geom_point(aes(y = bad_conseq), alpha = 0.5) + 
+# p16 &lt;- dat_agelm %&gt;%  ggplot(aes(x = age)) +
+#   geom_point(aes(y = bad_conseq), alpha = 0.5) +
 #   geom_line(aes(y=pred), data = grid, color = &quot;red&quot;, size = 1) +
 #   labs(y = &quot;Comfortable? (1/0)&quot;,
 #        title = &quot;2016&quot; ) + theme(title = element_text(size = 10))+
 #   theme_minimal()
+# 
 # ##Both 2016 and 2018 model
-# dat_agelm &lt;- combined_all %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
+# dat_agelm &lt;- combined_data %&gt;% filter(age &gt;=18 &amp; age &lt; 80, !(is.na(age)| is.na(comfortable_discussing_mh_with_supervisors)))
 # 
 # dat_agelm$bad_conseq &lt;- ifelse(dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Yes&quot; | dat_agelm$comfortable_discussing_mh_with_supervisors == &quot;Maybe&quot;, 1, 0)
 # 
@@ -296,8 +287,8 @@ draft: false
 # 
 # grid &lt;- dat_agelm %&gt;% data_grid(age) %&gt;% add_predictions(age_model, type = &quot;response&quot;)
 # 
-# pboth &lt;- dat_agelm %&gt;%  ggplot(aes(x = age)) + 
-#   geom_point(aes(y = bad_conseq), alpha = 0.5) + 
+# pboth &lt;- dat_agelm %&gt;%  ggplot(aes(x = age)) +
+#   geom_point(aes(y = bad_conseq), alpha = 0.5) +
 #   geom_line(aes(y=pred), data = grid, color = &quot;red&quot;, size = 1) +
 #   labs(y = &quot;Comfortable? (1/0)&quot;,
 #        title = &quot;Both 2016 and 2018&quot;) + theme(title = element_text(size = 10))+
@@ -314,7 +305,8 @@ draft: false
 # 
 # print(plot)
 # dev.off()
-####Check forelationship between stigma score and age?
+# 
+# ###Check forelationship between stigma score and age?
 # stigma_agelm &lt;- copy_combinedData %&gt;% filter(age &gt;=18 &amp; age &lt; 80)
 # 
 # age_model &lt;- lm(stigma_score ~ age, data = stigma_agelm)
@@ -324,8 +316,8 @@ draft: false
 # png(&quot;stigma_vs_age.png&quot;, width = 700, height = 500)
 # 
 # stigma_plot &lt;- stigma_agelm %&gt;% ggplot(aes(x = age)) +
-#   geom_point(aes(y = stigma_score), position = &quot;jitter&quot;, alpha = 0.5, color = &quot;coral&quot;) + 
-#   geom_line(aes(y=pred), data = grid, color = &quot;black&quot;) + 
+#   geom_point(aes(y = stigma_score), position = &quot;jitter&quot;, alpha = 0.5, color = &quot;coral&quot;) +
+#   geom_line(aes(y=pred), data = grid, color = &quot;black&quot;) +
 #   theme_minimal()+
 #   labs(title = &quot;Relationship between Stigma Score and Age&quot;,
 #        y = &quot;Stigma Score&quot;,
@@ -375,39 +367,45 @@ draft: false
 #          scale_y_continuous(breaks=c(0,0.5,1),labels=c( &quot;No&quot;,&quot;Maybe&quot;,&quot;Yes&quot;), limits=c(-0.2,1.2))
 # 
 # modelSummary &lt;- summary(model)</code></pre>
-<p>We use linear regression to model the relationship between a family history of mental health and mental health disorder:
+<p>
+ 
+</p>
+We use linear regression to model the relationship between a family history of mental health and mental health disorder:
 <span class="math display">\[
 Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
 \]</span>
-A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health.</p>
+<p>
+ 
+</p>
+<p>A scatter plot of these two variables indicates a possible linear relationship, which was further tested with the regression model. The model was significant (p-value of 2.2e-16), with an r-squared of 0.283, which indicates that 28.3% of the variation in having a mental health disorder may be explained by a family history of mental health disorder. The positive coefficients indicate a positive relationship between family and self mental health.</p>
 <p>
  
 </p>
 <ul>
 <li><p>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</p></li>
-<li>Depth of the DA
+<li><p>Depth of the DA</p>
 <ul>
 <li>When you answer one question, usually more questions arise as well.</li>
 <li>The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.</li>
 </ul></li>
-<li>Modeling and Inference
+<li><p>Modeling and Inference</p>
 <ul>
 <li>You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.</li>
 <li>Explain the techniques you used for validating your results.</li>
 <li>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.</li>
 </ul></li>
-<li>Clarity Figures
+<li><p>Clarity Figures</p>
 <ul>
 <li>Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?</li>
 <li>Each figure should provide a key insight. Too many figures or other data summaries can detract from this.</li>
 </ul></li>
-<li>Clarity of Explanations
+<li><p>Clarity of Explanations</p>
 <ul>
 <li>Do you introduce why you are doing each analysis?</li>
 <li>How well do you explain each figure/result?</li>
 <li>Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?</li>
 </ul></li>
-<li>Organization and cleanliness.
+<li><p>Organization and cleanliness.</p>
 <ul>
 <li>Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.</li>
 </ul></li>
