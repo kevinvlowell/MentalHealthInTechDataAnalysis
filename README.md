@@ -1,6 +1,6 @@
 # MA[46]15 Final Project
 
-## Video From team Brains:
+## Video from Team Brains:
 https://drive.google.com/file/d/1onGbJPBkvJB8nYpIxovcHTF6X5Plt8e4/view?usp=sharing
 
 ## Project Info
