@@ -42,18 +42,6 @@ NOTE: Your DA can be broken up into multiple pages if that helps with your organ
 #   xlab("Age") +
 #   ylab("Count")
 # 
-# #gender distribution per year
-# 
-# combined_demographic_data %>%
-#   filter(!is.na(gender)) %>%
-#   ggplot() +
-#   geom_bar(aes(x = gender, fill = gender)) +
-#   facet_wrap(~year) +
-#   labs(title = "Gender Identity Distribution per Year") +
-#   theme(plot.title = element_text(hjust = 0.5)) +
-#   xlab("Gender Identity") +
-#   ylab("Count")
-# 
 # #generate gender demographics per group year
 # 
 # combined_demographic_data %>%

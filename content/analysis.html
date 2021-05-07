@@ -7,6 +7,7 @@ featuredImage: images/Charlotte-Edey-stairs.jpg
 draft: false
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 
@@ -43,18 +44,6 @@ draft: false
 #   labs(title = &quot;Ages of Total Respondents per Year&quot;) +
 #   theme(plot.title = element_text(hjust = 0.5)) +
 #   xlab(&quot;Age&quot;) +
-#   ylab(&quot;Count&quot;)
-# 
-# #gender distribution per year
-# 
-# combined_demographic_data %&gt;%
-#   filter(!is.na(gender)) %&gt;%
-#   ggplot() +
-#   geom_bar(aes(x = gender, fill = gender)) +
-#   facet_wrap(~year) +
-#   labs(title = &quot;Gender Identity Distribution per Year&quot;) +
-#   theme(plot.title = element_text(hjust = 0.5)) +
-#   xlab(&quot;Gender Identity&quot;) +
 #   ylab(&quot;Count&quot;)
 # 
 # #generate gender demographics per group year
@@ -96,7 +85,6 @@ draft: false
 #   group_by(year, has_mhd_now) %&gt;%
 #   summarize(Count = n()) %&gt;%
 #   mutate(Percentage = Count/sum(Count))
-<<<<<<< HEAD
 # 
 # ## how has stigma changed over time
 # 
@@ -157,16 +145,6 @@ draft: false
 #                                willing_to_bring_up_mh_in_interview_y_n) %&gt;% 
 #   group_by(year, gender) %&gt;% 
 #   summarize(Average_stigma_score = mean(stigma_score))</code></pre>
-=======
-
-#display how the results are segmented per age group and gender
-
-
-
-
-
-
-#in depth analysis could be about stigma over time</code></pre>
 <p>Country of work</p>
 <pre class="r"><code># whereFrom2016 &lt;- combined_demographic_data %&gt;% filter(year==&quot;2016&quot;) %&gt;% group_by(country_of_work) %&gt;% count() %&gt;% arrange(desc(n)) %&gt;% head(n, n = 10) 
 # knitr::kable(whereFrom2016)
@@ -273,32 +251,31 @@ draft: false
 # 
 # ggplot(age, aes(x=gender, y=n, fill=year)) + geom_bar(stat=&#39;identity&#39;, position=&quot;dodge&quot;) + labs(x=&quot;Gender&quot;, y=&quot;Count&quot;) + scale_x_discrete(labels=c(&quot;Female&quot;,&quot;Queer/Undefined&quot;,&quot;Male&quot;))</code></pre>
 <p><img src="/images/Gender.png" /></p>
->>>>>>> 3178a4f5951a6d30658ec3109fda6bf55d323e61
 <ul>
 <li><p>i.e. Do you explore more than just one or two variables? Do you explore a few different relationships or many?</p></li>
-<li>Depth of the DA
+<li><p>Depth of the DA</p>
 <ul>
 <li>When you answer one question, usually more questions arise as well.</li>
 <li>The depth of the DA is about coming up with and exploring the answers to these questions, often iterating the process a few times.</li>
 </ul></li>
-<li>Modeling and Inference
+<li><p>Modeling and Inference</p>
 <ul>
 <li>You should also include some kind of formal statistical model and/or inference. This could be a linear regression, logistic regression, hypothesis testing etc.</li>
 <li>Explain the techniques you used for validating your results.</li>
 <li>Describe the results of your modelling and make sure to give a sense of the uncertainty in your estimates and conclusions.</li>
 </ul></li>
-<li>Clarity Figures
+<li><p>Clarity Figures</p>
 <ul>
 <li>Are your figures/tables/results easy to read, informative, without problems like overplotting, hard-to-read labels, etc?</li>
 <li>Each figure should provide a key insight. Too many figures or other data summaries can detract from this.</li>
 </ul></li>
-<li>Clarity of Explanations
+<li><p>Clarity of Explanations</p>
 <ul>
 <li>Do you introduce why you are doing each analysis?</li>
 <li>How well do you explain each figure/result?</li>
 <li>Do you provide interpretations that suggest further analysis or explanations for observed phenomenon?</li>
 </ul></li>
-<li>Organization and cleanliness.
+<li><p>Organization and cleanliness.</p>
 <ul>
 <li>Make sure to remove excessive warnings, use clean easy-to-read code, organize with sections or multiple pages, use bullets, etc.</li>
 </ul></li>
