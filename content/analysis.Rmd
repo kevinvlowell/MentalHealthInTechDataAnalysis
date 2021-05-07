@@ -318,7 +318,7 @@ Linear regression prediciting mental health disorder by family history
 # modelSummary <- summary(model)
 
 ```
-We use linear regression to model the relationship between a family history of mental health and mental health disorder: 
+We use linear regression to model the relationship between having a family history of mental health disorder and having a mental health disorder oneself: 
 $$
 Has\;mental\;health\;disorder = 0.238 + 0.589(family\;history\;of\;mental\;health\;disorder)
 $$ 
