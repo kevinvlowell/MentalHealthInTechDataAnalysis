@@ -60,11 +60,11 @@ Why are there so few women in tech? Identifying and remedying dropout points, wh
 
 ## Mental health in tech workers
 
-We assess the prevalence of mental health disorders in tech workers. Of the respondents, 441 (23.8%) report having an ongoing mental health disorder, whereas many more individuals 949 (50.8%) report having had a mental health disorder in the past. This may be due to selection bias, in which individuals with acute, ongoing mental health disorders would less likely be reponsive to such a survey or currently employed in the tech industry. 
+We assess the prevalence of mental health disorders in tech workers. Of the respondents, 766 (41.4%) report having an ongoing mental health disorder, whereas many more individuals 949 (50.8%) report having had a mental health disorder in the past. This may be due to selection bias, in which individuals with acute, ongoing mental health disorders would less likely be reponsive to such a survey or currently employed in the tech industry. 
 
 ![](/images/mh-now-past2.png) 
 
-These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individually internalized levels, are very much prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling. 
+These estimates of mental health prevalence in tech workers are higher than [global estimates](https://ourworldindata.org/mental-health#eating-disorders), in which the prevalence of ongoing mental health disorders of any kind is projected to be around one in ten people (10.7%), or 792 million individuals worldwide. As stated by the [American Psychiatric Association](https://www.psychiatry.org/patients-families/stigma-and-discrimination), stigma against mental health, at the institutional and individually internalized levels, are very much prevalent, and so surveys of these kinds may underestimate the true number of individuals struggling. It is possible there is truly a higher prevelance of mental health disorders in tech workers than in the general global population—tech is a fast-pasted, demanding, and consequently, stressful, industry. It is, however, also possible respondents are more comfortable in admitting mental health issues in a survey like the OSMI that explicitly champions mental health. 
 
 ## Stigma and mental health 
 We further investigate the stigma surrounding mental health in the tech workplace. How strongly stigmatized is it? Has stigma evolved over time as the topic of mental health has garnered more attention? Does it vary between demographic groups? In order to uncover potential answers to these interesting questions, we developed a quantitative, overall measure of stigma for each survey participant: we called this metric the “stigma score.”
@@ -120,11 +120,13 @@ More respondents reported having a family history of mental disorder than not. C
 
 ## Landscape of physical and mental health in tech workers
 
-![](/images/mental-physical.png)
+![](/images/physical-mental.png)
+
+How does the stigma surrounding mental health compare to that of physical health? More tech workers report they think discussing a mental health issue with their employer would have negative consequences, than discussing a physical health issue. This further evidences that there still surrounds more stigma and less openness and comfort in discussing mental than physical health in the workplace. 
 
 ## An interactive look at demographics and stigma
 
-For a more in-depth, high-level view of mental health in tech, we recommend checking out our [interactive dashboard](/flex/flex.html). It further explores attitudes towards mental and physical health, prevalence of mental health diseases among tech workers and possible stigma through interactive graphs and tables that are both informative and fun to play with! 
+For a more in-depth, high-level view of mental health in tech, we recommend checking out our [interactive dashboard](/flex/flex.html). It further explores attitudes towards mental and physical health, prevalence of mental health disorders among tech workers and possible stigma through interactive graphs and tables that are both informative and fun to play with! 
 
 ## Supporting mental health in the tech workspace
 
@@ -136,7 +138,7 @@ According to the [NIH](https://www.nimh.nih.gov/about/advisory-boards-and-groups
 
 <p>&nbsp;</p>
 
-Sensitivity to such factors may improve the quality of the tech workspace and prevent mental health illness in its workers. 
+Sensitivity to such factors may improve the quality of life and quality of output in the tech workspace, and support the mental health of its workers. 
 
 ## [Video tour](https://www.dropbox.com/s/esczq8vxfvqp7vx/Brains_video.mp4?dl=0)
 

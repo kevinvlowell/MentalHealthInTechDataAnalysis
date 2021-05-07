@@ -31,6 +31,14 @@ whereFrom2018 <- combined_demographic_data %>% filter(year=="2018") %>% group_by
 knitr::kable(whereFrom2018)
 ```
 
+```{r mental-physical}
+# mental health v physical health (only in 2016 survey)
+names <- names(data2016_original)
+q <- names[14]
+
+mph <- data2016_original %>% select(q) %>% summarise(n = n()) %>% mutate(freq = n / sum(n)) %>% ungroup
+knitr::kable(mph)
+```
 
 ```{r age}
 # age
