@@ -3,98 +3,133 @@
 ## Video from Team Brains:
 https://drive.google.com/file/d/1onGbJPBkvJB8nYpIxovcHTF6X5Plt8e4/view?usp=sharing
 
-## Project Info
-For your final project, your team will be 
+# Grade
 
-* finding data, 
-* cleaning the data,
-* performing an exploratory data analysis, 
-* using statistical models and other techniques to draw conclusions, and
-* communicating what you learned on website.
+90/100
 
-We'll be using the `blogdown` package to maintain our website. `blogdown` makes things easier but there are still some snags that you might run into. 
-You will be working with your group to maintain the website, providing weekly blog posts and culminating with the deployment of pages detailing your analysis.
+## Data Page
 
-Here are the steps you'll need to take. __Please only start this once you have a set team of 4 or 5__.
+12/12 points
 
+* Describe where/how to find data.(3pt)
 
-0. Your team will share a Github repository for the final project. Accept this assignment and make sure to pick your team. The first person who accepts will have to create a new team. Also, make sure to accept the invitation to the sussmanbu organization on Github.
-1. Choose a team leader. They will be in charge of the _Netlify_ account which is used to host the web site.
+3/3
 
-## Steps for your team leader
+* Describe the different data files used and what each variable means. (3pt)
 
-2. The team leader will go to [https://www.netlify.com/](https://www.netlify.com/). Click _Sign Up_ and use your Github account. Follow the steps to sign up.
-3. Once you are set up and logged in, click _New site from Git_. Click _Github_ and authorize Netlify to access your account by clicking "Configure the Netlify app on GitHub" link.
-4. Find your teams repository using the _Search repos_ field and select it from the list.
-5. You shouldn't have to adjust any options so click _Deploy Site_. Your site is now being deployed.
-6. In the meantime, click _Site Settings_ and then _Change site name_ and use your team name (or something close) as the site name.
-7. You should now be able to go back to _Overview_, see that "Your site is deployed", and click on the link to see your site. 
+3/3
 
+* Describe any cleaning you had to do for your data. (3pt)
 
-## Steps for Everyone
+3/3
 
-Set up options as per ?new_post
+* Organization, clarity, cleanliness of the page (3pt)
 
-2. Clone your repository to your laptop and open the project file.
-3. Install the blogdown package using `install.packages("blogdown")`. 
-4. Run `blogdown::install_hugo()`. _Hugo_ / _blogdown_ are the tools for transforming your site from Markdown/RMarkdown into the structure of the website.
-5. Run the command `blogdown::serve_site()`. If all goes well you will see a preview of the site in the RStudio Viewer.
+3/3
 
-__WARNING__ Always use `blogdown::serve_site()` to preview your changes and updates.
+## EDA Page(s)
 
-## Steps for the Group
-
-Everyone should now have their computer set up with blogdown, hugo and your team should have their netlify account up.
-In turn do the following.
-
-0. Press Pull in the Git tab to get the latest changes.
-1. Open the `about.md` file from the `content` folder and add your name to the file, write a quick introduction, and include a link to your Github account page. (The first person can remove Russell and Dan from the list).
-2. Commit the changes to `about.md` and Push your changes.
-3. Check that your changes are showing up on netlify.
-4. Make sure to wait until one team member is done before the next person starts again at 0.
-
-Finally, the last person to update the about page will update the `config.toml` file.
-The only change you need to make is to update the `title` to be your group name.
-Again, commit and push your changes.
-
-You should be all set and see the changes again on netlify.
-
-Read through the posts on your website to learn a bit about how things work. Look at the structure of the `content` folder and compare it to the website structure.
+26/33 points
 
 
-## How does blogdown work?
+* Introduce what motivates your EDA (3pt)
 
-Blogdown works with Hugo to build website out of markdown and R markdown files.
-The details are not too important but there are a few key things.
+3/3
 
-First, most of the time you will be working in the `content` folder. This is where the markdown files will live.
+* Breadth of the EDA (3pt)
 
-Blogdown takes the files in `content` and knits them into `html` files. It uses the files in the `themes` folder to figure what the pages should look like and to construct the site with all the links and layouts.
-I picked out a `theme` that I like and made a few changes. You are welcome to keep it, change it, or use a different theme but be aware that this can become tricky.
+I like how you started by exploring the demographics to put things in context.
 
-Hugo also includes anything in the `static` folder as-is on your site, so this is where Blogdown puts all the files for the figures. It is also a good place to keep your data or add in your own images.
+3/3
 
-Finally, once you run `serve_site`, you should see a new folder called `public`. This folder is where the built website lives. Generally, you can just ignore this folder since any edits you make should be in the `content` folder or `static`.
-Note that our `.gitignore` file tells `git` to ignore any changes in the `public` folder.
-This is because Netlify will run Hugo for you and deploy the resulting public folder onto their servers.
 
-__NOTE__ Netlify only runs Hugo so it will not compile your R markdown files. This is why you have to commit the `html` files, as otherwise those pages/posts will not appear.
+* Depth of the EDA (5pt)
 
-## What to commit?
+Good but it would be good to try to bring together the different ideas you had.
 
-With `blogdown` it can get a little tricky to know what should be committed and what should not.
-For example, if you click Preview in RStudio when you are editing the About page, R will compile that to an `html` file.
-If you commit this the website might not look the way we want it to.
+4.5/5
 
-To preview files, always use the `blogdown::serve_site()` command and navigate to the page you are working on.
-Everytime you save, blogdown will rebuild the website and tell you if you had any errors.
-To stop previewing the website you can run `blogdown::stop_server()`
+* Modeling and Inference (5 pt)
 
-Some general guidlines are:
+When modeling it might make sense to combine the 2016 and 2018 data and include effects for year.
 
-1. Always commit `.Rmd` and `.Rmarkdown` files. Otherwise, your teammates won't be able to see the original R code.
-2. Always commit `.md` files.
-3. Usually commit `.html` files unless they share a name with a `.md`.
-4. Always commit changes in the `static` folder.
+The model with family history really shouldn't be linear model. It makes more sense to just look at the proportions and maybe try a Fisher exact test.
 
-__Never__ commit large data files. This can cause some challenges. 
+3.5/5
+
+* Clarity Figures (8pt)
+
+There seem to be some missing plots and tables ?
+
+5/8
+
+* Clarity of Explanations (6pt)
+
+Nice.
+
+6/6
+
+
+* Organization and cleanliness. (3pt)
+
+Your .Rmd files should have running R code, not just comments.
+
+1/3
+
+
+## Big Picture Page
+
+28/30 points
+
+This page should have no code visible, i.e. use echo=FALSE.
+
+* Title (2pt)
+
+
+2/2
+
+* Clarity of Explanation (10pt)
+
+Really nice.
+
+10/10
+
+* Quality of Figures (10pt)
+
+Generally good but I would avoid histograms. Also, the logistic regression plots are a little confusing.
+
+It would have been better to keep just the simpler plots.
+
+8/10
+
+
+* Creativity (10pt)
+
+Cool, and I like the way you brought things back how the data analysis can be used to improve well being.
+
+8/8
+
+
+## Interactive component and Video
+
+16/17 points
+
+Your Big Data page should include a link to an interactive dashboard. The dashboard should be created either using Shiny or FlexDashboard (or another tool with professor's approval). This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.
+
+* Quality and ease of use of the interactive components. (10pt)
+
+I like it. The table is a little wide so hard to see everything. It would have been nice to filter in more specific ways.
+
+9/10
+
+
+* Video Recording (7 pt)
+
+7/7
+
+## Rest of the Site
+
+8/8 points
+
+
+8/8
